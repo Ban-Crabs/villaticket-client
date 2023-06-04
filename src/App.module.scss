@@ -1,7 +1,44 @@
-@import './variables';
+@import 'variables.scss';
 
-.App {
-    width: 100%;
-    min-height: 100vh;
-    background-color: $theme-background-color;
+.top-section {
+    align-items: center;
+    background-color: $color-black;
+    display: flex;
+    gap: 60px;
+    height: 45vh;
+    min-width: 100%;
+    padding: 0 30px;
+}
+
+.image-bb-player {
+    height: inherit;
+    object-fit: cover;
+    width: 50%;
+}
+
+.landing-text-title {
+    color: $color-white;
+    font-family: $theme-font-family;
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-bottom: 2px;
+    // min-height: ;
+    width: 50%;
+}
+
+.title {
+    color: $color-white;
+    font-family: $theme-font-family;
+    font-size: 32px;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.span1{
+    color: $color-white;
+    font-family: $theme-font-family;
+    font-size: 32px;
+    font-weight: 200;
 }
