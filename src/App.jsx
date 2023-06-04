@@ -23,6 +23,7 @@ function App() {
       <h1 className={style["upcoming"]}> Upcoming Events </h1>
 
       {/* CARDS */}
+      <main>
       <div className={style["card"]}>
         <div className={style["card-container"]}>
           <div className={style["image-container"]}>
@@ -44,10 +45,52 @@ function App() {
           </div>
         </div>
       </div>
+      </main>
 
       {/* FOOTER */}
       <div className={style["footer"]}>
-        <div className={style["footer-container"]}></div>
+        <div className={style["footer-container"]}>
+          <div className={style["footer-title"]}> <b>villaticket</b> </div>
+          <div className={style["footer-description"]}>
+            
+            <div className={style["footer-desctiption-links"]}>
+              {/* Helpful Links */}
+               <div className={style["list-container"]}>
+                <h4>Helpful Links</h4>
+                <ul>
+                  <li>FAQ</li>
+                  <li>My account</li>
+                  <li>Contact Us</li>
+                  <li>Refunds</li>
+                </ul>
+               </div>
+
+               {/* About Us Links */}
+               <div className={style["list-container"]}>
+                <h4>About Us</h4>
+                <ul>
+                  <li>Who are we</li>
+                  <li>Privacy Policy</li>
+                  <li>Careers</li>
+                  <li>Ticket Your Event</li>
+                </ul>
+               </div>
+
+               {/* Social Links */}
+               <div className={style["list-container"]}>
+                <h4>Social</h4>
+                <ul>
+                  <li>Instagram</li>
+                  <li>Facebook</li>
+                  <li>Twitter</li>
+                  <li>Email Us</li>
+                </ul>
+               </div>
+            </div>
+
+            <span className={style["copyright"]}> © 2023 Villa Ticket LLC. All Rights Reserved     Privacy   Accessibility   Terms   Site Map</span>
+          </div>
+        </div>
       </div>
     </>
   )

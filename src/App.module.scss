@@ -55,10 +55,15 @@
     padding: 2rem;
 }
 
+main {
+    height: 45vh;
+}
+
 .card {
     display: flex;
     justify-content: center;
     flex-direction: row;
+    padding: 2rem;
 }
 
 .card-container {
@@ -105,4 +110,58 @@ p {
 
 .card-title {
     margin-bottom: 0.5rem;
+}
+
+// FOOTER DESIGN
+.footer {
+    font-family: $theme-font-family;
+}
+
+.footer-container {
+    padding: 1rem;
+    display: flex;
+    background-color: $theme-primary-color;
+    height: 20vh;
+    justify-content: space-around;
+}
+
+.footer-description {
+    color: $color-white;
+}
+
+.footer-title {
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-bottom: 0.5rem;
+}
+
+.footer-desctiption-links {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid $color-white;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+        font-weight: 200;
+        margin-top: 0.25rem;
+    }
+
+    li:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+.list-container {
+    padding:  0 2rem 0 2rem;
+}
+
+.copyright {
+    font-weight: 100;
 }
