@@ -14,6 +14,15 @@ function App() {
           <span className={style["span1"]}> Buy Tickets, Earn Rewards! </span>
         </h1>
       </div>
+
+      {/* TODO SEARCHBAR */}
+
+      <h1 className={style["upcoming"]}> Upcoming Events </h1>
+
+      <div className={style["card"]}>
+
+      </div>
+
     </>
   )
 }

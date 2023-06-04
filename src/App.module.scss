@@ -42,3 +42,16 @@
     font-size: 32px;
     font-weight: 200;
 }
+
+.upcoming {
+    color: $color-black;
+    font-family: $theme-font-family;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    min-height: 45px;
+    white-space: nowrap;
+    padding: 2rem;
+}
+
