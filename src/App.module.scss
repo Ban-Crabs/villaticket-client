@@ -1,5 +1,6 @@
 @import 'variables.scss';
 
+// TOP SECTION DESIGN 
 .top-section {
     align-items: center;
     background-color: $color-black;
@@ -43,6 +44,12 @@
     font-weight: 200;
 }
 
+// SEARCH BAR DESIGN
+
+
+
+// MAIN SECTION DESIGN
+
 .upcoming {
     color: $color-black;
     font-family: $theme-font-family;
@@ -63,7 +70,7 @@ main {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    padding: 2rem;
+    padding: 2rem 0 2rem 0;
 }
 
 .card-container {
@@ -81,6 +88,7 @@ main {
 
 .image-container {
     object-fit: contain;
+
     img {
         width: 100%;
         height: 200px;
@@ -90,14 +98,31 @@ main {
 
 .card-title-container {
     display: flex;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
 }
 
-.card-content {
-    margin: 1rem;
+.card-body {
+    margin: 0.5rem;
     margin-top: 0.5rem;
     font-family: $theme-font-family;
     justify-content: center;
     align-items: center;
+
+    p {
+        font-weight: 100;
+    }
+}
+
+.card-title {
+    padding: 0.25rem;
+}
+
+.event-date {
+    span {
+        color: blue;
+    }
 }
 
 h3,
@@ -105,11 +130,32 @@ p {
     padding: 0;
     margin: 0;
     justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
-.card-title {
-    margin-bottom: 0.5rem;
+// LOAD MORE EVENTS
+
+.load-more {
+    text-align: center;
+    padding-bottom: 2rem;
+
+    button {
+        align-items: center;
+        cursor: pointer;
+        background-color: transparent;
+        font-size: 1.15em;
+        border-radius: 1.5rem;
+        padding: 0.8rem;
+        color: $theme-primary-color;
+        border-color: $theme-primary-color;
+        transition: 0.5s;
+    }
+
+    button:hover {
+        transform: scale(1.01);
+        
+        box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    }
 }
 
 // FOOTER DESIGN
@@ -121,7 +167,7 @@ p {
     padding: 1rem;
     display: flex;
     background-color: $theme-primary-color;
-    height: 20vh;
+    min-height: 17vh;
     justify-content: space-around;
 }
 
@@ -141,6 +187,7 @@ p {
     display: flex;
     justify-content: space-around;
     border-bottom: 1px solid $color-white;
+    padding-bottom: 12px;
 }
 
 ul {
@@ -159,9 +206,11 @@ ul {
 }
 
 .list-container {
-    padding:  0 2rem 0 2rem;
+    padding: 0 2rem 0 2rem;
 }
 
 .copyright {
+    display: inline-block;
     font-weight: 100;
+    padding-top: 12px;
 }

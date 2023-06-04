@@ -24,38 +24,43 @@ function App() {
 
       {/* CARDS */}
       <main>
-      <div className={style["card"]}>
-        <div className={style["card-container"]}>
-          <div className={style["image-container"]}>
-            <img src={cardImage} alt="image-card" />
-          </div>
-          <div className={style["card-content"]}>
-            <div className={style["card-title-container"]}>
-              <div className={style["event-date"]}>
-                <span>SEP</span>
-                <h2>18</h2>
-              </div>
-              <div className={style["card-title"]}>
-              <h3>New York Yankess @ Mets</h3>
-            </div>
+        <div className={style["card"]}>
+          <div className={style["card-container"]}>
+            <div className={style["image-container"]}>
+              <img src={cardImage} alt="image-card" />
             </div>
             <div className={style["card-body"]}>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste similique eius illum.</p>
+              <div className={style["card-title-container"]}>
+                <div className={style["event-date"]}>
+                  <span>SEP</span>
+                  <h2>18</h2>
+                </div>
+                <div className={style["card-title"]}>
+                  <h3>New York Yankess @ Mets</h3>
+                </div>
+              </div>
+              <div className={style["card-body"]}>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste similique eius illum.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </main>
+
+      {/* LOAD MORE EVENTS */}
+      <div className={style["load-more"]}>
+        <button>Load More</button>
+      </div>
 
       {/* FOOTER */}
       <div className={style["footer"]}>
         <div className={style["footer-container"]}>
           <div className={style["footer-title"]}> <b>villaticket</b> </div>
           <div className={style["footer-description"]}>
-            
+
             <div className={style["footer-desctiption-links"]}>
               {/* Helpful Links */}
-               <div className={style["list-container"]}>
+              <div className={style["list-container"]}>
                 <h4>Helpful Links</h4>
                 <ul>
                   <li>FAQ</li>
@@ -63,10 +68,10 @@ function App() {
                   <li>Contact Us</li>
                   <li>Refunds</li>
                 </ul>
-               </div>
+              </div>
 
-               {/* About Us Links */}
-               <div className={style["list-container"]}>
+              {/* About Us Links */}
+              <div className={style["list-container"]}>
                 <h4>About Us</h4>
                 <ul>
                   <li>Who are we</li>
@@ -74,10 +79,10 @@ function App() {
                   <li>Careers</li>
                   <li>Ticket Your Event</li>
                 </ul>
-               </div>
+              </div>
 
-               {/* Social Links */}
-               <div className={style["list-container"]}>
+              {/* Social Links */}
+              <div className={style["list-container"]}>
                 <h4>Social</h4>
                 <ul>
                   <li>Instagram</li>
@@ -85,7 +90,7 @@ function App() {
                   <li>Twitter</li>
                   <li>Email Us</li>
                 </ul>
-               </div>
+              </div>
             </div>
 
             <span className={style["copyright"]}> © 2023 Villa Ticket LLC. All Rights Reserved     Privacy   Accessibility   Terms   Site Map</span>
