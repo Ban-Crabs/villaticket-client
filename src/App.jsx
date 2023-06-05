@@ -8,16 +8,26 @@ function App() {
     <>
       {/* TOP SECTION */}
       <div className={style["top-section"]}>
-        <img className={style["image-bb-player"]} src={imgBbPlayer} alt="img-bb-player" />
-        <h1 className={style["landing-text-title"]}>
-          <span className={style["title"]}>
-            Score MLB <br /> Playoff Tickets! <br />
-          </span>
-          <span className={style["span1"]}> Buy Tickets, Earn Rewards! </span>
-        </h1>
+        <div className={style["top-section-container"]}>
+          <div className={style["top-left-section"]}>
+            <img src={imgBbPlayer} alt="img-bb-player" />
+          </div>
+          <div className={style["top-right-section"]}>
+            <h1 className={style["landing-text-title"]}>
+              <span className={style["title"]}>
+                Score MLB <br /> Playoff Tickets! <br />
+              </span>
+              <span className={style["span1"]}> Buy Tickets, Earn Rewards! </span>
+            </h1>
+          </div>
+        </div>
+        <div className={style["searchbar-container"]}>
+          <form>
+            <input type="text" placeholder="What are you looking for?"/>
+            <button type="submit">Search</button>
+          </form>
+        </div>
       </div>
-
-      {/* TODO SEARCHBAR */}
 
       {/* MAIN TITLE */}
       <h1 className={style["upcoming"]}> Upcoming Events </h1>
