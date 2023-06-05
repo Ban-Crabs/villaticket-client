@@ -1,15 +1,15 @@
 import style from "./App.module.scss";
 
-import HomePage from "./components/HomePage/HomePage";
+import HomePage from "./components/Home/HomePage";
 
-import ErrorPage from "./components/ErrorPage/ErrorPage";
+import TransferSuc from "./components/TransferSuccessful/TransferSuccessful";
 
 function App() {
 
   return (
     // <HomePage />
 
-    <ErrorPage />
+    <TransferSuc />
   )
 }
 

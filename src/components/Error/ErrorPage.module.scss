@@ -53,7 +53,7 @@
             color: $theme-primary-color;
             box-shadow: $theme-drop-shadow;
             img {
-                filter: invert(64%) sepia(46%) saturate(2228%) hue-rotate(327deg) brightness(98%) contrast(98%);;
+                filter: $theme-svg-primary-color;
             }
         }
     }
