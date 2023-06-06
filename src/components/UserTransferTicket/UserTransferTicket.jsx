@@ -5,6 +5,7 @@ import backSvg from '../../assets/left-arrow.svg'
 import historySvg from '../../assets/history.svg'
 import transferSvg from '../../assets/transfer.svg'
 import ticketSvg from '../../assets/ticket.svg'
+import qrSvg from '../../assets/temp-qr.svg'
 
 
 const UserTransferTicket = () => {
@@ -28,8 +29,8 @@ const UserTransferTicket = () => {
                         <h4>Other Options</h4>
                         <ul>
                             <li>
-                                <img className={style["svg"]} src={transferSvg} alt="" />
-                                <a href="#">Transfer your Ticket</a>
+                                <img className={style["svg"]} src={qrSvg} alt="" />
+                                <a href="#">Redeem Tickets</a>
                             </li>
                             <li>
                                 <img className={style["svg"]}src={historySvg} alt="" />
