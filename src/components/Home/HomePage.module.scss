@@ -26,6 +26,7 @@
     display: flex;
     flex-direction: column;
     color: $color-white;
+    background-color: $color-black;
     justify-content: center;
 }
 
@@ -38,17 +39,20 @@
     letter-spacing: 0.15rem;
     line-height: normal;
     margin-bottom: 2px;
+    background-color: $color-black;
     // min-height: ;
     width: 50%;
 
     .title {
         font-weight: 700;
         font-size: 2.4rem;
+        background-color: $color-black;
     }
 
     .span1 {
         font-weight: 100;
         font-size: 1.3rem;
+        background-color: $color-black;
     }
 }
 
@@ -230,6 +234,7 @@ p {
 
 .footer-description {
     color: $color-white;
+    background-color: $theme-primary-color;
 }
 
 .footer-title {
@@ -238,6 +243,11 @@ p {
     letter-spacing: 0;
     line-height: normal;
     margin-bottom: 0.5rem;
+    background-color: $theme-primary-color;
+
+    b {
+        background-color: $theme-primary-color;
+    }
 }
 
 .footer-desctiption-links {
@@ -246,15 +256,18 @@ p {
     border-bottom: 1px solid $color-white;
     padding-bottom: 12px;
     letter-spacing: 1px;
+    background-color: $theme-primary-color;
 }
 
 ul {
     list-style-type: none;
     padding: 0;
+    background-color: $theme-primary-color;
 
     li {
         font-weight: 200;
         margin-top: 0.25rem;
+        background-color: $theme-primary-color;
     }
 
     li:hover {
@@ -264,11 +277,17 @@ ul {
 }
 
 .list-container {
+    background-color: $theme-primary-color;
     padding: 0 2rem 0 2rem;
+
+    h4 {
+        background-color: $theme-primary-color;
+    }
 }
 
 .copyright {
     display: inline-block;
     font-weight: 100;
     padding-top: 12px;
+    background-color: $theme-primary-color;
 }

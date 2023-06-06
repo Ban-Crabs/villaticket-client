@@ -8,7 +8,11 @@ import View from "./components/UserRedeemTicket/UserRedeemTicket";
 
 function App() {
   return (
-    <View />
+    <>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </>
   )
 }
 
