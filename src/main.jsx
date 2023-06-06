@@ -5,7 +5,7 @@ import AppComponent from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { ConfigProvider } from './contexts/ConfigContext.jsx'
 import { ToastContainer } from 'react-toastify'
-import { LoadingSpinner } from './components/LoadingSpinner/LoadingSpinner.jsx'
+import { LoadingSpinner } from './components/LoadingSpinner/LoadingSpinner'
 import axios from 'axios'
 import './index.css'
 
