@@ -2,7 +2,7 @@ import style from "./App.module.scss";
 
 import HomePage from "./components/Home/HomePage";
 
-import QR from "./components/SearchResults/SearchResults";
+import QR from "./components/UserEventHistory/UserEventHistory";
 
 function App() {
 
