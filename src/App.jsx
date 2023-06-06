@@ -4,7 +4,7 @@ import {Routes, Route} from "react-router-dom";
 
 import HomePage from "./components/Home/HomePage";
 
-import QR from "./components/SearchResults/SearchResults";
+import QR from "./components/UserEventHistory/UserEventHistory";
 
 function App() {
   return (
