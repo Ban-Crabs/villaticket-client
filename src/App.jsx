@@ -4,11 +4,15 @@ import {Routes, Route} from "react-router-dom";
 
 import HomePage from "./components/Home/HomePage";
 
-import QR from "./components/UserEventHistory/UserEventHistory";
+import View from "./components/UserRedeemTicket/UserRedeemTicket";
 
 function App() {
   return (
-    <QR />
+    <>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </>
   )
 }
 

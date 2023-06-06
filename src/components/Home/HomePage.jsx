@@ -103,7 +103,7 @@ const HomePage = () => {
                             </div>
                         </div>
 
-                        <span className={style["copyright"]}> © 2023 Villa Ticket LLC. All Rights Reserved     Privacy   Accessibility   Terms   Site Map</span>
+                        <p className={style["copyright"]}> © 2023 Villa Ticket LLC. All Rights Reserved     Privacy   Accessibility   Terms   Site Map</p>
                     </div>
                 </div>
             </div>
