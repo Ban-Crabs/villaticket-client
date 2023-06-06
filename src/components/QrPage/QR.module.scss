@@ -1,0 +1,127 @@
+@import '../../variables.scss';
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    font-family: $theme-font-family;
+    background-color: $theme-background-color;
+    padding: 2rem;
+
+    .divider {
+        width: 100%;
+        height: 1px;
+        margin: 1rem 0;
+        width: 100%;
+        border-bottom: dashed 1px $color-black;
+    }
+
+    // CARD DESIGN
+    .qr-list-container {
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        padding: 0 2rem 0 2rem;
+    }
+
+    .qr-card-item {
+        width: 300px;
+        height: 60vh;
+        overflow: hidden;
+        background-color: $color-white;
+        box-shadow: $theme-drop-shadow;
+        border-radius: 15px;
+        transition: 0.5s;
+        padding: 1rem;
+        margin-right: 1.5rem;
+
+        &:hover {
+            transform: scale(1.01);
+            box-shadow: 0px 0px 10px 0px;
+        }
+    }
+
+    .qr-card-item-title {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 1.3rem;
+
+        h4 {
+            font-size: 1rem;
+        }
+
+        p {
+            font-weight: 200;
+            color: $theme-text-color;
+        }
+    }
+
+    .qr-card-item-body {
+        color: grey;
+        padding: 0 2rem;
+
+        img {
+            width: 100%;
+            height: 18rem;
+            padding: 1rem 0;
+            overflow: hidden;
+        }
+    }
+
+    // PAGINATION DESIGN
+
+    .pagination {
+        background-color: $color-white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.8rem;
+
+        ul {
+            position: relative;
+            display: flex;
+            padding: 0.5rem 1rem;
+            border-radius: 0.8rem;
+            box-shadow: $theme-drop-shadow;
+
+            .prev:hover,
+            .next:hover {
+                color: $theme-primary-color;
+            }
+
+            li {
+                list-style: none;
+                line-height: 1.5rem;
+                margin: 0 0.5rem;
+
+                a {
+                    display: block;
+                    text-decoration: none;
+                    color: $theme-text-color;
+                    font-weight: 600;
+                    border-radius: 50%;
+                }
+            }
+
+            li.pageNumber {
+                width: 1.5rem;
+                height: 1.5rem;
+                line-height: 1.5rem;
+                text-align: center;
+                border-radius: 50%;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $theme-primary-color;
+                    color: $color-white;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
