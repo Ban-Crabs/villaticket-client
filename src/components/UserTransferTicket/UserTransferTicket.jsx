@@ -1,4 +1,4 @@
-import style from "./UserRedeemTicket.module.scss";
+import style from "./UserTransferTicket.module.scss";
 
 import cardImg from '../../assets/warriors-stadium.jpg'
 import backSvg from '../../assets/left-arrow.svg'
@@ -6,7 +6,8 @@ import historySvg from '../../assets/history.svg'
 import transferSvg from '../../assets/transfer.svg'
 import ticketSvg from '../../assets/ticket.svg'
 
-const UserRedeemTicket = () => {
+
+const UserTransferTicket = () => {
     return (
         <>
             <div className={style["container"]}>
@@ -54,7 +55,7 @@ const UserRedeemTicket = () => {
                         </div>
                     </div>
                     <div className={style["ticket-list-btn"]}>
-                        <button type="submit">Redeem</button>
+                        <button type="submit">Transfer</button>
                     </div>
                 </div>
             </div>
@@ -62,4 +63,4 @@ const UserRedeemTicket = () => {
     )
 }
 
-export default UserRedeemTicket;
+export default UserTransferTicket;
