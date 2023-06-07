@@ -1,2 +1,47 @@
 @import '../../variables.scss';
 
+* {
+    background-color: $theme-background-color;
+    font-family: $theme-font-family;
+}
+
+.container {
+    display: flex;
+    background-color: $theme-background-color;
+    padding: 3rem;
+}
+
+.billing-info-container, .event-details-container {
+    padding: 1rem;
+    width: 45%;
+
+    border: 1px solid black;
+}
+
+.separation {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0 0.3rem 0;
+    background-color: $theme-background-color;
+
+    li {
+        background-color: $theme-background-color;
+    }
+}
+
+.divider {
+    border-bottom: 1px dashed $theme-primary-color;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.svg {
+    margin-right: 0.5rem;
+    width: 1.5rem;
+    height: auto;
+}
+
+// LEFT  SECTION
+
+// RIGHT SECTION
