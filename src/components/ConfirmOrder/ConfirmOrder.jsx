@@ -21,23 +21,29 @@ const ConfirmOrder = () => {
 
                     <div className={style["user-info"]}>
                         <ul>
-                            <li>user@email.com</li>
-                            <li>Card ending 7428</li>
+                            <li>
+                                <img className={style["svg"]} src={mailSvg} alt="mail-img" />
+                                user@email.com
+                            </li>
+                            <li>
+                                <img className={style["svg"]} src={creditCardSvg} alt="mail-img" />
+                                Card ending 7428
+                            </li>
                         </ul>
                     </div>
 
                     <div className={style["accept-terms-container"]}>
 
-                    <div className={style["accept-terms-card"]}>
-                        <div className={style["check-box"]}>
-                            <input type="checkbox" checked />
-                            <span className={style["checkmark"]}></span>
+                        <div className={style["accept-terms-card"]}>
+                            <div className={style["check-box"]}>
+                                <input type="checkbox" checked />
+                                <span className={style["checkmark"]}></span>
+                            </div>
+                            <div className={style["accept-terms-text"]}>
+                                <h5>By purchasing a ticket, you agree to have an account with VillaTicket and be bound to <br />
+                                    the Terms of Use and Privacy Policy </h5>
+                            </div>
                         </div>
-                        <div className={style["accept-terms-text"]}>
-                            <h5>By purchasing a ticket, you agree to have an account with VillaTicket and be bound to <br />
-                                the Terms of Use and Privacy Policy </h5>
-                        </div>
-                    </div>
                     </div>
 
 
