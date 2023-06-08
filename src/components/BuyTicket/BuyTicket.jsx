@@ -1,5 +1,8 @@
 import style from "./BuyTicket.module.scss";
 
+import eventImg from "../../assets/yankees-mets.jpg";
+import pinSvg from "../../assets/location.svg";
+import calendarSvg from "../../assets/calendar.svg";
 
 const BuyTicket = () => {
     return (
@@ -9,9 +12,30 @@ const BuyTicket = () => {
                 <div className={style["billing-info-container"]}>
                     <h1>Billing Information</h1>
                     <div className={style["warning-card"]}>
-                        <p>Please enter the required information to continue with your transaction. </p>
+                        <p>Please enter the required information to continue with your transaction </p>
                     </div>
-                    <div className={style["billing-info-form"]}></div>
+                    <div className={style["billing-info-form"]}>
+
+                        <form>
+                            <label for="card-name">Name on Card</label>
+                            <input type="text" id="card-name" name="card-name" placeholder="John Doe" />
+
+                            <label for="card-number">Name on Card</label>
+                            <input type="text" id="card-number" name="card-number" placeholder="XXXX-XXXX-XXXX-XXXX" />
+
+                            <ul>
+                                <li>
+                                    <label for="card-good-thru">Good Thru</label>
+                                    <input type="text" id="card-good-thru" name="card-good-thru" placeholder="John Doe" />
+                                </li>
+                                <li>
+                                    <label for="card-cvv">CVV</label>
+                                    <input type="text" id="card-cvv" name="card-cvv" placeholder="John Doe" />
+                                </li>
+                            </ul>
+                        </form>
+
+                    </div>
                     <div className={style["review-order-btn"]}>
                         <button type="submit">Review Your Order</button>
                     </div>
@@ -21,21 +45,28 @@ const BuyTicket = () => {
                 <div className={style["event-details-container"]}>
                     <h3>Event details</h3>
                     <div className={style["event-details"]}>
-                        <h4>img here</h4>
-                        <div>
+                        <div className={style["event-details-img"]}>
+                            <img src={eventImg} alt="event-img" />
+                        </div>
+                        <div className={style["event-details-info"]}>
                             <h2>Yankees @ Mets</h2>
                             <ul className={style["separation"]}>
-                                <li>svg</li>
+                                <li>
+                                    <img className={style["svg"]} src={pinSvg} alt="pin-svg" />
+                                </li>
                                 <li>Estadio Cuscatlan</li>
                             </ul>
                             <ul className={style["separation"]}>
-                                <li>svg</li>
-                                <li>Mon, Apr 24 • 6:00-11:00pm</li>
+                                <li>
+                                    <img className={style["svg"]} src={calendarSvg} alt="pin-svg" />
+                                </li>
+                                <li>Mon, Apr 24 • <br /> 6:00-11:00pm</li>
                             </ul>
                         </div>
                     </div>
                     <div className={style["divider"]}></div>
                     <div className={style["your-order-container"]}>
+                        <h3>Your Order</h3>
                         <ul className={style["separation"]}>
                             <li># Tickets</li>
                             <li>3</li>
@@ -55,8 +86,8 @@ const BuyTicket = () => {
                     <div className={style["divider"]}></div>
                     <div className={style["total-price-container"]}>
                         <ul className={style["separation"]}>
-                            <li>Total</li>
-                            <li>$119.97</li>
+                            <li><b>Total</b></li>
+                            <li><b>$119.97</b></li>
                         </ul>
                     </div>
                 </div>
