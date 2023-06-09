@@ -2,6 +2,7 @@
 
 * {
     letter-spacing: 0.5px;
+    background-color: $theme-background-color;
 }
 
 .heading {
@@ -16,13 +17,12 @@
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    padding: 0 3rem 3rem 3rem;
     font-family: $theme-font-family;
     background-color: $theme-background-color;
-    padding: 0 3rem 3rem 3rem;
 }
 
-.event-heading { 
+.event-heading {
     padding-top: 1rem;
     font-weight: 600;
 }
@@ -35,7 +35,8 @@
     }
 }
 
-.upcoming-events-container, .past-events-container {
+.upcoming-events-container,
+.past-events-container {
     flex-direction: row;
     width: 100%;
 }
@@ -53,13 +54,12 @@
 
 .event-card-img {
     display: flex;
-    padding-right: 1rem;
+    align-items: left;
+    padding-right: 1.5rem;
 
     img {
         max-width: 100%;
         max-height: 100%;
-        display: block;
-        margin: auto;
         border-radius: 0.5rem;
         box-shadow: $theme-drop-shadow;
     }
@@ -81,20 +81,35 @@
     flex-direction: column;
     align-items: flex-start;
     font-weight: 400;
+    background-color: $color-white;
+
+    * {
+        background-color: $color-white;
+    }
 
     p {
         font-weight: 200;
     }
 }
 
+.event-btn-container {
+    background-color: $color-white;
+    margin-left: 45%;
+}
+
 .event-card-info-btn {
+    background-color: $color-white;
+    border-radius: 1rem;
+
+    margin-right: 0.5rem;
+
     button {
         height: 1rem;
         border: none;
-        padding: 1rem 2rem;
+        padding: 0.8rem 1.5rem;
         background-color: $theme-blue-color-light;
         box-shadow: $theme-drop-shadow;
-        border-radius: 20px;
+        border-radius: 1rem;
         transition: background-color 0.3s ease;
 
         &:hover {
@@ -102,11 +117,39 @@
             background-color: $theme-blue-color-dark;
         }
     }
+
+    .disable-event {
+        background-color: $theme-primary-color;
+        color: $color-white;
+
+        &:hover {
+            background-color: $theme-primary-color-light;
+        }
+    }
+
+    .scanner {
+        background-color: $theme-green-color;
+        color: $color-white;
+
+        &:hover {
+            background-color: $theme-green-color-light;
+        }
+    }
+
+    .edit-event {
+        background-color: $theme-yellow-color;
+
+        &:hover {
+            background-color: $theme-yellow-color-dark;
+        }
+    }
 }
 
 .event-card-info-svg {
-    
+    background-color: $color-white;
+
     img {
+        background-color: $color-white;
         width: 1rem;
         height: auto;
     }
