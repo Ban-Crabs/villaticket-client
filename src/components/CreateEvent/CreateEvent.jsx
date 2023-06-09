@@ -156,6 +156,22 @@ const CreateEvent = () => {
                     {/* TICKET DETAILS */}
                     <div className={style["ticket-details"]}>
                         <h2>Ticket Details</h2>
+                        <div className={style["ticket-detail-item"]}>
+                            <h3>Locale A</h3>
+                            <form>
+                                <label for="site">Total</label>
+                                <input type="text" id="total" name="total" placeholder="Enter total amount" />
+                            </form>
+                            <div className={style["ticket-tier-details"]}>
+                                <h4>Tier A</h4>
+                                <form>
+                                    <label for="site">Amount</label>
+                                    <input type="text" id="amount" name="amount" placeholder="Enter total amount for this tier" />
+                                    <label for="site">Price</label>
+                                    <input type="text" id="price" name="price" placeholder="Enter price for this tier" />
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

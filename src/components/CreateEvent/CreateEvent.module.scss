@@ -203,6 +203,42 @@ header {
     }
 }
 
+.ticket-detail-item {
+    h3 {
+        font-weight: 400;
+    }
+
+    > form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        
+        label {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            margin-right: 0.5rem;
+        }
+
+        input {
+            width: 45%;
+        }
+    }
+
+    .ticket-tier-details {
+        padding-left: 0.5rem;
+
+        h4 {
+            font-weight: 300;
+            font-size: 1.1rem;
+        }
+
+        label {
+            margin-top: 0.5rem;
+        }
+    }
+}
+
 // DROPDOWN STYLE
 .dropdown-wrapper {
     display: flex;
