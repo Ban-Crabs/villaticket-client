@@ -4,7 +4,7 @@ import {Routes, Route} from "react-router-dom";
 
 import HomePage from "./components/Home/HomePage";
 
-import View from "./components/SysadminEventList/SysadminEventList";
+import View from "./components/UserAccPage/UserAccPage";
 
 function App() {
   return (
