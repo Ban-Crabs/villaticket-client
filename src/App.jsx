@@ -2,9 +2,7 @@ import style from "./App.module.scss";
 
 import {Routes, Route} from "react-router-dom";
 
-import HomePage from "./components/Home/HomePage";
-
-import View from "./components/SysadminUserList/SysadminUserList";
+import View from "./components/Home/HomePage";
 
 function App() {
   return (
