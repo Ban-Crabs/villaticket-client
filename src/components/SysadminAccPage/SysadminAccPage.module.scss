@@ -1,0 +1,123 @@
+@import '../../variables.scss';
+
+// GENERAL
+* {
+    background-color: $theme-background-color;
+    font-family: $theme-font-family;
+}
+
+.container {
+    display: flex;
+    padding: 3rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+
+    * {
+        padding: 0.5rem 0;
+    }
+
+    label {
+        font-weight: 300;
+        font-size: 0.8rem;
+    }
+
+    input {
+        background-color: $color-white;
+        border: none;
+        border-radius: 0.5rem;
+
+        &:focus {
+            outline: none;
+            padding: 0.5rem;
+            border: 1px solid $theme-primary-color;
+        }
+    }
+}
+
+::placeholder {
+    padding: 0 0.5rem;
+    font-weight: 100;
+}
+
+button {
+    margin-top: 0.5rem;
+    color: $color-black;
+    font-size: 0.8rem;
+    width: 30%;
+    height: 1.2rem;
+    background-color: $theme-yellow-color;
+    box-shadow: $theme-drop-shadow;
+    border: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $theme-yellow-color-dark;
+    }
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+
+    .close-sys-btn {
+        background-color: $theme-red-color;
+
+        * {
+            background-color: $theme-red-color;
+        }
+    }
+
+    button {
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1rem;
+        padding: 1rem;
+        background-color: $color-white;
+
+        * {
+            background-color: $color-white;
+            text-decoration: none;
+            color: $color-black;
+        }
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.01);
+        }
+
+        img {
+            margin-left: 3rem;
+        }
+    }
+}
+
+.svg {
+    margin-right: 0.5rem;
+    width: 1rem;
+    height: auto;
+}
+
+// LEFT SECTION
+.other-options-container {
+    width: 35%;
+}
+
+// RIGHT SECTION
+.update-info-container {
+    width: 65%;
+
+    .forms-container {
+        padding: 2rem 1rem;
+        width: 50%;
+    }
+}
