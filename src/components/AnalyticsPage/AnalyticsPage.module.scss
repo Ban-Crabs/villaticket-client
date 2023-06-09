@@ -1,1 +1,81 @@
 @import '../../variables.scss';
+
+// GENERAL
+* {
+    font-family: $theme-font-family;
+    background-color: $theme-background-color;
+}
+
+.container {
+    padding: 3rem;
+    display: flex;
+}
+
+p {
+    font-weight: 200;
+    text-align: left;
+}
+
+ul {
+    background-color: $theme-background-color;
+
+    li {
+        background-color: $theme-background-color;
+    }
+}
+
+//  LEFT SECTION
+.left-section {
+    width: 30%;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.drop-btn {
+    border: none;
+    background-color: #f00;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    position: absolute;
+    display: none;
+    min-width: 100px;
+    max-width: 200px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    z-index: 999;
+}
+
+.dropdown-content a {
+    color: #000;
+    text-decoration: none;
+}
+
+.dropdown-content {
+
+    a:hover {
+        background-color: #ccc;
+    }
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+
+// RIGHT SECTION
+.right-section {
+    width: 40%;
+}
+
+.data-info {
+    display: flex;
+    justify-content: space-between;
+}

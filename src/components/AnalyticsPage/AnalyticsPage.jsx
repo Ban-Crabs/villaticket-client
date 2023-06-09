@@ -7,7 +7,7 @@ const AnalyticsPage = () => {
             <div className={style["container"]}>
                 {/* LEFT SECTION */}
                 <div className={style["left-section"]}>
-                    <h1>Yankees * Mets</h1>
+                    <h1>Yankees @ Mets</h1>
                     <p>Wed, Jul 5, 2023 • 7:00 - 9:00pm <br />Chase Center</p>
                     <div className={style["square"]}></div>
                     <div className={style["dropdown"]}>
