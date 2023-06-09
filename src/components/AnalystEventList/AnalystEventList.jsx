@@ -40,10 +40,6 @@ const AnalystEventList = () => {
                                     </div>
 
                                 </div>
-                                {/* SVG */}
-                                <div className={style["event-card-info-svg"]}>
-                                    <img src={nextSvg} alt="" />
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -74,10 +70,6 @@ const AnalystEventList = () => {
                                         <button className={style["view-event"]} type="submit">Analytics</button>
                                     </div>
 
-                                </div>
-                                {/* SVG */}
-                                <div className={style["event-card-info-svg"]}>
-                                    <img src={nextSvg} alt="" />
                                 </div>
                             </div>
                         </div>

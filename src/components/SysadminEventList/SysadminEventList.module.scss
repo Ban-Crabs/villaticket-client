@@ -9,9 +9,12 @@
     background-color: $theme-background-color;
     font-family: $theme-font-family;
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
-    padding: 5rem 3rem 0 3rem;
+    padding: 5rem 3rem 0.5rem 3rem;
+
+    h1 {
+        padding-right: 0.5rem;
+    }
 }
 
 .container {
@@ -69,9 +72,10 @@
 .event-card-info {
     display: flex;
     width: 80%;
+    height: fit-content;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1.5rem;
+    padding: 0.5rem 1.5rem;
     background-color: $color-white;
     box-shadow: $theme-drop-shadow;
     border-radius: 0.5rem;
@@ -95,6 +99,7 @@
 
 .event-btn-container {
     display: flex;
+    flex-direction: column;
     background-color: $color-white;
 }
 
@@ -102,20 +107,20 @@
     background-color: $color-white;
     border-radius: 1rem;
 
-    margin-right: 3rem;
+    margin-right: 0.5rem;
 
     button {
         height: 1rem;
         border: none;
         padding: 0.8rem 1.5rem;
         background-color: $theme-blue-color-light;
-        box-shadow: $theme-drop-shadow;
         border-radius: 1rem;
         transition: background-color 0.3s ease;
 
         &:hover {
             cursor: pointer;
             background-color: $theme-blue-color-dark;
+            box-shadow: $theme-drop-shadow;
         }
     }
 
@@ -128,7 +133,7 @@
         }
     }
 
-    .enable-event {
+    .scanner-event, .add-event {
         background-color: $theme-green-color;
         color: $color-white;
 
@@ -144,6 +149,14 @@
             background-color: $theme-yellow-color-dark;
         }
     }
+}
+
+.container1 {
+    display: flex;
+    justify-content: center;
+    font-family: $theme-font-family;
+    background-color: $color-white;
+    padding-bottom: 0.7rem;
 }
 
 .event-card-info-svg {
