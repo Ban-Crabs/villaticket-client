@@ -4,7 +4,7 @@ import {Routes, Route} from "react-router-dom";
 
 import HomePage from "./components/Home/HomePage";
 
-import View from "./components/QrScanner/QrScanner";
+import View from "./components/AnalyticsPage/AnalyticsPage";
 
 function App() {
   return (
