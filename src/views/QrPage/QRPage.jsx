@@ -1,4 +1,4 @@
-import style from "./QR.module.scss";
+import style from "./QRPage.module.scss";
 import qrImage from "../../assets/temp-qr.svg"
 
 

@@ -38,4 +38,4 @@ const TransferSuccessful = () => {
     )
 }
 
-export default TransferSuccessful
+export default TransferSuccessful;
