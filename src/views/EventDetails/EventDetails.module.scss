@@ -1,0 +1,120 @@
+@import '../../variables.scss';
+
+* {
+    letter-spacing: 0.5px;
+}
+
+.container {
+    display: flex;
+    font-family: $theme-font-family;
+    background-color: $theme-background-color;
+    height: 85vh;
+}
+
+.locations-container {
+    margin-top: 3rem;
+    padding: 3rem;
+    height: inherit;
+    background-color: $theme-background-color;
+}
+
+.event-heading {
+    padding-bottom: 1rem;
+
+    h2 {
+        font-weight: 200;
+        font-size: 0.8rem;
+    }
+}
+
+.location-cards-container {
+    overflow-y: hidden;
+    height: 80vh;
+    padding: 0.5rem;
+}
+
+.location-card-item {
+    display: flex;
+    height: fill-available;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+
+    h3, h4, h5 {
+        background-color: $color-white;
+    }
+
+    h3 {
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+    h4 {
+        font-weight: 400;
+        font-size: 0.9rem;
+    }
+
+    h5 {
+        font-weight: 200;
+        font-size: 0.8rem;
+    }
+
+    &:hover {
+        transition: smooth 0.5s ease;
+        transform: scale(1.01);
+    }
+}
+
+.card-item-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    background-color: $color-white;
+
+    button {
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        box-shadow: $theme-drop-shadow;
+        background-color: $theme-primary-color-light;
+
+        &:hover {
+            background-color: $theme-primary-color;
+            cursor: pointer;
+            transition: 0.5s ease;
+        }
+    }
+}
+
+// LEFT SIDE
+.locations-container {
+    width: 35%;
+}
+
+// RIGHT SIDE
+.location-img-container {
+    width: 65%;
+    height: 90vh;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D9D9D9;
+
+    img {
+        width: 100%;
+        object-fit: contain;
+        border-radius: 5%;
+        box-shadow: $theme-drop-shadow;
+
+        &:hover {
+            transition: 0.5s ease;
+            transform: scale(1.01);
+        }
+    }
+}

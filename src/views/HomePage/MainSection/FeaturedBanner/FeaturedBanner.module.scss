@@ -1,0 +1,36 @@
+@import "../../../../variables";
+
+.featured-container{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+
+    .featured-title{
+        background-color: black;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        font-family: $theme-font-family;
+
+        h2, p{
+            background-color: black;
+        }
+    }
+    .featured-image{
+        
+        figure{
+            
+            img{
+                margin-top: 200px;
+                width: 200px;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
