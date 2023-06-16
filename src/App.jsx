@@ -2,6 +2,7 @@ import style from "./App.module.scss";
 
 import {Routes, Route} from "react-router-dom";
 
+
 import ErrorPage from "./views/ErrorPage/ErrorPage";
 import HomePage from "./views/HomePage/HomePage";
 import ConfirmOrder from "./views/ConfirmOrder/ConfirmOrder";
@@ -15,7 +16,6 @@ import UserRedeemTicket from "./views/UserRedeemTicket/UserRedeemTicket";
 import UserTransferTicket from "./views/UserTransferTicket/UserTransferTicket";
 import BuyTicket from "./views/BuyTicket/BuyTicket";
 import AuthView from "./views/AuthView/AuthView";
-
 function App() {
   return (
     <>

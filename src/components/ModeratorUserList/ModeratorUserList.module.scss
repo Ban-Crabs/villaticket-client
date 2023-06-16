@@ -1,0 +1,118 @@
+@import '../../variables.scss';
+
+// GENERAL
+* {
+    background-color: $theme-background-color;
+    font-family: $theme-font-family;
+}
+
+ul {
+    display: flex;
+
+    li:hover {
+        cursor: default;
+        text-decoration: none;
+    }
+}
+
+// STYLES
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+}
+
+.heading {
+
+    h5 {
+        font-weight: 200;
+    }
+
+    p {
+        font-weight: 300;
+    }
+
+    .divider {
+        border: 0.5px dashed grey;
+    }
+}
+
+.titles {
+    width: 60%;
+    margin-left: 4rem;
+
+    .list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0 0 0;
+
+        li {
+            &:first-child {
+                padding-right: 10%;
+            }
+
+            font-weight: 700;
+        }
+    }
+
+    * {
+        background-color: $theme-background-color;
+    }
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.card-item {
+    * {
+        background-color: $color-white;
+    }
+
+    background-color: $color-white;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    padding: 2rem;
+    border-radius: 0.5rem;
+
+    &:hover {
+        box-shadow: $theme-drop-shadow;
+        transition: 0.3s ease-in-out;
+    }
+}
+
+.card-item-info {
+    width: 65%;
+
+    .list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        li {
+            &:first-child {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.card-item-btn {
+    button {
+        height: 1rem;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        background-color: $theme-primary-color-light;
+        border-radius: 1rem;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $theme-primary-color;
+        }
+    }
+}
