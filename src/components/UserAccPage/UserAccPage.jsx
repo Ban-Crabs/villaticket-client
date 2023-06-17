@@ -17,15 +17,26 @@ const UserAccPage = () => {
 
                     <div className={style["button-wrapper"]}>
                         <button onClick={() => navigate("history")}>
+                            Tickets List
                             <img  className={style["svg"]} src={nextSvg} alt="" />
                         </button>
 
                          <button onClick={()=>navigate("event-list")}>
+                            Event List
                             <img  className={style["svg"]} src={nextSvg} alt="" />
                         </button>
 
-                        <button>
-                            <a href="/">User List</a>
+                        <button onClick={()=>navigate("user-list")}>
+                            User List
+                            <img  className={style["svg"]} src={nextSvg} alt="" />
+                        </button>
+
+                        <button onClick={()=>navigate("")}>
+                            Sys Admin
+                            <img  className={style["svg"]} src={nextSvg} alt="" />
+                        </button>
+                        <button onClick={()=>navigate("")}>
+                            Analyst
                             <img  className={style["svg"]} src={nextSvg} alt="" />
                         </button>
                     </div>
@@ -36,17 +47,17 @@ const UserAccPage = () => {
                 <div className={style["update-info-container"]}>
                     <div className={style["forms-container"]}>
 
-                        <form>
+                        <form className={style["update-credentials"]}>
                             <label for="email">Email</label>
                             <input type="text" id="email" name="email" placeholder="Enter your email" />
                             
                             <label for="username">Username</label>
                             <input type="text" id="username" name="username" placeholder="Enter your username" />
                             
-                            <button type="submit">Updtae Info</button>
+                            <button type="submit">Update Info</button>
                         </form>
 
-                        <form>
+                        <form className={style["update-password"]}>
                             <label for="old-password">Old Password</label>
                             <input type="text" id="old-password" name="old-password" placeholder="Enter old password" />
 
@@ -56,7 +67,7 @@ const UserAccPage = () => {
                             <label for="re-new-password">Re-enter New Password</label>
                             <input type="text" id="re-new-password" name="re-new-password" placeholder="Re-enter New Password" />
 
-                            <button type="submit">Change Pasword</button>
+                            <button type="submit">Change Password</button>
                         </form>
 
                     </div>

@@ -3,9 +3,11 @@ import style from "./ConfirmOrder.module.scss";
 import mailSvg from '../../assets/envelope.svg'
 import secureSvg from '../../assets/secure.svg'
 import creditCardSvg from '../../assets/visa.svg'
+import { useNavigate } from "react-router-dom";
 
 
 const ConfirmOrder = () => {
+    const navigate = useNavigate();
     return (
         <>
             <div className={style["container"]}>
@@ -47,7 +49,7 @@ const ConfirmOrder = () => {
                     </div>
 
 
-                    <div className={style["place-order-btn"]}>
+                    <div onClick={() => navigate("/place-order")} className={style["place-order-btn"]}>
                         <button type="submit">Place Order</button>
                     </div>
 

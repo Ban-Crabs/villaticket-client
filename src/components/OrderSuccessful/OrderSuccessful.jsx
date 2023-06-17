@@ -1,9 +1,11 @@
-import style from './OrderSuccessful.module.scss'
+import style from "./OrderSuccessful.module.scss";
 import returnLogo from "../../assets/return.svg";
 import phoneLogo from "../../assets/telephone.svg";
 import mailLogo from "../../assets/envelope.svg";
+import { useNavigate } from 'react-router-dom';
 
-const TransferSuccessful = () => {
+const OrderSuccessful = () => {
+    const navigate = useNavigate();
     return (
         <>
             <div className={style["container"]}>
@@ -31,7 +33,7 @@ const TransferSuccessful = () => {
                         </div>
                     </div>
                 </div>
-                <div className={style["return-button"]}>
+                <div onClick={()=> navigate("/")} className={style["return-button"]}>
                     <button type="submit">
                         <img src={returnLogo} />
                         Go Home
@@ -42,4 +44,4 @@ const TransferSuccessful = () => {
     )
 }
 
-export default TransferSuccessful
+export default OrderSuccessful;

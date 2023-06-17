@@ -1,6 +1,6 @@
 const Button = (props) => {
     return(
-        <button className={style[""]}>{props.message}</button>
+        <button className={style["button"]}>{props.message}</button>
     );
 };
 

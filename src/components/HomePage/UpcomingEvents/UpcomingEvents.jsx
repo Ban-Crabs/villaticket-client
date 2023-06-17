@@ -1,8 +1,10 @@
 import style from "./UpcomingEvents.module.scss";
 import ImageContainer from "../../../components/ImageContainer/ImageContainer";
 import cardImage from "../../../assets/yankees-mets.jpg";
+import { useNavigate } from "react-router-dom";
 
 const UpcomingEvents = () => {
+    const navigate = useNavigate();
     return(
         <>
             {/* MAIN TITLE */}
@@ -10,7 +12,7 @@ const UpcomingEvents = () => {
             <hr></hr>
             {/* CARDS */}
             <main>
-                <div className={style["card"]}>
+                <div onClick={()=>navigate("/event")} className={style["card"]}>
                     <div className={style["card-container"]}>
                         <div className={style["image-container"]}>
                             <ImageContainer src={cardImage} alt=""/>

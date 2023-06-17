@@ -47,8 +47,8 @@ button {
     margin-top: 0.5rem;
     color: $color-black;
     font-size: 0.8rem;
-    width: 30%;
-    height: 1.2rem;
+    width: 25vw;
+    height: auto;
     background-color: $theme-yellow-color;
     box-shadow: $theme-drop-shadow;
     border: none;
@@ -76,8 +76,9 @@ button {
         }
     }
 
-    button {
-        width: 60%;
+    >button {
+        width: 25vw;
+        height: auto;
         display: flex;
         justify-content: space-between;
         font-size: 1rem;
@@ -119,5 +120,12 @@ button {
     .forms-container {
         padding: 2rem 1rem;
         width: 50%;
+
+        form{
+            button{
+                width: 10vw;
+                height: auto;
+            }
+        }
     }
 }

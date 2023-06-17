@@ -82,6 +82,8 @@
         padding: 0.5rem;
         box-shadow: $theme-drop-shadow;
         background-color: $theme-primary-color-light;
+        width: auto;
+        height: auto;
 
         &:hover {
             background-color: $theme-primary-color;
