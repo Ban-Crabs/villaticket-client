@@ -1,8 +1,10 @@
 import style from "./SysadminAccPage.module.scss";
 
 import nextSvg from "../../assets/next.svg";
+import { useNavigate } from "react-router-dom";
 
 const SysadminAccPage = () => {
+    const navigate = useNavigate();
     return (
         <>
             <div className={style["container"]}>
@@ -12,23 +14,28 @@ const SysadminAccPage = () => {
                     <h1>Welcome User!</h1>
 
                     <div className={style["button-wrapper"]}>
-                        <button>
-                            <a href="/">Event History</a>
+                        <button onClick={()=> navigate("/profile/history") } >
+                            Ticket List
                             <img  className={style["svg"]} src={nextSvg} alt="" />
                         </button>
 
-                         <button>
-                            <a href="/">Event List</a>
+                         <button onClick={()=> navigate("profile/admin/events") }>
+                            Event List
                             <img  className={style["svg"]} src={nextSvg} alt="" />
                         </button>
 
-                        <button>
-                            <a href="/">User List</a>
+                        <button onClick={()=> navigate("profile/admin/users") }>
+                            User List
+                            <img  className={style["svg"]} src={nextSvg} alt="" />
+                        </button>
+
+                        <button onClick={()=> navigate("profile/admin/permits") }>
+                            Permits
                             <img  className={style["svg"]} src={nextSvg} alt="" />
                         </button>
 
                         <button className={style["close-sys-btn"]}>
-                            <a href="/">Close System</a>
+                            Close System
                         </button>
                     </div>
 
@@ -45,7 +52,7 @@ const SysadminAccPage = () => {
                             <label for="username">Username</label>
                             <input type="text" id="username" name="username" placeholder="Enter your username" />
                             
-                            <button type="submit">Updtae Info</button>
+                            <button type="submit">Update Info</button>
                         </form>
 
                         <form>
@@ -58,7 +65,7 @@ const SysadminAccPage = () => {
                             <label for="re-new-password">Re-enter New Password</label>
                             <input type="text" id="re-new-password" name="re-new-password" placeholder="Re-enter New Password" />
 
-                            <button type="submit">Change Pasword</button>
+                            <button type="submit">Change Password</button>
                         </form>
 
                     </div>

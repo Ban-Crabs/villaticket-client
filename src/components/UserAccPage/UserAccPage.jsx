@@ -31,7 +31,7 @@ const UserAccPage = () => {
                             <img  className={style["svg"]} src={nextSvg} alt="" />
                         </button>
 
-                        <button onClick={()=>navigate("")}>
+                        <button onClick={()=>navigate("/profile/admin")}>
                             Sys Admin
                             <img  className={style["svg"]} src={nextSvg} alt="" />
                         </button>
