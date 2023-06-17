@@ -1,6 +1,6 @@
 import style from "./UpcomingEvents.module.scss";
-import ImageContainer from "../../../../components/ImageContainer/ImageContainer";
-import cardImage from "../../../../assets/yankees-mets.jpg";
+import ImageContainer from "../../../components/ImageContainer/ImageContainer";
+import cardImage from "../../../assets/yankees-mets.jpg";
 
 const UpcomingEvents = () => {
     return(

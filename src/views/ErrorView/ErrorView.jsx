@@ -1,9 +1,9 @@
-import style from "./ErrorPage.module.scss";
+import style from "./ErrorView.module.scss";
 
 import imgError from "../../assets/error-logo.png";
 import returnLogo from "../../assets/return.svg";
 
-const ErrorPage = () => {
+const ErrorView = () => {
     return (
         <>
             <div className={style["container"]}>
@@ -22,4 +22,4 @@ const ErrorPage = () => {
     )
 }
 
-export default ErrorPage
+export default ErrorView;

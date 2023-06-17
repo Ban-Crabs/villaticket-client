@@ -1,6 +1,6 @@
 import style from "./FeaturedBanner.module.scss";
-import ImageContainer from "../../../../components/ImageContainer/ImageContainer";
-import cardImage from "../../../../assets/image-bb-player.png";
+import ImageContainer from "../../ImageContainer/ImageContainer";
+import cardImage from "../../../assets/image-bb-player.png";
 
 const FeaturedBanner = () => {
     return(

@@ -3,8 +3,10 @@
 import style from "./UserAccPage.module.scss";
 
 import nextSvg from "../../assets/next.svg";
+import {useNavigate} from "react-router-dom";
 
 const UserAccPage = () => {
+    const navigate = useNavigate();
     return (
         <>
             <div className={style["container"]}>
@@ -14,13 +16,11 @@ const UserAccPage = () => {
                     <h1>Welcome User!</h1>
 
                     <div className={style["button-wrapper"]}>
-                        <button>
-                            <a href="/">Event History</a>
+                        <button onClick={() => navigate("history")}>
                             <img  className={style["svg"]} src={nextSvg} alt="" />
                         </button>
 
-                         <button>
-                            <a href="/">Event List</a>
+                         <button onClick={()=>navigate("event-list")}>
                             <img  className={style["svg"]} src={nextSvg} alt="" />
                         </button>
 

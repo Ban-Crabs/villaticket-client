@@ -2,7 +2,7 @@ import FeaturedBanner from "./FeaturedBanner/FeaturedBanner";
 import UpcomingEvents  from "./UpcomingEvents/UpcomingEvents";
 
 
-const MainSection = () => {
+const HomePage = () => {
     return(
         <>
             <FeaturedBanner />
@@ -10,4 +10,4 @@ const MainSection = () => {
         </>
     );
 }
-export default MainSection;
+export default HomePage;
