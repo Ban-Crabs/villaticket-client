@@ -20,6 +20,7 @@ const OrderSuccessful = () => {
                     <p>Any problems receiving your tickets?</p>
                     <p className={style["underline"]}>Resend e-mail</p>
                 </div>
+
                 <div className={style["contact-container"]}>
                     <p>Need help? contact us at:</p>
                     <div className={style["contact-info"]}>
@@ -33,9 +34,9 @@ const OrderSuccessful = () => {
                         </div>
                     </div>
                 </div>
+
                 <div onClick={()=> navigate("/")} className={style["return-button"]}>
                     <button type="submit">
-                        <img src={returnLogo} />
                         Go Home
                     </button>
                 </div>
