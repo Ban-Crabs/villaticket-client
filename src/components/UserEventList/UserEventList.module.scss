@@ -17,7 +17,11 @@
 .container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     padding: 0 3rem 3rem 3rem;
+    height: 65vh;
     font-family: $theme-font-family;
     background-color: $theme-background-color;
 }
@@ -28,6 +32,7 @@
 }
 
 .user-events {
+    width: 100%;
     h2 {
         align-items: flex-start;
         width: 100%;
