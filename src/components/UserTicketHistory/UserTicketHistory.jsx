@@ -51,7 +51,9 @@ const UserTicketHistory = () => {
                             </div>
 
                             <div className={style["puchase-info-container"]}>
-                                <h4>3 Tickets Confirmed</h4>
+                                <div>
+                                    <h4>3 Tickets Confirmed</h4>
+                                </div>
                                 <div className={style["purchase-details"]}>
                                     <ul className={style["purchase-details-left"]}>
                                         <li>Tickets</li>
