@@ -12,7 +12,7 @@ const AdminEventList = () => {
             <div className={style["container"]}>
                 <div className={style["user-events"]}>
                     {/* UPCOMING EVENTS SECTION */}
-                    <h2 className={style["event-heading"]}>Upcoming Events</h2>
+                    <h2 className={style["event-heading"]}>Active Events</h2>
                     <div className={style["upcoming-events-container"]}>
                         <div className={style["event-card"]}>
                             {/* EVENT IMG SECTION */}
@@ -51,7 +51,7 @@ const AdminEventList = () => {
                         </div>
                     </div>
                     {/* PAST EVENTS SECTION */}
-                    <h2 className={style["event-heading"]}>Past Events</h2>
+                    <h2 className={style["event-heading"]}>Inactive Events</h2>
                     <div className={style["past-events-container"]}>
                         <div className={style["event-card"]}>
                             {/* EVENT IMG SECTION */}

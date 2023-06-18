@@ -5,6 +5,10 @@
     background-color: $theme-background-color;
 }
 
+.wrapper {
+    height: 80vh;
+}
+
 .heading {
     background-color: $theme-background-color;
     font-family: $theme-font-family;
@@ -20,14 +24,12 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 0 3rem 3rem 3rem;
-    height: 65vh;
+    padding: 1rem 3rem 3rem 3rem;
     font-family: $theme-font-family;
     background-color: $theme-background-color;
 }
 
 .event-heading {
-    padding-top: 1rem;
     font-weight: 600;
 }
 

@@ -8,6 +8,8 @@ import nextSvg from '../../assets/next.svg'
 const UserEventList = () => {
     return (
         <>
+            <div className={style["wrapper"]}>
+
             <div className={style["heading"]}>
                 <h1>Your Events</h1>
             </div>
@@ -60,6 +62,7 @@ const UserEventList = () => {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     )
