@@ -13,7 +13,7 @@ import BuyTicket from "./components/BuyTicket/BuyTicket";
 import ConfirmOrder from "./components/ConfirmOrder/ConfirmOrder";
 import OrderSuccessful from "./components/OrderSuccessful/OrderSuccessful";
 
-import TempView from "./components/UserTransferTicket/UserTransferTicket"
+import TempView from "./components/AdminEventList/AdminEventList"
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
       <Header/>
       <Routes>
         {/* <Route index element={<HomeView />} /> */}
-        <Route index element={<EventDetails />} />
+        <Route index element={<TempView />} />
         <Route path="/profile/*" element={<AccountView/>}/>
         <Route path="/event" element={<EventDetails/>}/>
         <Route path="/order" element={<BuyTicket/>}/>
