@@ -8,13 +8,11 @@
     display: flex;
     font-family: $theme-font-family;
     background-color: $theme-background-color;
-    height: 85vh;
+    height: fit-content;
 }
 
 .locations-container {
-    margin-top: 3rem;
-    padding: 3rem;
-    height: inherit;
+    padding: 1rem 3rem 0 3rem;
     background-color: $theme-background-color;
 }
 
@@ -30,7 +28,6 @@
 .location-cards-container {
     overflow-y: hidden;
     height: 80vh;
-    padding: 0.5rem;
 }
 
 .location-card-item {
@@ -40,8 +37,7 @@
     margin-bottom: 1rem;
     padding: 1rem;
     background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
 
     h3, h4, h5 {
         background-color: $color-white;
@@ -63,7 +59,6 @@
     }
 
     &:hover {
-        transition: smooth 0.5s ease;
         transform: scale(1.01);
     }
 }

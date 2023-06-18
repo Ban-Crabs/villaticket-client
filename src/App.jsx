@@ -22,7 +22,7 @@ function App() {
       <Header/>
       <Routes>
         {/* <Route index element={<HomeView />} /> */}
-        <Route index element={<TempView />} />
+        <Route index element={<EventDetails />} />
         <Route path="/profile/*" element={<AccountView/>}/>
         <Route path="/event" element={<EventDetails/>}/>
         <Route path="/order" element={<BuyTicket/>}/>
