@@ -13,7 +13,7 @@ import BuyTicket from "./components/BuyTicket/BuyTicket";
 import ConfirmOrder from "./components/ConfirmOrder/ConfirmOrder";
 import OrderSuccessful from "./components/OrderSuccessful/OrderSuccessful";
 
-import TempView from "./components/UserTicketHistory/UserTicketHistory"
+import TempView from "./components/UserTransferTicket/UserTransferTicket"
 
 
 function App() {
