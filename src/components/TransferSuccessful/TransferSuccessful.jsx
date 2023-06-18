@@ -29,7 +29,6 @@ const TransferSuccessful = () => {
                 </div>
                 <div className={style["return-button"]}>
                     <button type="submit">
-                        <img src={returnLogo} />
                         Go Home
                     </button>
                 </div>
