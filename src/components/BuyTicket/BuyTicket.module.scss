@@ -14,6 +14,7 @@
     display: flex;
     background-color: $theme-background-color;
     padding: 3rem;
+    height: 80vh;
 }
 
 .billing-info-container,
@@ -50,6 +51,7 @@
 
 .billing-info-container {
     h1 {
+        margin-left: 1rem;
         font-size: 1.8rem;
     }
 }
@@ -61,25 +63,36 @@
 }
 
 .billing-info-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     padding-right: 20%;
 
     form {
         display: flex;
         flex-direction: column;
+        
         justify-content: space-between;
         height: 100%;
 
         ul {
             display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
             height: 100%;
 
             li {
                 width: 50%;
                 padding-right: 3rem;
+
+                input {
+                    margin-left: 1rem;
+                }
             }
         }
 
-        ul, li {
+        ul,
+        li {
             background-color: $theme-background-color;
 
             &:hover {
@@ -95,7 +108,7 @@
 
         input {
             padding: 0.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             border: none;
             border-radius: 0.5rem;
             background-color: $color-white;
@@ -112,6 +125,7 @@
 }
 
 .warning-card {
+    padding-right: 20%;
 
     p {
         font-size: 0.8rem;
@@ -123,8 +137,8 @@
 }
 
 .review-order-btn {
+    margin-top: -3rem;
     button {
-        padding: 0.2rem;
         color: $color-white;
         font-size: 0.8rem;
         width: 30%;

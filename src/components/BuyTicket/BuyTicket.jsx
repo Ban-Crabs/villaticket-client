@@ -29,11 +29,11 @@ const BuyTicket = () => {
                             <ul>
                                 <li>
                                     <label for="card-good-thru">Good Thru</label>
-                                    <input type="text" id="card-good-thru" name="card-good-thru" placeholder="John Doe" />
+                                    <input type="text" id="card-good-thru" name="card-good-thru" placeholder="YYYY/MM" />
                                 </li>
                                 <li>
                                     <label for="card-cvv">CVV</label>
-                                    <input type="text" id="card-cvv" name="card-cvv" placeholder="John Doe" />
+                                    <input type="text" id="card-cvv" name="card-cvv" placeholder="XXX" />
                                 </li>
                             </ul>
                         </form>
