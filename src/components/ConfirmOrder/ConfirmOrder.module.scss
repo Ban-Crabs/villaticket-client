@@ -7,18 +7,26 @@
 .container {
     display: flex;
     padding: 3rem;
-    height: 40vh;
+    justify-content: center;
+    height: 80vh;
     width: 100%;
     font-family: $theme-font-family;
     background-color: $theme-background-color;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 40vh;
 }
 
 // LEFT  SECTION
 .confirm-payment-container {
     width: 45%;
 
-    border-right:  0.5px solid rgb(200, 200, 200);
 
+    border-right:  0.5px solid rgb(200, 200, 200);
 }
 
 .confirm-payment-heading{
