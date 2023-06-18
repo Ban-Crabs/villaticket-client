@@ -9,9 +9,10 @@ const SearchResults = () => {
                 <h1>New York Yankees</h1>
                 <p>Tickets</p>
             </div>
-            <div className={style["container"]}>
 
-                <div className={style["divider"]}></div>
+            <div className={style["divider"]}></div>
+
+            <div className={style["container"]}>
 
                 <div className={style["card-list-container"]}>
 
