@@ -19,7 +19,8 @@ function App() {
     <>
       <Header/>
       <Routes>
-        <Route index element={<HomeView />} />
+        {/* <Route index element={<HomeView />} /> */}
+        <Route index element={<AccountView />} />
         <Route path="/profile/*" element={<AccountView/>}/>
         <Route path="/event" element={<EventDetails/>}/>
         <Route path="/order" element={<BuyTicket/>}/>

@@ -40,6 +40,8 @@
 }
 
 ul {
+    display: flex;
+    flex-direction: column;
     list-style-type: none;
     padding: 0;
     background-color: $theme-primary-color;
