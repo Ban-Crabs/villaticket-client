@@ -26,10 +26,10 @@ const UserAccPage = () => {
                             <img  className={style["svg"]} src={nextSvg} alt="" />
                         </button>
 
-                        <button onClick={()=>navigate("user-list")}>
+                        {/* <button onClick={()=>navigate("user-list")}>
                             User List
                             <img  className={style["svg"]} src={nextSvg} alt="" />
-                        </button>
+                        </button> */}
 
                         <button onClick={()=>navigate("/profile/admin")}>
                             Sys Admin

@@ -15,12 +15,12 @@ const SysadminAccPage = () => {
                     <h1>Welcome User!</h1>
 
                     <div className={style["button-wrapper"]}>
-                        <button onClick={()=> navigate("/profile/history") } >
+                        <button onClick={()=> navigate("/profile/admin/history") } >
                             Ticket List
                             <img  className={style["svg"]} src={nextSvg} alt="" />
                         </button>
 
-                         <button onClick={()=> navigate("profile/admin/events") }>
+                         <button onClick={()=> navigate("profile/admin/admin-events") }>
                             Event List
                             <img  className={style["svg"]} src={nextSvg} alt="" />
                         </button>

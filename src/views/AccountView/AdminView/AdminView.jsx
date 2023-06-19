@@ -8,7 +8,7 @@ const AdminView = () => {
     return(
         <Routes>
             <Route index element={<SysadminAccPage/>}/>
-            <Route path="events" element={<SysadminEventList/>}/>
+            <Route path="admin-events" element={<SysadminEventList/>}/>
             <Route path="users" element={<SysadminUserList/>}/>
             <Route path="permits" element={<SysadminPermit/>}/>
 

@@ -92,6 +92,8 @@ p {
     padding-bottom: 2rem;
 
     button {
+        height: auto;
+        width: fit-content;
         align-items: center;
         cursor: pointer;
         background-color: transparent;
@@ -100,12 +102,13 @@ p {
         padding: 0.8rem;
         color: $theme-primary-color;
         border-color: $theme-primary-color;
-        transition: 0.5s;
+        transition: 0.25s;
     }
 
     button:hover {
         transform: scale(1.01);
-        
+        background-color: $theme-primary-color;
+        color: $color-white;
         box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
     }
 }

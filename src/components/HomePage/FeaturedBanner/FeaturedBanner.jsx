@@ -9,9 +9,7 @@ const FeaturedBanner = () => {
                 <h2>Score MLB Playoff Tickets!</h2>
                 <p>Buy Tickets, Earn Rewards!</p>
             </div>
-            <div>
-                <ImageContainer className={style["featured-image"]} src={cardImage} alt=""/>
-            </div>
+            <ImageContainer className={style["featured-image"]} src={cardImage} alt=""/>
         </div>
     );
 }

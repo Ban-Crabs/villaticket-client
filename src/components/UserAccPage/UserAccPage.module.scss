@@ -108,15 +108,17 @@ form {
 
 // RIGHT SECTION
 .update-info-container {
-    width: 65%;
-
+    width: 45%;
     .forms-container {
         padding: 2rem 1rem;
-        width: 50%;
+        
 
         form{
+
             button{
-                width: 10vw;
+                margin: none;
+                padding: none;
+                width: max-content;
                 height: auto;
             }
         }

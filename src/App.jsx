@@ -12,7 +12,7 @@ import EventDetails from "./components/EventDetails/EventDetails";
 import BuyTicket from "./components/BuyTicket/BuyTicket";
 import ConfirmOrder from "./components/ConfirmOrder/ConfirmOrder";
 import OrderSuccessful from "./components/OrderSuccessful/OrderSuccessful";
-
+import SearchResults from "./components/SearchResults/SearchResults";
 // import TempView from "./components/SysadminPermit/SysadminPermit"
 
 
@@ -28,6 +28,7 @@ function App() {
         <Route path="/order" element={<BuyTicket/>}/>
         <Route path="/confirm-order" element={<ConfirmOrder/>}/>
         <Route path="/place-order" element={<OrderSuccessful/>}/>
+        <Route path="/search" element={<SearchResults/>}/>
         {/*
           SEARCH
           BUY

@@ -9,7 +9,7 @@ const UpcomingEvents = () => {
         <>
             {/* MAIN TITLE */}
             <h2 className={style["upcoming"]}> Upcoming Events </h2>
-            <hr></hr>
+            <hr/>
             {/* CARDS */}
             <main>
                 <div onClick={()=>navigate("/event")} className={style["card"]}>

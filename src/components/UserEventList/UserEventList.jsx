@@ -4,8 +4,10 @@ import style from "./UserEventList.module.scss";
 
 import eventImg from '../../assets/warriors-stadium.jpg'
 import nextSvg from '../../assets/next.svg'
+import { useNavigate } from "react-router-dom";
 
 const UserEventList = () => {
+    const navigate = useNavigate();
     return (
         <>
             <div className={style["wrapper"]}>

@@ -17,12 +17,20 @@
 
     .search-bar{
         display: flex;
-        padding: 0.25rem;
-        align-items: center;
-        width: 30%;
-        height: 70%;
-        background-color: #D9D9D9;
+        justify-content: space-between;
+        width: 30vw;
+        height: auto;
+        padding: 0.25rem 1rem;
+        background-color: $color-white;
         border-radius: 1rem;
+        p{  
+            text-decoration: none;
+            background-color: $color-white;
+            align-content: center;
+        }
+        .search-icon{
+            background-color: $color-white;
+        }
     }
 
     .header-button-container{
