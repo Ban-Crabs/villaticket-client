@@ -3,30 +3,17 @@
 // GENERAL
 * {
     font-family: $theme-font-family;
-    background-color: $theme-background-color;
 }
 
 .container {
     padding: 3rem;
     display: flex;
+    height: 85vh;
 }
 
 p {
     font-weight: 200;
     text-align: left;
-}
-
-ul {
-    background-color: $theme-background-color;
-
-    li {
-        background-color: $theme-background-color;
-
-        &:hover {
-            cursor: default;
-            text-decoration: none;
-        }
-    }
 }
 
 //  LEFT SECTION
@@ -35,7 +22,8 @@ ul {
     padding-right: 2rem;
     padding-top: 0.5rem;
 
-    h1, p {
+    h1,
+    p {
         padding-top: 0.5rem;
     }
 
@@ -66,14 +54,18 @@ ul {
 }
 
 .drop-btn {
-    border: none;
+    width: 100%;
+    padding: 2rem;
+    font-size: 0.8rem;
     background-color: $color-white;
-    color: $color-black;
-    border-radius: 0.5rem;
-    box-shadow: $theme-drop-shadow;
-    padding: 0.5rem 1.3rem;
-    font-size: 16px;
+    border: 1px solid $color-black;
+    padding-top: 1rem;
+    box-shadow: none;
     cursor: pointer;
+
+    &:hover {
+        color: $color-white;
+    }
 }
 
 .dropdown-content {
@@ -113,17 +105,21 @@ ul {
     padding-left: 1rem;
 }
 
-.data-info, 
+.data-info,
 .locale-frequencies,
 .schedule-frequencies {
     margin-bottom: 1rem;
+
+    * {
+        background-color: $theme-background-color;
+    }
 }
 
 .data-info {
     display: flex;
     justify-content: space-between;
     padding-top: 20%;
-    
+
     ul {
         li {
             font-size: 1.3rem;

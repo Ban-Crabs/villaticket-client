@@ -12,7 +12,7 @@ const AnalyticsPage = () => {
                     <div className={style["square"]}></div>
                     <div className={style["dropdown-wrapper"]}>
                         <div className={style["dropdown"]}>
-                            <button className={style["drop-btn"]}>Select Option</button>
+                            <button className={style["drop-btn"]}>Select Option ▾</button>
                             <div className={style["dropdown-content"]}>
                                 <a href="#">Exchange Times</a>
                                 <a href="#">Attendee %</a>
