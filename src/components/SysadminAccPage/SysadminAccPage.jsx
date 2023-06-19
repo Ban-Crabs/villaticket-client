@@ -11,6 +11,7 @@ const SysadminAccPage = () => {
 
                 {/* LEFT SECTIOn */}
                 <div className={style["other-options-container"]}>
+                    
                     <h1>Welcome User!</h1>
 
                     <div className={style["button-wrapper"]}>
