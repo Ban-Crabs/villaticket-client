@@ -73,7 +73,6 @@
             height: auto;
             margin-right: 0.5rem;
             margin-top: 0.5rem;
-            filter: $theme-svg-primary-color;
         }
 
         p {
@@ -93,10 +92,11 @@
     }
 
     button {
+        width: auto;
+        height: auto;
         font-size: 1.5rem;
-        font-weight: 400;
+        font-weight: 300;
         padding: 0.5rem 1rem;
-        border: 1px solid $color-black;
         background-color: $theme-primary-color-light;
         color: $color-white;
         cursor: pointer;
@@ -109,6 +109,7 @@
             height: auto;
             margin-right: 0.5rem;
             margin-top: 0.5rem;
+            background-color: $theme-primary-color-light;
         }
 
         &:hover {
@@ -117,7 +118,7 @@
             box-shadow: $theme-drop-shadow;
             border: 1px solid $theme-primary-color;
             img {
-                filter: $theme-svg-primary-color;
+                background-color: $color-white;
             }
         }
     }

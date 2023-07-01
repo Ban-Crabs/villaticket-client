@@ -6,8 +6,9 @@
     font-family: $theme-font-family;
 }
 
-ul {
+.list {
     display: flex;
+    flex-direction: row;
 
     li:hover {
         cursor: default;
@@ -20,9 +21,14 @@ ul {
     display: flex;
     flex-direction: column;
     padding: 3rem;
+    height: 80vh;
 }
 
 .heading {
+
+    h1 {
+        padding: 0.5rem 0;
+    }
 
     h5 {
         font-weight: 200;
@@ -75,13 +81,22 @@ ul {
     background-color: $color-white;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex: 1;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 0.5rem;
 
     &:hover {
         box-shadow: $theme-drop-shadow;
         transition: 0.3s ease-in-out;
+    }
+
+    .list {
+        li {
+            &:first-child {
+                padding-left: 1rem;
+            }
+        }
     }
 }
 
@@ -122,16 +137,16 @@ ul {
     }
 
     button {
-        height: 1rem;
-        border: none;
-        padding: 0.8rem 1.5rem;
-        background-color: $theme-primary-color-light;
-        border-radius: 1rem;
-        transition: background-color 0.3s ease;
-
+        width: 100%;
+        padding: 2rem;
+        font-size: 0.8rem;
+        background-color: $theme-blue-color-light;
+        box-shadow: none;
+        padding-top: 1rem;
+    
         &:hover {
             cursor: pointer;
-            background-color: $theme-primary-color;
+            background-color: $theme-blue-color-dark;
         }
     }
 }

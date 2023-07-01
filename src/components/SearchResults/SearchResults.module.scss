@@ -19,22 +19,19 @@
 
 }
 
+.divider {
+    height: 1px;
+    margin: 1rem 3rem;
+    border: 1px dashed $theme-text-color;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 65vh;
     font-family: $theme-font-family;
     background-color: $theme-background-color;
-    padding: 0 3rem 3rem 3rem;
-}
-
-.divider {
-    width: 100%;
-    height: 1px;
-    margin: 1rem 0;
-    width: 100%;
-    border-bottom: dashed 1px grey;
 }
 
 // CARD DESIGN
@@ -43,7 +40,6 @@
     align-items: center;
     flex-direction: row;
     width: 95%;
-    margin-right: 2rem;
 }
 
 .card-item {
@@ -52,7 +48,6 @@
     width: 100%;
     overflow: hidden;
     background-color: $color-white;
-    box-shadow: $theme-drop-shadow;
     border-radius: 15px;
     transition: 0.5s;
     padding: 1rem;
@@ -66,7 +61,9 @@
 
 .card-item-info {
     display: flex;
+    flex-wrap: wrap;
     padding: 1rem;
+    background-color: $color-white;
 }
 
 .card-item-date-info {
@@ -75,6 +72,10 @@
 
 .card-item-date-info,
 .card-item-event-info {
+    * {
+        background-color: $color-white;
+    }
+    
     h4 {
         font-weight: 400;
     }
@@ -86,20 +87,31 @@
 
 // BUTTON DESIGN
 .button-container {
-    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+    height: fit-content;
+    background-color: $color-white;
 }
 
 button {
-    height: 1rem;
-    border: none;
-    padding: 1rem 2rem;
+    width: 100%;
+    padding: 2rem;
+    font-size: 0.8rem;
     background-color: $theme-primary-color-light;
-    box-shadow: $theme-drop-shadow;
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
+    padding-top: 1rem;
 
     &:hover {
         cursor: pointer;
         background-color: $theme-primary-color;
     }
 }
+
+@media only screen and (max-width: 660px) {
+    .card-item-date-info {
+        padding-bottom: 0.5rem;
+        background-color: $color-white;
+    }
+
+    .button-container {
+        margin-top: 1.5rem;
+    }
+  }

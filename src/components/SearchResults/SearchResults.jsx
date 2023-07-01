@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import style from "./SearchResults.module.scss";
 
 
 const SearchResults = () => {
+    const navigate = useNavigate();
     return (
         <>
             <div className={style["heading"]}>
@@ -9,9 +11,10 @@ const SearchResults = () => {
                 <h1>New York Yankees</h1>
                 <p>Tickets</p>
             </div>
-            <div className={style["container"]}>
 
-                <div className={style["divider"]}></div>
+            <div className={style["divider"]}></div>
+
+            <div className={style["container"]}>
 
                 <div className={style["card-list-container"]}>
 
@@ -26,7 +29,7 @@ const SearchResults = () => {
                                 <h5>Mon • 6:00pm - 11:00pm</h5>
                             </div>
                         </div>
-                        <div className={style["button-container"]}>
+                        <div onClick={()=> navigate("/event")} className={style["button-container"]}>
                             <button type="submit">Details</button>
                         </div>
 

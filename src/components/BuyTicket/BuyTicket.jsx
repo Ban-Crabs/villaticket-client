@@ -3,8 +3,11 @@ import style from "./BuyTicket.module.scss";
 import eventImg from "../../assets/yankees-mets.jpg";
 import pinSvg from "../../assets/location.svg";
 import calendarSvg from "../../assets/calendar.svg";
+import { useNavigate } from "react-router-dom";
 
 const BuyTicket = () => {
+
+    const navigate = useNavigate();
     return (
         <>
             <div className={style["container"]}>
@@ -26,17 +29,17 @@ const BuyTicket = () => {
                             <ul>
                                 <li>
                                     <label for="card-good-thru">Good Thru</label>
-                                    <input type="text" id="card-good-thru" name="card-good-thru" placeholder="John Doe" />
+                                    <input type="text" id="card-good-thru" name="card-good-thru" placeholder="YYYY/MM" />
                                 </li>
                                 <li>
                                     <label for="card-cvv">CVV</label>
-                                    <input type="text" id="card-cvv" name="card-cvv" placeholder="John Doe" />
+                                    <input type="text" id="card-cvv" name="card-cvv" placeholder="XXX" />
                                 </li>
                             </ul>
                         </form>
 
                     </div>
-                    <div className={style["review-order-btn"]}>
+                    <div onClick={()=> navigate("/confirm-order")} className={style["review-order-btn"]}>
                         <button type="submit">Review Your Order</button>
                     </div>
                 </div>

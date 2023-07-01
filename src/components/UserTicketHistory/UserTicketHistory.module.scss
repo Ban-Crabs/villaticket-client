@@ -7,7 +7,8 @@
 .container {
     display: flex;
     align-items: center;
-    height: 86.7vh;
+    justify-content: center;
+    height: 80vh;
     font-family: $theme-font-family;
     padding: 5rem 3rem 3rem 3rem;
     background-color: $theme-background-color;
@@ -15,7 +16,7 @@
 
 // TICKET INFO SECTION (LEFT SIDE)
 .ticket-info {
-    width: 30%;
+    width: fit-content;
     height: 60vh;
     margin-right: 1rem;
 }
@@ -38,15 +39,11 @@
 }
 
 .ticket-info-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 20vh;
 
     img {
         max-width: 100%;
         max-height: 100%;
-        display: block;
         margin: auto;
         border-radius: 0.5rem;
         box-shadow: $theme-drop-shadow;
@@ -62,7 +59,7 @@
 
     h3 {
         font-weight: 600;
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.5rem;
     }
 
     p {
@@ -100,11 +97,15 @@
     height: 60vh;
     width: 70%;
     padding: 0 1rem 0 1rem;
+
+    h2 {
+        padding-left: 1rem;
+    }
 }
 
 .tickets-list-container {
     height: 45vh;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
 }
 
 .tickets-list-card-item {
@@ -112,23 +113,20 @@
     align-items: center;
     height: fill-available;
     background-color: $color-white;
-    box-shadow: $theme-drop-shadow;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
 
-    div {
-        margin-left: 1rem;
+    * {
+        background-color: $color-white;
     }
 
-    &:hover {
-        transition: smooth 0.5s ease;
-        transform: scale(1.01);
-    }
+    
 }
 
 .card-title {
     display: flex;
     background-color: $color-white;
+    padding-left: 0.5rem;
     padding-bottom: 0.5rem;
 
     h3 {
@@ -141,10 +139,12 @@
 }
 
 .puchase-info-container {
+    
     padding: 0.5rem;
     margin-right: 0.5rem;
 
     h4 {
+        width: 100%;
         font-weight: 200;
         color: #167407;
         background-color: #a4eea379;
@@ -163,7 +163,7 @@
 .purchase-details-left, .purchase-details-right {
     display: flex;
     flex-direction: column;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     background-color: $color-white;
 
     li {
@@ -185,6 +185,7 @@
 .purchase-payment {
     ul {
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         background-color: $color-white;
 
@@ -202,7 +203,7 @@
 }
 
 .ticket-info-return {
-    padding-bottom: 0.2rem;
+    padding-bottom: 0.5rem;
 
     img {
         margin-right: 0.5rem;

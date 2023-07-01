@@ -5,6 +5,10 @@
     background-color: $theme-background-color;
 }
 
+.wrapper {
+    height: 80vh;
+}
+
 .heading {
     background-color: $theme-background-color;
     font-family: $theme-font-family;
@@ -62,7 +66,6 @@
         display: block;
         margin: auto;
         border-radius: 0.5rem;
-        box-shadow: $theme-drop-shadow;
     }
 }
 
@@ -73,7 +76,6 @@
     align-items: center;
     padding: 0 1.5rem;
     background-color: $color-white;
-    box-shadow: $theme-drop-shadow;
     border-radius: 0.5rem;
 }
 
@@ -105,14 +107,13 @@
     margin-right: 3rem;
 
     button {
-        height: 1rem;
-        border: none;
-        padding: 0.8rem 1.5rem;
+        width: 100%;
+        padding: 2rem;
+        font-size: 0.8rem;
         background-color: $theme-blue-color-light;
-        box-shadow: $theme-drop-shadow;
-        border-radius: 1rem;
-        transition: background-color 0.3s ease;
-
+        box-shadow: none;
+        padding-top: 1rem;
+    
         &:hover {
             cursor: pointer;
             background-color: $theme-blue-color-dark;

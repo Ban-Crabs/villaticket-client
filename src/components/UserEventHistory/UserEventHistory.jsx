@@ -2,8 +2,10 @@ import style from "./UserEventHistory.module.scss";
 
 import eventImg from '../../assets/warriors-stadium.jpg'
 import nextSvg from '../../assets/next.svg'
+import { useNavigate } from "react-router-dom";
 
 const UserEventHistory = () => {
+    const navigate = useNavigate();
     return (
         <>
             <div className={style["heading"]}>
@@ -28,7 +30,7 @@ const UserEventHistory = () => {
                                     <p>Chase Center</p>
                                 </div>
                                 {/* EVENT BUTTON VIEW TICKET */}
-                                <div className={style["event-card-info-btn"]}>
+                                <div onClick={()=> navigate("/profile/ticket-history")} className={style["event-card-info-btn"]}>
                                     <button type="submit">View Tickets</button>
                                 </div>
                                 {/* SVG */}
