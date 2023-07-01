@@ -5,6 +5,7 @@ import AppComponent from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { ConfigProvider } from './contexts/ConfigContext.jsx'
 import { ToastContainer } from 'react-toastify'
+import { GoogleOAuthProvider } from '@react-oauth/google';
 // import { LoadingSpinner } from './components/LoadingSpinner/LoadingSpinner.jsx'
 import axios from 'axios'
 import './index.css'
@@ -18,11 +19,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <ConfigProvider>
-        <UserContextProvider>
-          <AppComponent />
-          <ToastContainer theme='dark' position='bottom-right'/>
-          {/* <LoadingSpinner />  TODO: IMPLEMENT ON components*/}
-        </UserContextProvider>
+        <GoogleOAuthProvider>
+          <UserContextProvider>
+            <AppComponent />
+            <ToastContainer theme='dark' position='bottom-right'/>
+            {/* <LoadingSpinner />  TODO: IMPLEMENT ON components*/}
+          </UserContextProvider>
+        </GoogleOAuthProvider>
       </ConfigProvider>
     </BrowserRouter>
   </React.StrictMode>,

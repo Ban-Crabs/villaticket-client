@@ -15,6 +15,7 @@ import OrderSuccessful from "./components/OrderSuccessful/OrderSuccessful";
 import SearchResults from "./components/SearchResults/SearchResults";
 import EventListHolder from "./components/EventListHolder/EventListHolder";
 import SignIn from "./components/AuthForm/SignIn/SignIn";
+import Register from "./components/AuthForm/Register/Register";
 // import TempView from "./components/SysadminPermit/SysadminPermit"
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/place-order" element={<OrderSuccessful/>}/>
         <Route path="/search" element={<SearchResults/>}/>
         <Route path="/login" element={<SignIn/>}/>
+        <Route path="/register" element={<Register/>}/>
         {/*
           SEARCH
           BUY
