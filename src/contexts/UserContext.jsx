@@ -13,6 +13,7 @@ export const UserContextProvider = (props) => {
   //Estado para los datos del usuario
   const [token, setToken] = useState(null);
   const [user, setUser] = useState(null);
+  const [roles, setRoles] = useState([]);
 
 //const { startLoading, stopLoading } = useConfigContext();
 
@@ -31,6 +32,11 @@ export const UserContextProvider = (props) => {
     fetchUserInfo();
   }, [token])
 
+  useEffect(() => {
+    //Obtener los roles del usuario
+    fetchRoles();
+  }, [user])
+
   const fetchUserInfo = async () => {
     if (!token) {
       return;
@@ -39,9 +45,26 @@ export const UserContextProvider = (props) => {
     //startLoading();
     try {
       const head = {headers: {'Authorization': `Bearer ${token}`}}
-      const { data } = await axios.get("/auth/whoami", head);
+      const { data } = await axios.get("/user/whoami", head);
       setUser(data);
 
+    } catch (error) {
+      logout();
+    } /* finally {
+      //stopLoading();
+    } */
+  }
+
+  const fetchRoles = async () => {
+    if (!user) {
+      return;
+    }
+
+    //startLoading();
+    try {
+      const head = {headers: {'Authorization': `Bearer ${token}`}}
+      const { data } = await axios.get(`/user/${data.username}/privilege`, head);
+      setRoles(data);
     } catch (error) {
       logout();
     } /* finally {
@@ -105,6 +128,7 @@ export const UserContextProvider = (props) => {
   const state = {
     token,
     user,
+    roles,
     login,
     logout,
     register
