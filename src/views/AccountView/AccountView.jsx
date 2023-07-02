@@ -1,18 +1,20 @@
 import { Routes, Route } from "react-router-dom";
 import UserAccPage from "../../components/UserAccPage/UserAccPage";
-import UserEventHistory from "../../components/UserEventHistory/UserEventHistory";
-import EventList from "../../components/UserEventList/UserEventList";
-import AdminView from "./AdminView/AdminView"
+import EventHistory from "../../components/EventHistory/EventHistory";
+import EventListHolder from "../../components/EventListHolder/EventListHolder";
 import UserTicketHistory from "../../components/UserTicketHistory/UserTicketHistory";
+import UserList from "../../components/UserList/UserList";
+import SysadminPermit from "../../components/SysadminPermit/SysadminPermit";
 
 const AccountView = () => {
     return(
         <Routes>
             <Route index element={<UserAccPage/>}/>
-            <Route path="history" element={<UserEventHistory/>}/>
-            <Route path="event-list" element={<EventList/>}/>
+            <Route path="history" element={<EventHistory/>}/>
+            <Route path="event-list" element={<EventListHolder/>}/>
             <Route path="ticket-history" element={<UserTicketHistory/>}/>
-            <Route path="admin/*" element={<AdminView/>}/>
+            <Route path="admin/users" element={<UserList/>}/>
+            <Route path="admin/permits" element={<SysadminPermit/>}/>
         </Routes>
     );
 }

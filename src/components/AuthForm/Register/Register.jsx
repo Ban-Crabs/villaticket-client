@@ -14,7 +14,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         await register(username, email);
-        navigate("/login");
+        navigate("/auth/login");
     }
 
     const googleLogin = useGoogleLogin({
@@ -24,7 +24,7 @@ const Register = () => {
 
     const handleSignIn = (e) => {
         e.preventDefault();
-        navigate("/login");
+        navigate("/auth/login");
     }
 
     return(

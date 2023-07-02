@@ -1,4 +1,4 @@
-import style from "./EventCard.module.scss";
+import style from "./EventHistoryCard.module.scss";
 import defaultImg from '../../../../assets/warriors-stadium.jpg'
 import nextSvg from '../../../../assets/next.svg'
 import { useUserContext } from "../../../../contexts/UserContext";
@@ -7,8 +7,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const EventCard = props => {
-    const { event } = props;
+const EventHistoryCard = props => {
+    const { attendance } = props;
     const { roles } = useUserContext();
     const [eventImg, setEventImg] = useState([]);
     const navigate = useNavigate();
@@ -20,11 +20,11 @@ const EventCard = props => {
 
     useEffect(() => {
         setDates();
-    }, [event])
+    }, [attendance])
 
     const fetchEventImg = async () => {
         try {
-            const { data } = await axios.get(`/event/${event.id}/image`);
+            const { data } = await axios.get(`/event/${attendance.event.id}/image`);
             if (data) {
                 setEventImg(data);
             }
@@ -38,13 +38,13 @@ const EventCard = props => {
 
     const setDates = () => {
         dateComponents = {
-            month: event.date.getMonth(),
-            day: event.date.getDay(),
-            year: event.date.getFullYear(),
-            startHour: event.startTime.getHours(),
-            startMinute: event.startTime.getMinutes(),
-            endHour: event.endTime.getHours(),
-            endMinute: event.endTime.getMinutes()
+            month: attendance.event.date.getMonth(),
+            day: attendance.event.date.getDay(),
+            year: attendance.event.date.getFullYear(),
+            startHour: attendance.event.startTime.getHours(),
+            startMinute: attendance.event.startTime.getMinutes(),
+            endHour: attendance.event.endTime.getHours(),
+            endMinute: attendance.event.endTime.getMinutes()
         }
     }
 
@@ -61,7 +61,7 @@ const EventCard = props => {
     }
 
     const onViewHandler = () => {
-        navigate(`/event/${event.id}`);
+        navigate(`/event/${attendance.event.id}`);
     }
 
     const onScannerHandler = () => {
@@ -82,9 +82,10 @@ const EventCard = props => {
             <div className={style["event-card-info"]}>
                 {/* DATE INFO  */}
                 <div className={style["event-card-info-date"]}>
-                    <h3>{event.title}</h3>
+                    <h3>{attendance.event.title}</h3>
                     <p>{dateComponents.month} / {dateComponents.day} / {dateComponents.year} • {dateComponents.startHour}:{dateComponents.startMinute} - {dateComponents.endHour}:{dateComponents.endMinute}</p>
-                    <p>{event.location.name}</p>
+                    <p>Attended on {attendance.timestamp}</p>
+                    <p>{attendance.event.location.name}</p>
                 </div>
                 {/* EVENT BUTTON CONTAINER */}
                 <div className={style["event-btn-container"]}>
@@ -140,4 +141,4 @@ const EventCard = props => {
     );
 }
 
-export default EventCard;
+export default EventHistoryCard;

@@ -4,36 +4,40 @@ import style from "./SignIn.module.scss";
 import { useUserContext } from "../../../contexts/UserContext";
 import { useState } from "react";
 import { useGoogleLogin } from '@react-oauth/google';
-import { useHistory } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
     const {login} = useUserContext();
     const [identifier, setIdentifier] = useState("");
     const [password, setPassword] = useState("");
-    const history = useHistory();
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
+        console.log("submitted");
         e.preventDefault();
-        login(identifier, password);
-        navigate(history.location.state?.from || "/");
+        await login(identifier, password);
+    }
+
+    const handleGoogleLogin = (e) => {
+        e.preventDefault();
+        console.log("Google Login");
+        googleLogin();
     }
 
     const googleLogin = useGoogleLogin({
         onSuccess: tokenResponse => console.log(tokenResponse),
-        flow: 'auth-code',
+        ux_mode: "redirect",
       });
-
-      const handleRegister = (e) => {
-        e.preventDefault();
-        navigate("/register");
+    
+    
+    const handleRegister = (e) => {
+      e.preventDefault();
+      navigate("/auth/register");
     }
-
     return (
         <section>
             <div className={style["container"]}>
-                <form className={style["form"]}>
+                <form className={style["form"]} >
                     <h1>Villa Ticket</h1>
                     <h3>SIGN IN</h3>
                     <p className={style["form-title"]}>Enter your credentials to access your account</p>
@@ -43,19 +47,19 @@ const SignIn = () => {
                     <div className={style["input-container"]}>
                         <input placeholder="Enter password" type="password" value={password} onChange={({target}) => setPassword(target.value)}/>
                     </div>
-                    <button className={style["submit"]} type="submit" onClick={() => handleSubmit}>
+
+                    <button className={style["submit"]} type="button" onClick={handleSubmit}>
                         Sign in
                     </button>
 
-                    <button type="button" className={style["login-with-google-btn"]} onClick={() => googleLogin}>
+                    <button type="button" className={style["login-with-google-btn"]} onClick={handleGoogleLogin}>
                         Sign in with Google
                     </button>
 
-                    <button className={style["submit"]} type="submit" onClick={() => handleRegister}>
+                    <button className={style["submit"]} type="button" onClick={handleRegister}>
                         Register
                     </button>
                 </form>
-
             </div>
         </section>
     )

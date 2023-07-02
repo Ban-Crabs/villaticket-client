@@ -75,10 +75,10 @@ export const UserContextProvider = (props) => {
   //Función para login
   //Función para logout
   //Función para register
-  const login = async (username, password) => {
+  const login = async (id, password) => {
     //startLoading();
     try {
-      const { data } = await axios.post("/user/login", { 'id':`${username}`, password }, {headers: {'Content-Type': 'multipart/form-data'}});
+      const { data } = await axios.post("/user/login", { id, password }, {headers: {'Content-Type': 'multipart/form-data'}});
       const _token = data.token;
 
       setToken(_token);

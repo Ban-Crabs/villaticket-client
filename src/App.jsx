@@ -14,8 +14,7 @@ import ConfirmOrder from "./components/ConfirmOrder/ConfirmOrder";
 import OrderSuccessful from "./components/OrderSuccessful/OrderSuccessful";
 import SearchResults from "./components/SearchResults/SearchResults";
 import EventListHolder from "./components/EventListHolder/EventListHolder";
-import SignIn from "./components/AuthForm/SignIn/SignIn";
-import Register from "./components/AuthForm/Register/Register";
+import AuthView from "./views/AuthView/AuthView";
 // import TempView from "./components/SysadminPermit/SysadminPermit"
 
 
@@ -25,7 +24,6 @@ function App() {
       <Header/>
       <Routes>
         <Route index element={<HomeView />} />
-        {/* <Route index element={<TempView />} /> */}
         <Route path="/profile/*" element={<AccountView/>}/>
         <Route path="/event" element={<EventDetails/>}/>
         <Route path="/event/list" element={<EventListHolder/>}/>
@@ -33,8 +31,7 @@ function App() {
         <Route path="/confirm-order" element={<ConfirmOrder/>}/>
         <Route path="/place-order" element={<OrderSuccessful/>}/>
         <Route path="/search" element={<SearchResults/>}/>
-        <Route path="/login" element={<SignIn/>}/>
-        <Route path="/register" element={<Register/>}/>
+        <Route path="/auth/*" element={<AuthView/>}/>
         {/*
           SEARCH
           BUY

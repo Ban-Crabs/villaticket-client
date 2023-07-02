@@ -1,25 +1,22 @@
-// EventList
-import style from "./EventList.module.scss";
+import { useState, useEffect } from 'react';
+import { useUserContext } from '../../../contexts/UserContext';
+import style from './EventHistoryList.module.scss';
+import EventHistoryCard from './EventHistoryCard/EventHistoryCard';
+import Pagination from '../../Pagination/Pagination';
+import axios from 'axios';
 
-import EventCard from "./EventCard/EventCard";
-import { useUserContext } from "../../../contexts/UserContext";
-import { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
-import Pagination from "../../Pagination/Pagination";
-
-const EventList = props => {
-    const { path } = props
-    const { token } = useUserContext();
-    const [events, setEvents] = useState([]);
+const EventHistoryList = () => {
+    const { token, user } = useUserContext();
+    const [attendances, setAttendances] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalElements, setTotalElements] = useState(0);
+    const path = `/user/${user.username}/attendance`;
     let pageSize = 5;
 
     const fetchEvents = async (path) => {
         try {
             const { data } = await axios.get(`${path}`, {headers: { Authorization: `Bearer ${token}` }});
-            setEvents(data.content);
+            setAttendances(data.content);
             setTotalElements(data.totalElements);
         } catch (error) {
             console.log(error);
@@ -37,14 +34,14 @@ const EventList = props => {
     }
 
     useEffect(() => {
-        if(events.length === 0)
+        if(attendances.length === 0)
             fetchEventsByPage(1);
     }, [])
 
     return (
         <div className={style["events-container"]}>
-            {events.map((event) => {
-                return <EventCard event={event} key={event.id} />
+            {attendances.map((att) => {
+                return <EventHistoryCard attendance={att} key={att.id} />
             })}
 
             <Pagination
@@ -59,4 +56,4 @@ const EventList = props => {
     )
 }
 
-export default EventList;
+export default EventHistoryList;
