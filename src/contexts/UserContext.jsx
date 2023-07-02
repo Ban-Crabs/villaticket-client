@@ -105,27 +105,6 @@ export const UserContextProvider = (props) => {
     setUser(null);
   }
 
-  const register = async (username, email) => {
-    //startLoading();
-    try {
-      await axios.post("/user/register", { username, email }, {headers: {'Content-Type': 'multipart/form-data'}});
-    } catch (error) {
-
-      const { status } = error.response || { status: 500 };
-      const msgs = {
-        "400": "Wrong Fields",
-        "409": "User already exists",
-        "500": "Unexpected error"
-      }
-
-      toast.error(msgs[String(status)]);
-
-    } /* finally {
-      //stopLoading();
-    } */
-  }
-
-  /*
   const register = async (username, email, password) => {
     //startLoading();
     try {
@@ -142,7 +121,7 @@ export const UserContextProvider = (props) => {
       toast.error(msgs[String(status)]);
 
     } // finally {stopLoading();} 
-  } */
+  }
 
   const state = {
     token,

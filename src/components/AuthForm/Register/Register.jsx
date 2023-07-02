@@ -9,12 +9,18 @@ const Register = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await register(username, email);
-        navigate("/auth/login");
+        try{
+            await register(username, email, password);
+            navigate("/auth/login");
+        }
+        catch(error){
+            setError("Register is diabled")
+        }
     }
 
     const googleLogin = useGoogleLogin({
@@ -27,6 +33,10 @@ const Register = () => {
         navigate("/auth/login");
     }
 
+    const hasError = () => {
+        return error !== "";
+    }
+
     return(
         <section>
             <div className={style["container"]}>
@@ -34,6 +44,7 @@ const Register = () => {
                     <h1>Villa Ticket</h1>
                     <h3>SIGN IN</h3>
                     <p className={style["form-title"]}>Enter your credentials to access your account</p>
+                    <p className={style["form-title"]} hidden={!hasError()}>{error}</p>
                     <div className={style["input-container"]}>
                         <input placeholder="Enter username" type="text" value={username} onChange={({target}) => setUsername(target.value)}/>
                     </div>

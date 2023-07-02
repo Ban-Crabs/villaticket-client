@@ -26,7 +26,6 @@ const SignIn = () => {
 
     const googleLogin = useGoogleLogin({
         onSuccess: tokenResponse => console.log(tokenResponse),
-        ux_mode: "redirect",
       });
     
     
