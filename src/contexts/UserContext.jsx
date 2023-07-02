@@ -125,6 +125,25 @@ export const UserContextProvider = (props) => {
     } */
   }
 
+  /*
+  const register = async (username, email, password) => {
+    //startLoading();
+    try {
+      await axios.post("/user/traditionalRegister", { username, email, password }, {headers: {'Content-Type': 'multipart/form-data'}});
+    } catch (error) {
+
+      const { status } = error.response || { status: 500 };
+      const msgs = {
+        "400": "Wrong Fields",
+        "409": "User already exists",
+        "500": "Unexpected error"
+      }
+
+      toast.error(msgs[String(status)]);
+
+    } // finally {stopLoading();} 
+  } */
+
   const state = {
     token,
     user,
