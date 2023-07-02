@@ -78,7 +78,7 @@ export const UserContextProvider = (props) => {
   const login = async (username, password) => {
     //startLoading();
     try {
-      const { data } = await axios.post("/user/login", { username, password }, {headers: {'Content-Type': 'multipart/form-data'}});
+      const { data } = await axios.post("/user/login", { 'id':`${username}`, password }, {headers: {'Content-Type': 'multipart/form-data'}});
       const _token = data.token;
 
       setToken(_token);
@@ -105,10 +105,10 @@ export const UserContextProvider = (props) => {
     setUser(null);
   }
 
-  const register = async (username, email, password) => {
+  const register = async (username, email) => {
     //startLoading();
     try {
-      await axios.post("/user/register", { username, email, password }, {headers: {'Content-Type': 'multipart/form-data'}});
+      await axios.post("/user/register", { username, email }, {headers: {'Content-Type': 'multipart/form-data'}});
     } catch (error) {
 
       const { status } = error.response || { status: 500 };
