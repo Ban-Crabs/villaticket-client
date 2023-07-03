@@ -22,8 +22,7 @@ const Header = () => {
 
     return(
         <section>
-            {user !== null 
-            ? <div className={style["header-container"]}>
+            <div className={style["header-container"]}>
                 <div onClick={() => navigate("/")}>
                     <h1>villaticket</h1>
                 </div>
@@ -35,19 +34,6 @@ const Header = () => {
                     <PersonIcon onClick={handleProfile} fontSize="large"/>
                 </div>
             </div>
-            : <div className={style["header-container"]}>
-            <div onClick={() => navigate("/")}>
-                <h1>villaticket</h1>
-            </div>
-            <div className={style["search-bar"]} >
-                <p contentEditable>Search</p>
-                <SearchIcon onClick={handleSearch} className={style["search-icon"]}/>
-            </div>
-            <div className={style["icon-container"]}>
-                <PersonIcon onClick={handleProfile} fontSize="large"/>
-            </div>
-        </div> 
-            }
         </section>
     )
 }
