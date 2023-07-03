@@ -2,7 +2,7 @@ import style from "./AccountPage.module.scss";
 
 import nextSvg from "../../assets/next.svg";
 import { useNavigate } from "react-router-dom";
-import useUserContext  from "../../contexts/UserContext";
+import { useUserContext }  from "../../contexts/UserContext";
 import { useState } from "react";
 import axios from "axios";
 
@@ -14,7 +14,6 @@ const AccountPage = () => {
     const [oldPassword, setOldPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [reNewPassword, setReNewPassword] = useState("");
-
 
     const hasRole = (role) => {
         return roles.includes(role);
@@ -48,7 +47,7 @@ const AccountPage = () => {
     }
 
     return (
-        <>
+        <section>
             <div className={style["container"]}>
 
                 {/* LEFT SECTION */}
@@ -125,12 +124,10 @@ const AccountPage = () => {
 
                             <button type="button" onClick={onPasswordChange}>Change Password</button>
                         </form>
-
                     </div>
                 </div>
-
             </div>
-        </>
+        </section>
     )
 }
 

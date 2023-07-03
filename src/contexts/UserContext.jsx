@@ -29,12 +29,20 @@ export const UserContextProvider = (props) => {
   //Efecto para verificar el usuario
   useEffect(() => {
     //Obtener la info del usuario
-    fetchUserInfo();
+    const _user = getUserLS();
+
+    if (_user) {
+      setUser(_user);
+    }
   }, [token])
 
   useEffect(() => {
     //Obtener los roles del usuario
-    fetchRoles();
+    const _roles = getRolesLS();
+
+    if (_roles) {
+      setRoles(_roles);
+    }
   }, [user])
 
   const fetchUserInfo = async () => {
@@ -47,7 +55,7 @@ export const UserContextProvider = (props) => {
       const head = {headers: {'Authorization': `Bearer ${token}`}}
       const { data } = await axios.get("/user/whoami", head);
       setUser(data);
-
+      setUserLS(data);
     } catch (error) {
       logout();
     } /* finally {
@@ -65,6 +73,7 @@ export const UserContextProvider = (props) => {
       const head = {headers: {'Authorization': `Bearer ${token}`}}
       const { data } = await axios.get(`/user/${data.username}/privilege`, head);
       setRoles(data);
+      setRolesLS(data);
     } catch (error) {
       logout();
     } /* finally {
@@ -83,6 +92,8 @@ export const UserContextProvider = (props) => {
 
       setToken(_token);
       setTokenLS(_token);
+      fetchUserInfo();
+      fetchRoles();
       //Guardar el LS nuestro token
     } catch (error) {
       const { status } = error.response || { status: 500 };
@@ -101,8 +112,8 @@ export const UserContextProvider = (props) => {
 
   const logout = () => {
     removeTokenLS();
-    setToken(null);
-    setUser(null);
+    removeUserLS();
+    removeRolesLS();
   }
 
   const register = async (username, email, password) => {
@@ -137,7 +148,7 @@ export const UserContextProvider = (props) => {
 
 export const useUserContext = () => {
   const context = React.useContext(UserContext);
-
+  
   if (!context) {
     throw new Error("useUserContext must be call inside of a UserContextProvider component");
   }
@@ -148,3 +159,9 @@ export const useUserContext = () => {
 const setTokenLS = (token) => localStorage.setItem(TOKEN_KEY, token);
 const getTokenLS = () => localStorage.getItem(TOKEN_KEY);
 const removeTokenLS = () => localStorage.removeItem(TOKEN_KEY);
+const setUserLS = (user) => localStorage.setItem("user", JSON.stringify(user));
+const getUserLS = () => JSON.parse(localStorage.getItem("user"));
+const removeUserLS = () => localStorage.removeItem("user");
+const setRolesLS = (roles) => localStorage.setItem("roles", JSON.stringify(roles));
+const getRolesLS = () => JSON.parse(localStorage.getItem("roles"));
+const removeRolesLS = () => localStorage.removeItem("roles");

@@ -1,17 +1,16 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import SignIn from "../../components/AuthForm/SignIn/SignIn";
 import Register from "../../components/AuthForm/Register/Register";
 import { useUserContext } from "../../contexts/UserContext";
 import { useEffect } from "react";
-import { useHistory } from "react";
 
 const AuthView = () => {
     const { user } = useUserContext();
-    const history = useHistory;
+    const nav = useNavigate();
 
     useEffect(() => {
-        if (user) {
-            history.goBack();
+        if (user !== null) {
+            nav("/");
         }
     }, [user])
 

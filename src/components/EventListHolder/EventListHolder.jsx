@@ -9,10 +9,10 @@ const EventListHolder = () => {
     const navigate = useNavigate();
     
     useEffect(() => {
-        if (!token) {
+        if (token == null) {
             navigate('/auth/login');
         }
-    }, [])
+    }, [token])
 
     const checkRole = (role) => {
         if(!roles) return false;
