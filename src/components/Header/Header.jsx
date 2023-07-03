@@ -7,7 +7,7 @@ import { getUserLS } from "../../contexts/UserContext";
 
 const Header = () => {
     const navigate = useNavigate();
-    const {user} = getUserLS();
+    const user = getUserLS();
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -16,24 +16,25 @@ const Header = () => {
 
     const handleProfile = (e) => {
         e.preventDefault();
-        if(user) navigate("/profile");
+        if(user !== null) navigate("/profile");
         else navigate("/auth/login");
     }
 
     return(
-        <div className={style["header-container"]}>
-            <div onClick={() => navigate("/")}>
-                <h1>villaticket</h1>
+        <section>
+            <div className={style["header-container"]}>
+                <div onClick={() => navigate("/")}>
+                    <h1>villaticket</h1>
+                </div>
+                <div className={style["search-bar"]} >
+                    <p contentEditable>Search</p>
+                    <SearchIcon onClick={handleSearch} className={style["search-icon"]}/>
+                </div>
+                <div className={style["icon-container"]}>
+                    <PersonIcon onClick={handleProfile} fontSize="large"/>
+                </div>
             </div>
-            <div className={style["search-bar"]} >
-                
-                <p contentEditable>Search</p>
-                <SearchIcon onClick={handleSearch} className={style["search-icon"]}/>
-            </div>
-            <div className={style["icon-container"]}>
-                <PersonIcon onClick={handleProfile} fontSize="large"/>
-            </div>  
-        </div>
+        </section>
     )
 }
 
