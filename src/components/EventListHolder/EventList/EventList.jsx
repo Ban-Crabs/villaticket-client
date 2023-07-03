@@ -37,7 +37,7 @@ const EventList = props => {
     }
 
     useEffect(() => {
-        if(events.length === 0)
+        if(events !== null && events.length === 0)
             fetchEventsByPage(1);
     }, [])
 

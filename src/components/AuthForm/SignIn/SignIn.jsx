@@ -16,6 +16,7 @@ const SignIn = () => {
         console.log("submitted");
         e.preventDefault();
         await login(identifier, password);
+        navigate("/");
     }
 
     const handleGoogleLogin = (e) => {
