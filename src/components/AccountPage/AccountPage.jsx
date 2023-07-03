@@ -2,12 +2,15 @@ import style from "./AccountPage.module.scss";
 
 import nextSvg from "../../assets/next.svg";
 import { useNavigate } from "react-router-dom";
-import { useUserContext }  from "../../contexts/UserContext";
+import { getRolesLS, getTokenLS, getUserLS }  from "../../contexts/UserContext";
 import { useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 
 const AccountPage = () => {
-    const {token, user, roles} = useUserContext();
+    const token = getTokenLS();
+    const user = getUserLS();
+    const roles = getRolesLS();
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -16,8 +19,18 @@ const AccountPage = () => {
     const [reNewPassword, setReNewPassword] = useState("");
 
     const hasRole = (role) => {
-        return roles.includes(role);
+        let ans = false;
+        roles.forEach(r => {
+            if(r.name === role) ans = true;
+        })
+        return ans;
     }
+
+    useEffect(() => {
+        if(token == null || user == null || roles.length === 0){
+            navigate("/auth/login");
+        }
+    }, [token, user, roles])
 
     const handleUpdate = async(e) => {
         e.preventDefault();
@@ -49,7 +62,6 @@ const AccountPage = () => {
     return (
         <section>
             <div className={style["container"]}>
-
                 {/* LEFT SECTION */}
                 <div className={style["other-options-container"]}>
                     

@@ -1,7 +1,7 @@
 import style from "./EventHistoryCard.module.scss";
 import defaultImg from '../../../../assets/warriors-stadium.jpg'
 import nextSvg from '../../../../assets/next.svg'
-import { useUserContext } from "../../../../contexts/UserContext";
+import { getRolesLS } from "../../../../contexts/UserContext";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ import axios from "axios";
 
 const EventHistoryCard = props => {
     const { attendance } = props;
-    const { roles } = useUserContext();
+    const roles = getRolesLS();
     const [eventImg, setEventImg] = useState([]);
     const navigate = useNavigate();
     let dateComponents = {};

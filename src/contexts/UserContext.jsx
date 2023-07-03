@@ -46,14 +46,15 @@ export const UserContextProvider = (props) => {
   }, [user])
 
   const fetchUserInfo = async () => {
-    if (!token) {
-      return;
-    }
+    const _token = getTokenLS();
+
+    if(!_token) return;
 
     //startLoading();
     try {
-      const head = {headers: {'Authorization': `Bearer ${token}`}}
+      const head = {headers: {'Authorization': `Bearer ${_token}`}}
       const { data } = await axios.get("/user/whoami", head);
+      console.log(data);
       setUser(data);
       setUserLS(data);
     } catch (error) {
@@ -64,14 +65,16 @@ export const UserContextProvider = (props) => {
   }
 
   const fetchRoles = async () => {
-    if (!user) {
-      return;
-    }
+    const _token = getTokenLS();
+    const _user = getUserLS();
+
+    if(!_user || !_token) return;
 
     //startLoading();
     try {
-      const head = {headers: {'Authorization': `Bearer ${token}`}}
-      const { data } = await axios.get(`/user/${data.username}/privilege`, head);
+      const head = {headers: {'Authorization': `Bearer ${_token}`}}
+      const { data } = await axios.get(`/user/${_user.username}/privilege`, head);
+      console.log(data);
       setRoles(data);
       setRolesLS(data);
     } catch (error) {
@@ -88,12 +91,13 @@ export const UserContextProvider = (props) => {
     //startLoading();
     try {
       const { data } = await axios.post("/user/login", { id, password }, {headers: {'Content-Type': 'multipart/form-data'}});
+      console.log(data);
       const _token = data.token;
 
       setToken(_token);
       setTokenLS(_token);
-      fetchUserInfo();
-      fetchRoles();
+      await fetchUserInfo();
+      await fetchRoles();
       //Guardar el LS nuestro token
     } catch (error) {
       const { status } = error.response || { status: 500 };
@@ -157,11 +161,11 @@ export const useUserContext = () => {
 }
 
 const setTokenLS = (token) => localStorage.setItem(TOKEN_KEY, token);
-const getTokenLS = () => localStorage.getItem(TOKEN_KEY);
+export const getTokenLS = () => localStorage.getItem(TOKEN_KEY);
 const removeTokenLS = () => localStorage.removeItem(TOKEN_KEY);
 const setUserLS = (user) => localStorage.setItem("user", JSON.stringify(user));
-const getUserLS = () => JSON.parse(localStorage.getItem("user"));
+export const getUserLS = () => JSON.parse(localStorage.getItem("user"));
 const removeUserLS = () => localStorage.removeItem("user");
 const setRolesLS = (roles) => localStorage.setItem("roles", JSON.stringify(roles));
-const getRolesLS = () => JSON.parse(localStorage.getItem("roles"));
+export const getRolesLS = () => JSON.parse(localStorage.getItem("roles"));
 const removeRolesLS = () => localStorage.removeItem("roles");

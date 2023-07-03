@@ -1,11 +1,12 @@
-import { useUserContext } from '../../contexts/UserContext';
+import { getTokenLS, getRolesLS } from '../../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import style from './EventListHolder.module.scss';
 import EventList from './EventList/EventList';
 
 const EventListHolder = () => {
-    const { token, roles } = useUserContext();
+    const token = getTokenLS();
+    const roles = getRolesLS();
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -15,13 +16,16 @@ const EventListHolder = () => {
     }, [token])
 
     const checkRole = (role) => {
-        if(!roles) return false;
-        return roles.includes(role);
+        let ans = false;
+        roles.forEach(r => {
+            if(r.name === role) ans = true;
+        })
+        return ans;
     }
 
     return (
         <section>
-            {!roles 
+            {!(roles.length === 0) 
             ? <div className={style["wrapper"]}>
                 <div className={style["heading"]}>
                     <h1>Your Events</h1>

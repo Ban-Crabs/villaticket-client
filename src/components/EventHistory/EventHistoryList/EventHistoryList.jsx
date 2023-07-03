@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
-import { useUserContext } from '../../../contexts/UserContext';
+import { getTokenLS, getUserLS } from '../../../contexts/UserContext';
 import style from './EventHistoryList.module.scss';
 import EventHistoryCard from './EventHistoryCard/EventHistoryCard';
 import Pagination from '../../Pagination/Pagination';
 import axios from 'axios';
 
 const EventHistoryList = () => {
-    const { token, user } = useUserContext();
+    const token = getTokenLS();
+    const user = getUserLS();
     const [attendances, setAttendances] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalElements, setTotalElements] = useState(0);

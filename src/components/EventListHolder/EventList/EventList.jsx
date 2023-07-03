@@ -2,7 +2,7 @@
 import style from "./EventList.module.scss";
 
 import EventCard from "./EventCard/EventCard";
-import { useUserContext } from "../../../contexts/UserContext";
+import { getTokenLS } from "../../../contexts/UserContext";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
@@ -10,7 +10,7 @@ import Pagination from "../../Pagination/Pagination";
 
 const EventList = props => {
     const { path } = props
-    const { token } = useUserContext();
+    const token = getTokenLS();
     const [events, setEvents] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalElements, setTotalElements] = useState(0);

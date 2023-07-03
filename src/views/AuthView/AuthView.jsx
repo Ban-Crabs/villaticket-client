@@ -1,18 +1,20 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import SignIn from "../../components/AuthForm/SignIn/SignIn";
 import Register from "../../components/AuthForm/Register/Register";
-import { useUserContext } from "../../contexts/UserContext";
+import { getRolesLS, getTokenLS, getUserLS } from "../../contexts/UserContext";
 import { useEffect } from "react";
 
 const AuthView = () => {
-    const { user } = useUserContext();
+    const token = getTokenLS();
+    const user = getUserLS();
+    const roles = getRolesLS();
     const nav = useNavigate();
 
     useEffect(() => {
-        if (user !== null) {
+        if (token !== null && user !== null && roles.length > 0) {
             nav("/");
         }
-    }, [user])
+    }, [token, user, roles])
 
     return (
         <>
