@@ -1,0 +1,208 @@
+@import '../../variables.scss';
+
+* {
+    background-color: $theme-background-color;
+    font-family: $theme-font-family;
+}
+
+::placeholder {
+    color: $theme-place-holder-color;
+    font-weight: 100;
+}
+
+.container {
+    display: flex;
+    background-color: $theme-background-color;
+    padding: 3rem;
+    height: 80vh;
+}
+
+.billing-info-container,
+.event-details-container {
+    padding: 1rem;
+    width: 45%;
+}
+
+.separation {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0 0.3rem 0;
+    background-color: $theme-background-color;
+
+    li {
+        background-color: $theme-background-color;
+    }
+}
+
+.divider {
+    border-bottom: 1px dashed $theme-primary-color;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.svg {
+    margin-right: 0.5rem;
+    width: 0.8rem;
+    height: auto;
+}
+
+// LEFT  SECTION
+
+.billing-info-container {
+    h1 {
+        margin-left: 1rem;
+        font-size: 1.8rem;
+    }
+}
+
+.warning-card,
+.billing-info-form,
+.review-order-btn {
+    padding: 1rem;
+}
+
+.billing-info-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-right: 20%;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        
+        justify-content: space-between;
+        height: 100%;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: 100%;
+
+            li {
+                width: 50%;
+                padding-right: 3rem;
+
+                input {
+                    margin-left: 1rem;
+                }
+            }
+        }
+
+        ul,
+        li {
+            background-color: $theme-background-color;
+
+            &:hover {
+                cursor: default;
+                text-decoration: none;
+            }
+        }
+
+        label {
+            font-size: 0.9rem;
+            padding-bottom: 0.5rem;
+        }
+
+        input {
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            background-color: $color-white;
+            color: $color-black;
+            font-size: 0.8rem;
+            transition: border 0.3s ease;
+
+            &:focus {
+                outline: none;
+                border: 1px solid $theme-primary-color-light;
+            }
+        }
+    }
+}
+
+.warning-card {
+    padding-right: 20%;
+
+    p {
+        font-size: 0.8rem;
+        color: $theme-primary-color;
+        background-color: #fdd8c5;
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+}
+
+.review-order-btn {
+    margin-top: -3rem;
+    button {
+        color: $color-white;
+        font-size: 0.8rem;
+        width: 30%;
+        height: 2.5rem;
+        background-color: $theme-primary-color;
+        box-shadow: $theme-drop-shadow;
+        border: none;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $theme-primary-color-light;
+        }
+    }
+}
+
+// RIGHT SECTION
+
+.event-details-container {
+    h2 {
+        font-weight: 600;
+        padding-bottom: 0.1rem;
+    }
+
+    h3 {
+        display: flex;
+        align-items: flex-start;
+        justify-content: left;
+        font-weight: 500;
+        padding-bottom: 0.1rem;
+    }
+
+    h4 {
+        font-weight: 200;
+        font-size: 0.9rem;
+    }
+}
+
+
+.event-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.event-details-img {
+    width: 50%;
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: auto;
+        border-radius: 0.5rem;
+        box-shadow: $theme-drop-shadow;
+    }
+}
+
+.your-order-container {
+    padding-top: 1rem;
+
+    h3 {
+        padding-bottom: 0.5rem;
+    }
+}

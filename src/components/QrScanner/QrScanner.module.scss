@@ -1,0 +1,110 @@
+@import '../../variables.scss';
+
+// GENERAL
+* {
+    background-color: $theme-background-color;
+    font-family: $theme-font-family;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+}
+
+input {
+    width: 50%;
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: $color-white;
+    border: none;
+    border-radius: 0.5rem;
+
+    &:focus {
+        outline: none;
+        padding: 1rem;
+        border: 1px solid $theme-primary-color;
+        box-shadow: $theme-drop-shadow;
+    }
+}
+
+button {
+    width: 25%;
+    padding: 2rem;
+    font-size: 1rem;
+    color: $color-white;
+    background-color: $theme-green-color-light;
+    box-shadow: none;
+    padding-top: 1rem;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $theme-green-color;
+    }
+}
+p {
+    font-weight: 200;
+}
+
+img {
+    border-radius: 0.5rem;
+    box-shadow: $theme-drop-shadow;
+}
+
+// TOP SECTION
+.verify-qr-container {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 1px solid $theme-text-color;
+}
+
+.qr-reader {
+    height: 30vh;
+    width: 25%;
+    background-color: $theme-place-holder-color;
+    margin-bottom: 1rem;
+}
+
+// BOTTOM SECTION
+.event-details-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+}
+
+.event-info {
+    display: flex;
+
+    h2 {
+        padding-bottom: 0.5rem;
+    }
+
+    & > div {
+        padding: 0 1rem;
+    }
+}
+
+.img-wrapper {
+    padding-bottom: 0.5rem;
+    img {
+        width: 15rem;
+    }
+}
+
+.event-heading {
+    h2 {
+        padding-bottom: 2rem;
+    }
+}
+
+.event-title {
+    p {
+        text-align: left;
+        padding-bottom: 0.5rem;
+    }
+}

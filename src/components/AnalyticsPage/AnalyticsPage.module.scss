@@ -1,0 +1,155 @@
+@import '../../variables.scss';
+
+// GENERAL
+* {
+    font-family: $theme-font-family;
+}
+
+.container {
+    padding: 3rem;
+    display: flex;
+    height: 85vh;
+}
+
+p {
+    font-weight: 200;
+    text-align: left;
+}
+
+//  LEFT SECTION
+.left-section {
+    width: 30%;
+    padding-right: 2rem;
+    padding-top: 0.5rem;
+
+    h1,
+    p {
+        padding-top: 0.5rem;
+    }
+
+    p {
+        padding-bottom: 0.5rem;
+    }
+
+    border-right: 1px solid $theme-place-holder-color;
+}
+
+.square {
+    width: 100%;
+    height: 40vh;
+    margin-bottom: 0.5rem;
+    background-color: $theme-place-holder-color;
+}
+
+.dropdown-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.drop-btn {
+    width: 100%;
+    padding: 2rem;
+    font-size: 0.8rem;
+    background-color: $color-white;
+    border: 1px solid $color-black;
+    padding-top: 1rem;
+    box-shadow: none;
+    cursor: pointer;
+
+    &:hover {
+        color: $color-white;
+    }
+}
+
+.dropdown-content {
+    border-radius: 0.5rem;
+    position: absolute;
+    display: none;
+    width: 90%;
+    border: 1px solid $color-black;
+    background-color: $color-white;
+    padding: 5px;
+    z-index: 999;
+}
+
+.dropdown-content a {
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: $color-black;
+    text-decoration: none;
+    background-color: $color-white;
+}
+
+.dropdown-content {
+
+    a:hover {
+        border: 1px solid $theme-primary-color;
+    }
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+
+// RIGHT SECTION
+.right-section {
+    width: 40%;
+    padding-left: 1rem;
+}
+
+.data-info,
+.locale-frequencies,
+.schedule-frequencies {
+    margin-bottom: 1rem;
+
+    * {
+        background-color: $theme-background-color;
+    }
+}
+
+.data-info {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20%;
+
+    ul {
+        li {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+    }
+}
+
+.locale-frequencies {
+    h3 {
+        font-size: 1.3rem;
+        text-align: left;
+    }
+
+    ul {
+        li {
+            padding-left: 1rem;
+        }
+    }
+}
+
+.schedule-frequencies {
+    h3 {
+        font-size: 1.3rem;
+        text-align: left;
+    }
+
+    ul {
+        li {
+            padding-left: 1rem;
+        }
+    }
+}

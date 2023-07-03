@@ -1,0 +1,117 @@
+@import '../../variables.scss';
+
+// HEADING DESIGN
+.heading {
+    background-color: $theme-background-color;
+    font-family: $theme-font-family;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3rem 3rem 0 3rem;
+
+    h5 {
+        font-weight: 200;
+    }
+
+    p {
+        font-weight: 300;
+    }
+
+}
+
+.divider {
+    height: 1px;
+    margin: 1rem 3rem;
+    border: 1px dashed $theme-text-color;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 65vh;
+    font-family: $theme-font-family;
+    background-color: $theme-background-color;
+}
+
+// CARD DESIGN
+.card-list-container {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 95%;
+}
+
+.card-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    overflow: hidden;
+    background-color: $color-white;
+    border-radius: 15px;
+    transition: 0.5s;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+
+    &:hover {
+        transform: scale(1.01);
+        box-shadow: 0px 0px 10px 0px;
+    }
+}
+
+.card-item-info {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    background-color: $color-white;
+}
+
+.card-item-date-info {
+    margin-right: 1.5rem;
+}
+
+.card-item-date-info,
+.card-item-event-info {
+    * {
+        background-color: $color-white;
+    }
+    
+    h4 {
+        font-weight: 400;
+    }
+
+    h5 {
+        font-weight: 200;
+    }
+}
+
+// BUTTON DESIGN
+.button-container {
+    border-radius: 0.5rem;
+    height: fit-content;
+    background-color: $color-white;
+}
+
+button {
+    width: 100%;
+    padding: 2rem;
+    font-size: 0.8rem;
+    background-color: $theme-primary-color-light;
+    padding-top: 1rem;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $theme-primary-color;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .card-item-date-info {
+        padding-bottom: 0.5rem;
+        background-color: $color-white;
+    }
+
+    .button-container {
+        margin-top: 1.5rem;
+    }
+  }

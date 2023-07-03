@@ -1,0 +1,141 @@
+@import '../../variables.scss';
+
+// GENERAL
+* {
+    background-color: $theme-background-color;
+    font-family: $theme-font-family;
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+
+    li:hover {
+        cursor: default;
+        text-decoration: none;
+    }
+}
+
+// STYLES
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    height: 80vh;
+}
+
+.heading {
+
+    h1 {
+        padding: 0.5rem 0;
+    }
+
+    h5 {
+        font-weight: 200;
+    }
+
+    p {
+        font-weight: 300;
+    }
+
+    .divider {
+        border: 0.5px dashed grey;
+    }
+}
+
+.titles {
+    width: 60%;
+    padding-left: 3rem;
+
+    .list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0 0 0;
+
+        li {
+            font-weight: 700;
+
+            &:first-child {
+                padding-right: 10%;
+            }
+        }
+    }
+
+    * {
+        background-color: $theme-background-color;
+    }
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.card-item {
+    * {
+        background-color: $color-white;
+    }
+
+    background-color: $color-white;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    padding: 2rem;
+    border-radius: 0.5rem;
+
+    &:hover {
+        box-shadow: $theme-drop-shadow;
+        transition: 0.3s ease-in-out;
+    }
+}
+
+.card-item-info {
+    width: 65%;
+
+    .list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        li {
+            &:first-child {
+                font-weight: 600;
+            }
+
+            &:last-child {
+                display: flex;
+                align-items: center;
+
+                .card-item-btn {
+                    padding-left: 1rem;
+
+                    button {
+                        background-color: $theme-blue-color-dark;
+
+                        &:hover {
+                            background-color: $theme-blue-color-light;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.card-item-btn {
+    button {
+        width: 100%;
+        padding: 2rem;
+        font-size: 0.8rem;
+        background-color: $theme-blue-color-light;
+        box-shadow: none;
+        padding-top: 1rem;
+    
+        &:hover {
+            cursor: pointer;
+            background-color: $theme-blue-color-dark;
+        }
+    }
+}

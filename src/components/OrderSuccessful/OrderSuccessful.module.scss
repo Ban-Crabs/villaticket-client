@@ -1,0 +1,125 @@
+@import '../../_variables.scss';
+
+* {
+    letter-spacing: 0.5px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: $theme-font-family;
+    background-color: $theme-background-color;
+
+    .success-message {
+        padding-bottom: 2rem;
+
+        h1 {
+            background-color: white;
+            border: 1px solid $theme-primary-color;
+            border-radius: 0.4rem;
+            box-shadow: $theme-drop-shadow;
+            gap: 1rem;
+            padding: 1rem 2.5rem;
+            color: $theme-primary-color;
+            font-weight: 700;
+            font-size: 2.5rem;
+        }
+    }
+
+    .confirmation-message {
+        padding-bottom: 1.5rem;
+    }
+
+    .error-message {
+        padding-bottom: 1.5rem;
+    }
+
+    .underline {
+        margin-top: 0.3rem;
+        color: $theme-primary-color;
+    }
+
+    .underline:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .contact-container {
+        padding-bottom: 1.5rem;
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: $theme-primary-color;
+        margin-top: 0.3rem;
+
+        :hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+
+    .contact-info-cellphone, 
+    .contact-info-mail {
+        display: flex;
+        
+        img {
+            width: 1rem;
+            height: auto;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        p {
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        :hover{
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+
+    .contact-info-mail {
+        margin-left: 1rem;
+    }
+
+    button {
+        width: auto;
+        height: auto;
+        font-size: 1.5rem;
+        font-weight: 300;
+        padding: 0.5rem 1rem;
+        background-color: $theme-primary-color-light;
+        color: $color-white;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        border-radius: 1.5rem;
+        letter-spacing: 1px;
+
+        img {
+            width: 1.2rem;
+            height: auto;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+            background-color: $theme-primary-color-light;
+        }
+
+        &:hover {
+            background-color: $color-white;
+            color: $theme-primary-color;
+            box-shadow: $theme-drop-shadow;
+            border: 1px solid $theme-primary-color;
+            img {
+                background-color: $color-white;
+            }
+        }
+    }
+}
