@@ -54,7 +54,6 @@ export const UserContextProvider = (props) => {
     try {
       const head = {headers: {'Authorization': `Bearer ${_token}`}}
       const { data } = await axios.get("/user/whoami", head);
-      console.log(data);
       setUser(data);
       setUserLS(data);
     } catch (error) {
@@ -73,8 +72,7 @@ export const UserContextProvider = (props) => {
     //startLoading();
     try {
       const head = {headers: {'Authorization': `Bearer ${_token}`}}
-      const { data } = await axios.get(`/user/${_user.username}/privilege`, head);
-      console.log(data);
+      const { data } = await axios.get(`/user/privilege`, head);
       setRoles(data);
       setRolesLS(data);
     } catch (error) {
@@ -156,7 +154,6 @@ export const useUserContext = () => {
   if (!context) {
     throw new Error("useUserContext must be call inside of a UserContextProvider component");
   }
-
   return context;
 }
 
