@@ -21,7 +21,7 @@ export const UserContextProvider = (props) => {
   useEffect(() => {
     const _token = getTokenLS();
 
-    if (_token) {
+    if (_token !== null) {
       setToken(_token);
     }
   }, []);
@@ -31,7 +31,7 @@ export const UserContextProvider = (props) => {
     //Obtener la info del usuario
     const _user = getUserLS();
 
-    if (_user) {
+    if (_user !== null) {
       setUser(_user);
     }
   }, [token])
@@ -40,7 +40,7 @@ export const UserContextProvider = (props) => {
     //Obtener los roles del usuario
     const _roles = getRolesLS();
 
-    if (_roles) {
+    if (_roles !== null) {
       setRoles(_roles);
     }
   }, [user])
