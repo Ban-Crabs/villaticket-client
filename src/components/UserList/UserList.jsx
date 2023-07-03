@@ -1,5 +1,5 @@
 // SysadminUserList
-import style from "./SysadminUserList.module.scss";
+import style from "./UserList.module.scss";
 
 
 const SysadminUserList = () => {

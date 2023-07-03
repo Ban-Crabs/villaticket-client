@@ -1,0 +1,53 @@
+@import '../../variables.scss';
+
+* {
+    letter-spacing: 0.5px;
+    background-color: $theme-background-color;
+}
+
+.wrapper {
+    height: 80vh;
+}
+
+.heading {
+    background-color: $theme-background-color;
+    font-family: $theme-font-family;
+    display: flex;
+    align-items: center;
+    padding: 5rem 3rem 0.5rem 3rem;
+
+    h1 {
+        padding-right: 1rem;
+    }
+
+    .event-card-info-btn {
+        background-color: $theme-background-color;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 3rem 3rem 3rem;
+    font-family: $theme-font-family;
+    background-color: $theme-background-color;
+}
+
+.event-heading {
+    padding-top: 1rem;
+    font-weight: 600;
+}
+
+.user-events {
+    h2 {
+        align-items: flex-start;
+        width: 100%;
+        padding-bottom: 2rem;
+    }
+}
+
+.add-event{
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 1rem;
+}

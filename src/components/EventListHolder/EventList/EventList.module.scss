@@ -1,0 +1,17 @@
+@import '../../../variables.scss';
+
+* {
+    letter-spacing: 0.5px;
+    background-color: $theme-background-color;
+}
+
+.events-container {
+    flex-direction: row;
+    width: 100%;
+}
+
+.pagination-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }

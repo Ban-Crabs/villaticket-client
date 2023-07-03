@@ -29,25 +29,34 @@ export const UserContextProvider = (props) => {
   //Efecto para verificar el usuario
   useEffect(() => {
     //Obtener la info del usuario
-    fetchUserInfo();
+    const _user = getUserLS();
+
+    if (_user) {
+      setUser(_user);
+    }
   }, [token])
 
   useEffect(() => {
     //Obtener los roles del usuario
-    fetchRoles();
+    const _roles = getRolesLS();
+
+    if (_roles) {
+      setRoles(_roles);
+    }
   }, [user])
 
   const fetchUserInfo = async () => {
-    if (!token) {
-      return;
-    }
+    const _token = getTokenLS();
+
+    if(!_token) return;
 
     //startLoading();
     try {
-      const head = {headers: {'Authorization': `Bearer ${token}`}}
+      const head = {headers: {'Authorization': `Bearer ${_token}`}}
       const { data } = await axios.get("/user/whoami", head);
+      console.log(data);
       setUser(data);
-
+      setUserLS(data);
     } catch (error) {
       logout();
     } /* finally {
@@ -56,15 +65,18 @@ export const UserContextProvider = (props) => {
   }
 
   const fetchRoles = async () => {
-    if (!user) {
-      return;
-    }
+    const _token = getTokenLS();
+    const _user = getUserLS();
+
+    if(!_user || !_token) return;
 
     //startLoading();
     try {
-      const head = {headers: {'Authorization': `Bearer ${token}`}}
-      const { data } = await axios.get(`/user/${data.username}/privilege`, head);
+      const head = {headers: {'Authorization': `Bearer ${_token}`}}
+      const { data } = await axios.get(`/user/${_user.username}/privilege`, head);
+      console.log(data);
       setRoles(data);
+      setRolesLS(data);
     } catch (error) {
       logout();
     } /* finally {
@@ -75,14 +87,17 @@ export const UserContextProvider = (props) => {
   //Función para login
   //Función para logout
   //Función para register
-  const login = async (username, password) => {
+  const login = async (id, password) => {
     //startLoading();
     try {
-      const { data } = await axios.post("/auth/login", { username, password }, {headers: {'Content-Type': 'multipart/form-data'}});
+      const { data } = await axios.post("/user/login", { id, password }, {headers: {'Content-Type': 'multipart/form-data'}});
+      console.log(data);
       const _token = data.token;
 
       setToken(_token);
       setTokenLS(_token);
+      await fetchUserInfo();
+      await fetchRoles();
       //Guardar el LS nuestro token
     } catch (error) {
       const { status } = error.response || { status: 500 };
@@ -101,14 +116,14 @@ export const UserContextProvider = (props) => {
 
   const logout = () => {
     removeTokenLS();
-    setToken(null);
-    setUser(null);
+    removeUserLS();
+    removeRolesLS();
   }
 
   const register = async (username, email, password) => {
     //startLoading();
     try {
-      await axios.post("/auth/signup", { username, email, password }, {headers: {'Content-Type': 'multipart/form-data'}});
+      await axios.post("/user/traditionalRegister", { username, email, password }, {headers: {'Content-Type': 'multipart/form-data'}});
     } catch (error) {
 
       const { status } = error.response || { status: 500 };
@@ -120,9 +135,7 @@ export const UserContextProvider = (props) => {
 
       toast.error(msgs[String(status)]);
 
-    } /* finally {
-      //stopLoading();
-    } */
+    } // finally {stopLoading();} 
   }
 
   const state = {
@@ -139,7 +152,7 @@ export const UserContextProvider = (props) => {
 
 export const useUserContext = () => {
   const context = React.useContext(UserContext);
-
+  
   if (!context) {
     throw new Error("useUserContext must be call inside of a UserContextProvider component");
   }
@@ -148,5 +161,11 @@ export const useUserContext = () => {
 }
 
 const setTokenLS = (token) => localStorage.setItem(TOKEN_KEY, token);
-const getTokenLS = () => localStorage.getItem(TOKEN_KEY);
+export const getTokenLS = () => localStorage.getItem(TOKEN_KEY);
 const removeTokenLS = () => localStorage.removeItem(TOKEN_KEY);
+const setUserLS = (user) => localStorage.setItem("user", JSON.stringify(user));
+export const getUserLS = () => JSON.parse(localStorage.getItem("user"));
+const removeUserLS = () => localStorage.removeItem("user");
+const setRolesLS = (roles) => localStorage.setItem("roles", JSON.stringify(roles));
+export const getRolesLS = () => JSON.parse(localStorage.getItem("roles"));
+const removeRolesLS = () => localStorage.removeItem("roles");

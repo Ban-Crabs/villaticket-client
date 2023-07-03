@@ -2,11 +2,6 @@
 
 * {
     letter-spacing: 0.5px;
-    background-color: $theme-background-color;
-}
-
-.wrapper {
-    height: 80vh;
 }
 
 .heading {
@@ -21,20 +16,18 @@
 .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 1rem 3rem 3rem 3rem;
+    height: 100vh;
     font-family: $theme-font-family;
     background-color: $theme-background-color;
+    padding: 0 3rem 3rem 3rem;
 }
 
-.event-heading {
+.event-heading { 
+    padding-top: 1rem;
     font-weight: 600;
 }
 
 .user-events {
-    width: 100%;
     h2 {
         align-items: flex-start;
         width: 100%;
@@ -42,8 +35,7 @@
     }
 }
 
-.upcoming-events-container,
-.past-events-container {
+.upcoming-events-container, .past-events-container {
     flex-direction: row;
     width: 100%;
 }
@@ -61,12 +53,13 @@
 
 .event-card-img {
     display: flex;
-    align-items: left;
-    padding-right: 1.5rem;
+    padding-right: 1rem;
 
     img {
         max-width: 100%;
         max-height: 100%;
+        display: block;
+        margin: auto;
         border-radius: 0.5rem;
     }
 }
@@ -79,6 +72,10 @@
     padding: 0 1.5rem;
     background-color: $color-white;
     border-radius: 0.5rem;
+
+    * {
+        background-color: $color-white;
+    }
 }
 
 .event-card-info-date {
@@ -86,75 +83,31 @@
     flex-direction: column;
     align-items: flex-start;
     font-weight: 400;
-    background-color: $color-white;
-
-    * {
-        background-color: $color-white;
-    }
 
     p {
         font-weight: 200;
     }
 }
 
-.event-btn-container {
-    background-color: $color-white;
-    margin-left: 45%;
-}
-
 .event-card-info-btn {
-    background-color: $color-white;
-    border-radius: 1rem;
-
-    margin-right: 0.5rem;
-
     button {
-        height: 1rem;
-        border: none;
-        padding: 0.8rem 1.5rem;
+        width: 100%;
+        padding: 2rem;
+        font-size: 0.8rem;
         background-color: $theme-blue-color-light;
-        box-shadow: $theme-drop-shadow;
-        border-radius: 1rem;
-        transition: background-color 0.3s ease;
-
+        box-shadow: none;
+        padding-top: 1rem;
+    
         &:hover {
             cursor: pointer;
             background-color: $theme-blue-color-dark;
         }
     }
-
-    .disable-event {
-        background-color: $theme-primary-color;
-        color: $color-white;
-
-        &:hover {
-            background-color: $theme-primary-color-light;
-        }
-    }
-
-    .scanner {
-        background-color: $theme-green-color;
-        color: $color-white;
-
-        &:hover {
-            background-color: $theme-green-color-light;
-        }
-    }
-
-    .edit-event {
-        background-color: $theme-yellow-color;
-
-        &:hover {
-            background-color: $theme-yellow-color-dark;
-        }
-    }
 }
 
 .event-card-info-svg {
-    background-color: $color-white;
-
+    
     img {
-        background-color: $color-white;
         width: 1rem;
         height: auto;
     }
@@ -163,4 +116,10 @@
         cursor: pointer;
         transform: scale(1.01);
     }
+}
+
+.add-event{
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 1rem;
 }

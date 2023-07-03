@@ -36,7 +36,7 @@ const UpcomingEvents = () => {
             </main>
             {/* LOAD MORE EVENTS */}
             <div className={style["load-more"]}>
-                <button>Load More</button>
+                <button onClick={() => navigate("/event/list")}>Load More</button>
             </div>
         </>
     );
