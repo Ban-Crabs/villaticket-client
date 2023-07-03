@@ -1,19 +1,72 @@
 // CreateEvent
 import style from "./CreateEvent.module.scss";
-
+import EventForm from "./EventForm/EventForm";
+import { useState, useEffect } from "react"
+import {toast} from "react-toastify"
 
 const CreateEvent = () => {
+
+    const [types, setTypes] = useState([]);
+    const [categories, setCategories] = useState([]);
+
+    const fetchTypes = async () => {
+        try {
+
+          const { data } = await axios.get("/eventaux/type");
+          setTypes(data.types);
+    
+        } catch (error) {
+          //toast.error("Unexpected error!");
+          console.log("Unexpected error")
+        }
+    }
+
+    const fetchCategories = async () =>{
+        try {
+
+            const { data } = await axios.get("/eventaux/category");
+            setTypes(data.types);
+      
+          } catch (error) {
+            //toast.error("Unexpected error!");
+            console.log("Unexpected error")
+          }
+    }
+
+    const fetchLocations = async () => {
+        try {
+
+            const { data } = await axios.get("/eventaux/location");
+            setTypes(data.types);
+      
+          } catch (error) {
+            //toast.error("Unexpected error!");
+            console.log("Unexpected error")
+          }
+    }
+
+    const onCreateEventHandler = async (title, typeId, locationId, categoryId, date, startTime, endTime, status, isVisibles) => {
+        try {
+            await axios.post("/event", { title, typeId, locationId, categoryId, date, startTime, endTime, status, isVisibles });
+            console.log("Event Created! @ Client");
+        } catch (error) {
+            const { status } = error.response || { status: 500 };
+            const msg = {
+                "400": "Wrong Fields!",
+                "401": "Unauthorized!",
+                "500": "Internal Server Error"
+            }
+            //toast.error(msg[status.toString()])
+            console.log(msg[status.toString()])
+        }
+
+    }
+
     return (
         <>
             {/* HEADING */}
-            <header>
-                <h1>Event Editor</h1>
-                <button>Save</button>
-            </header>
 
             <div className={style["container"]}>
-
-                {/* LEFT SECTION */}
                 <div className={style["left-section"]}>
 
                     <div className={style["change-image-container"]}>
@@ -30,23 +83,8 @@ const CreateEvent = () => {
 
                 {/* RIGHT SECTION */}
                 <div className={style["right-section"]}>
-                    {/* EVENT DETAILS */}
-                    <div className={style["event-details"]}>
-                        <h2>Details</h2>
-                        <form>
-                            <label for="site">Site</label>
-                            <input type="text" id="site" name="site" placeholder="Enter site's name" />
-
-                            <label for="date">Date</label>
-                            <input type="date" id="date" name="date" placeholder="YYYY/MM/DD" />
-
-                            <label for="start-time">Start</label>
-                            <input type="text" id="start-time" name="start-time" placeholder="HH:MM" />
-
-                            <label for="end-time">End</label>
-                            <input type="text" id="end-time" name="end-time" placeholder="HH:MM" />
-                        </form>
-                    </div>
+                    {/* EVENT FORM */}
+                    <EventForm onCreateEvent={onCreateEventHandler}/>
 
                     {/* CATEGORY & TYPE */}
                     <div className={style["category-type"]}>

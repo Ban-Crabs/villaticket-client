@@ -15,12 +15,16 @@ import OrderSuccessful from "./components/OrderSuccessful/OrderSuccessful";
 import SearchResults from "./components/SearchResults/SearchResults";
 import EventListHolder from "./components/EventListHolder/EventListHolder";
 import AuthView from "./views/AuthView/AuthView";
+import {Helmet} from "react-helmet"
 // import TempView from "./components/SysadminPermit/SysadminPermit"
 
 
 function App() {
   return (
     <>
+      <Helmet>
+        <title> Villaticket</title>
+      </Helmet>
       <Header/>
       <Routes>
         <Route index element={<HomeView />} />
