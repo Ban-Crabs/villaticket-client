@@ -25,6 +25,9 @@ const EventDetails = () => {
         );
     })
 
+    const onBuyNowHandler = () =>{
+        navigate("/order")
+    }
 
     const navigate = useNavigate();
     return (
@@ -44,7 +47,7 @@ const EventDetails = () => {
                                 <h4>Row 12</h4>
                                 <h5>$9.99 ea</h5>
                             </div>
-                            <div onClick={()=> navigate("/order")} className={style["card-item-btn"]}>
+                            <div onClick={onBuyNowHandler} className={style["card-item-btn"]}>
                                 <button type="submit">Buy Now</button>
                             </div>
                         </div>
@@ -55,7 +58,7 @@ const EventDetails = () => {
                                 <h4>Row 12</h4>
                                 <h5>$9.99 ea</h5>
                             </div>
-                            <div onClick={()=> navigate("/order")} className={style["card-item-btn"]}>
+                            <div onClick={onBuyNowHandler} className={style["card-item-btn"]}>
                                 <button type="submit">Buy Now</button>
                             </div>
                         </div>
