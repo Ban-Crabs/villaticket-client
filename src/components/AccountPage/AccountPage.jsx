@@ -85,6 +85,13 @@ const AccountPage = () => {
                         }
 
                         {hasRole("admin")
+                        ? <button onClick={()=> navigate("profile/panel") }>
+                            Permits
+                            <img  className={style["svg"]} src={nextSvg} alt="" />
+                        </button>
+                        : null
+                        }
+                        {hasRole("admin")
                         ? <button onClick={()=> navigate("profile/admin/users") }>
                             User List
                             <img  className={style["svg"]} src={nextSvg} alt="" />

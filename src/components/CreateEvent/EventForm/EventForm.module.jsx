@@ -1,15 +1,15 @@
 import {useState} from "react";
 
 const EventForm = ({ onCreateEvent = () => { } }) => {
-    const [title, setTitle] = useState("");
-    const [type, setType] = useState("");
-    const [location, setLocation] = useState("");
-    const [category, setCategory] = useState("");
-    const [date, setDate] = useState("");
-    const [start, setStart] = useState("");
-    const [end, setEnd] = useState("");
-    const [status, setStatus] = useState("");
-    const [visible, setVisible] = useState("");
+    const [titleField, setTitle] = useState("");
+    const [typeField, setType] = useState("");
+    const [locationField, setLocation] = useState("");
+    const [categoryField, setCategory] = useState("");
+    const [dateField, setDate] = useState("");
+    const [startField, setStart] = useState("");
+    const [endField, setEnd] = useState("");
+    const [statusField, setStatus] = useState("");
+    const [visibleField, setVisible] = useState("");
 
     const hasErrors = () => {
         return Object.values(errors).some(error => error);
