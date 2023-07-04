@@ -112,6 +112,31 @@ export const UserContextProvider = (props) => {
     }
   }
 
+  const tokenLogin = async (token) => {
+    //startLoading();
+    try {
+      const _token = token;
+
+      setToken(_token);
+      setTokenLS(_token);
+      await fetchUserInfo();
+      await fetchRoles();
+      //Guardar el LS nuestro token
+    } catch (error) {
+      const { status } = error.response || { status: 500 };
+      const msgs = {
+        "404": "User not found",
+        "401": "Unauthorized",
+        "500": "Unexpected error"
+      };
+
+      logout();
+      toast.error(msgs[String(status)]);
+    } finally {
+      //stopLoading();
+    }
+  }
+
   const logout = () => {
     removeTokenLS();
     removeUserLS();
@@ -141,6 +166,7 @@ export const UserContextProvider = (props) => {
     user,
     roles,
     login,
+    tokenLogin,
     logout,
     register
   }

@@ -19,6 +19,9 @@ import AuthView from "./views/AuthView/AuthView";
 
 
 function App() {
+  window.onbeforeunload = function() {
+    localStorage.clear();
+ }
   return (
     <>
       <Header/>

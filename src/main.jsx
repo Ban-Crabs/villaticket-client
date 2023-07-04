@@ -13,7 +13,7 @@ import './index.css'
 import "react-toastify/dist/ReactToastify.css"
 import { UserContextProvider } from './contexts/UserContext.jsx'
 
-axios.defaults.baseURL = import.meta.env.VITE_APIURI || 'http://localhost:8080'
+axios.defaults.baseURL = import.meta.env.VITE_APIURI || 'http://localhost:8080/api'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
