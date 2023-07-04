@@ -4,6 +4,7 @@ import EventForm from "./EventForm/EventForm";
 import TierForm from "../CreateTier/TierForm/TierForm";
 import { useState, useEffect } from "react"
 import {toast} from "react-toastify"
+import { Dropdown, Space } from 'antd';
 
 const CreateEvent = () => {
 
@@ -47,6 +48,8 @@ const CreateEvent = () => {
           console.log("Unexpected error")
         }
     }
+
+
     //2
     const mappedTypeItems = typeItems.map(type => {
         return (
