@@ -1,49 +1,221 @@
 // CreateEvent
 import style from "./CreateEvent.module.scss";
 import EventForm from "./EventForm/EventForm";
+import TierForm from "../CreateTier/TierForm/TierForm";
 import { useState, useEffect } from "react"
 import {toast} from "react-toastify"
 
 const CreateEvent = () => {
 
+    /* 
+        <field> -> SON LOS QUE SE AGREGAN A LA LISTA
+        <field>ITEMS -> SON LOS DEL DROPDOWN
+        
+
+        1. se fetchean las opciones con los ITEMS
+        2. Luego se espera darle click a una opcion, pasarla a una funcion onAdd
+        3. Luego se update mappeando las pendejadas
+    */
+
+    const [typeItems, setTypeItems] = useState([]);
     const [types, setTypes] = useState([]);
+
+    const [categoryItems, setCategoryItems] = useState([]);
     const [categories, setCategories] = useState([]);
 
-    const fetchTypes = async () => {
+    const [locationItems, setLocationItems] = useState([])
+    const [locations, setLocations] = useState([]);
+
+    const [employees, setEmployees] = useState([]);
+    const [collaborators, setCollaborators] = useState([]);
+
+    const [sponsorItems, setSponsorItems] = useState([]);
+    const [sponsors, setSponsors] = useState([]);
+
+    const [tierItems, setTierItems] = useState([]);
+    const [tiers, setTiers] = useState([]);
+
+    //1
+    const fetchTypeItems = async () => {
         try {
 
           const { data } = await axios.get("/eventaux/type");
-          setTypes(data.types);
+          setTypeItems(data.types);
     
         } catch (error) {
           //toast.error("Unexpected error!");
           console.log("Unexpected error")
         }
     }
+    //2
+    const mappedTypeItems = typeItems.map(type => {
+        return (
+          <li>{type.name}</li>
+        );
+    })
 
-    const fetchCategories = async () =>{
+    //3
+    const onAddType = async (t) => {
+
+        // setTypes( types => [...types, t]);
+        setTypes([...types, t]);
+    }
+
+    //4
+    const mappedTypes = types.map(type => {
+        return (
+          <li>{type.name}</li>
+        );
+    })
+
+
+    const fetchCategoryItems = async () =>{
         try {
 
             const { data } = await axios.get("/eventaux/category");
-            setTypes(data.types);
+            setCategoryItems(data.categories);
       
-          } catch (error) {
-            //toast.error("Unexpected error!");
-            console.log("Unexpected error")
-          }
+        } catch (error) {
+        //toast.error("Unexpected error!");
+        console.log("Unexpected error")
+        }
     }
 
-    const fetchLocations = async () => {
+    const mappedCategoryItems = categoryItems.map(category => {
+        return (
+          <li>{category.name}</li>
+        );
+    })
+
+    const onAddCategory = async (c) => {
+        setCategories([...categories, c])
+    }
+
+    const mappedCategories = categories.map(category => {
+        return (
+          <li>{category.name}</li>
+        );
+    })
+
+
+
+    const fetchLocationItems = async () => {
         try {
 
             const { data } = await axios.get("/eventaux/location");
-            setTypes(data.types);
+            setLocationItems(data.locations);
       
-          } catch (error) {
+        } catch (error) {
+        //toast.error("Unexpected error!");
+        console.log("Unexpected error")
+        }
+    }
+
+    const mappedLocationItems = locationItems.map(locations => {
+        return (
+          <li>{locations.name}</li>
+        );
+    })
+
+    const onAddLocation = async (l) => {
+        //setLocations( locations => [...locations, l])
+        setLocations([...locations, l])
+    }
+
+    const mappedLocations = locations.map(locations => {
+        return (
+          <li>{locations.name}</li>
+        );
+    })
+
+
+    const fetchEmployees = async () => {
+        try {
+            //TODO hacer en la api tambien
+            const {data} = await axios.get("")
+            setEmployees(data.employees)
+        } catch (error) {
             //toast.error("Unexpected error!");
             console.log("Unexpected error")
-          }
+        }
     }
+
+    const mappedEmployees = employees.map(employees =>{
+        return(
+            <li>{employees.name}</li>
+        );
+    })
+
+    const onAddCollaborators = (c) => {
+        // setCollaborators(collaborators => [...collaborators, c])
+        setCollaborators([...collaborators, c])
+    }
+    
+    const mappedCollaborators = collaborators.map( collaborator =>{
+        return(
+            <li>{collaborator.name}</li>
+        )
+    })
+
+
+
+
+    const fetchSponsorItems = async () => {
+        try {
+            const {data} = await axios.get("");
+            setSponsorItems(data.sponsors)
+        } catch (error) {
+            //toast.error("Unexpected error!");
+            console.log("Unexpected error") 
+        }
+    }
+
+    const mappedSponsorItems = sponsorItems.map(sponsor => {
+        return(
+            <li>{sponsor.name}</li>
+        );
+    })
+
+    const onAddSponsor = (s) => {
+        //setSponsors( sponsors => [...sponsors, s])
+        setSponsors([...sponsors, s])
+    }
+
+    const mappedSponsors = sponsors.map(sponsor => {
+        return(
+            <li>{sponsor.name}</li>
+        )
+    })
+
+
+
+    const fetchTierItems = async () => {
+        try {
+            const {data} = await axios.get("");
+            setTierItems(data.tiers)
+        } catch (error) {
+            //toast.error("Unexpected error!");
+            console.log("Unexpected error") 
+        }
+    }
+
+    const mappedTierItems =  tierItems.map(tier => {
+        return(
+            <li>{tier.name}</li>
+        )
+    })
+
+    const onAddTier = (t) => {
+        // setTiers(tiers => [...tiers, t])
+        setTiers([...tiers, t])
+    }
+
+    const mappedTiers = tiers.map(tier => {
+        return(
+            <li>{tiers.name}</li>
+        );
+    })  
+
 
     const onCreateEventHandler = async (title, typeId, locationId, categoryId, date, startTime, endTime, status, isVisibles) => {
         try {
@@ -59,8 +231,25 @@ const CreateEvent = () => {
             //toast.error(msg[status.toString()])
             console.log(msg[status.toString()])
         }
-
     }
+
+    const onCreateTierHandler = async (name, price, quantity, localeId) => {
+        try {
+            await axios.post("/event", { name, price, quantity, localeId });
+            console.log("Tier Created! @ Client");
+        } catch (error) {
+            const { status } = error.response || { status: 500 };
+            const msg = {
+                "400": "Wrong Fields!",
+                "401": "Unauthorized!",
+                "500": "Internal Server Error"
+            }
+            //toast.error(msg[status.toString()])
+            console.log(msg[status.toString()])
+        }
+    }
+
+
 
     return (
         <>
@@ -85,6 +274,8 @@ const CreateEvent = () => {
                 <div className={style["right-section"]}>
                     {/* EVENT FORM */}
                     <EventForm onCreateEvent={onCreateEventHandler}/>
+                    {/* TIER FORM */}
+                    <TierForm onCreateTier={onCreateTierHandler}/>
 
                     {/* CATEGORY & TYPE */}
                     <div className={style["category-type"]}>

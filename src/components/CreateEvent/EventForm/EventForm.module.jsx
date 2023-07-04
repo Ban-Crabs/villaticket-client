@@ -146,7 +146,7 @@ const EventForm = ({ onCreateEvent = () => { } }) => {
             </label>
 
             <Button type="submit" disabled={hasErrors()}>
-                Save Post
+                Save Event
             </Button>
         </form>
     </div>

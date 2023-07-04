@@ -16,7 +16,10 @@ import SearchResults from "./components/SearchResults/SearchResults";
 import EventListHolder from "./components/EventListHolder/EventListHolder";
 import AuthView from "./views/AuthView/AuthView";
 import {Helmet} from "react-helmet"
+import axios from "axios"
 // import TempView from "./components/SysadminPermit/SysadminPermit"
+ //PASAR TOKEN ADJSDKJASBKDJSA 
+axios.defaults.headers.common = {'Authorization': `Bearer ${token}`}
 
 
 function App() {
