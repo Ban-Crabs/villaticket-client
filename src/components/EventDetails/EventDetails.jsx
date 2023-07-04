@@ -3,9 +3,29 @@ import style from "./EventDetails.module.scss";
 import locationsImg from "../../assets/locations.png";
 import Button from "../../components/Button/Button"
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
+import {useState, useEffect} from "react"
 
 const EventDetails = () => {
+
+    const [tickets, setTickets] = useState([]);
+
+    const fetchTickets = async () => {
+        try {
+            const {data} = await axios.get("")
+            setTickets(data.tickets)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const mappedTickets = tickets.map(tickets => {
+        return(
+            <li>{tickets.name}</li>
+        );
+    })
+
+
     const navigate = useNavigate();
     return (
         <>
