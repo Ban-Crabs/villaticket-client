@@ -1,14 +1,12 @@
 import style from "./EventHistory.module.scss";
-import { useHistory } from "react";
 import { useNavigate } from "react-router-dom";
 import EventHistoryList from "./EventHistoryList/EventHistoryList";
 
 const EventHistory = () => {
     const navigate = useNavigate();
-    const history = useHistory();
 
     const backHandler = () => {
-        navigate(history.location.state?.from || "/");
+        navigate("/profile");
     }
 
     return (

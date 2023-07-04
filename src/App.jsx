@@ -23,6 +23,9 @@ import axios from "axios"
 
 
 function App() {
+  window.onbeforeunload = function() {
+    localStorage.clear();
+ }
   return (
     <>
       <Helmet>
