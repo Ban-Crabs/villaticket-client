@@ -1,16 +1,90 @@
 // SysadminPermit
 
+import { useEffect } from "react";
+import { useState } from "react";
+import { getTokenLS } from "../../contexts/UserContext";
 import style from "./SysadminPermit.module.scss";
+import axios from "axios";
+import PermissionList from "./PermissionList/PermissionList";
 
+const SysadminPermit = props => {
+    const {userId} = props;
+    const token = getTokenLS();
+    const [user, setUser] = useState(null);
+    const [roles, setRoles] = useState([]);
+    const [possibleRoles, setPossibleRoles] = useState([]);
+    const [originalRoles, setOriginalRoles] = useState([]);
 
-const SysadminPermit = () => {
+    useEffect(() => {
+        setPossibleRoles([{"name":"admin", "userId":`${userId}`}, {"name":"analyst", "userId":`${userId}`}, {"name":"employee", "userId":`${userId}`}, {"name":"user", "userId":`${userId}`}])
+    }, [])
+
+    const fetchUserInfo = async () => {
+        try {
+            const { data1 } = await axios.get(`/user/${userId}`, {headers: { Authorization: `Bearer ${token}` }});
+            setUser(data1);
+
+            const { data2 } = await axios.get(`/user/${userId}/privilege`, {headers: { Authorization: `Bearer ${token}` }});
+            setRoles(data2);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const compareRoles = () => {
+        possibleRoles.forEach(pr => {
+            roles.forEach(r => {
+                if(r.name === pr.name) possibleRoles.splice(possibleRoles.indexOf(pr), 1);
+            });
+        });
+    }
+
+    const handleAssign = (role) => {
+        let r = roles;
+        r.push(role);
+        setRoles(r);
+        r = possibleRoles;
+        r.splice(r.indexOf(role), 1);
+        setPossibleRoles(r);
+    }
+
+    const handleUnassign = (role) => {
+        let r = roles;
+        r.splice(r.indexOf(role), 1);
+        setRoles(r);
+        r = possibleRoles;
+        r.push(role);
+        setPossibleRoles(r);
+    }
+
+    useEffect(() => {
+        fetchUserInfo(userId);
+    }, [])
+
+    useEffect(() => {
+        setOriginalRoles(roles);
+        compareRoles();
+    }, [roles])
+
+    const onPersist = async () => {
+        try {
+            roles.forEach(async (role) => {
+                if(!originalRoles.includes(role)) {
+                    await axios.post(`/user/privilege`, {"userId":`${userId}`, "privName":`${role.name}`}, {headers: { Authorization: `Bearer ${token}` }});
+                }
+            });
+        }catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
-        <>
+        <section>
             <div className={style["container"]}>
 
                 <div className={style["heading"]}>
-                    <h5>Showing now:</h5>
-                    <h1>All Users</h1>
+                    <h5>Showing:</h5>
+                    <h1>${user.username}</h1>
 
                     <div className={style["divider"]}></div>
                 </div>
@@ -26,14 +100,14 @@ const SysadminPermit = () => {
                     <div className={style["card-item"]}>
                         <div className={style["card-item-info"]}>
                             <ul className={style["list"]}>
-                                <li>user@email.com</li>
-                                <li>Username123</li>
+                                <li>{user.email}</li>
+                                <li>{user.username}</li>
                             </ul>
                         </div>
 
                         <div className={style["btn-container"]}>
                             <div className={style["card-item-btn"]}>
-                                <button className={style["save"]} type="submit">Save Changes</button>
+                                <button className={style["save"]} type="button" onClick={onPersist}>Save Changes</button>
                             </div>
 
                             <div className={style["card-item-btn"]}>
@@ -45,39 +119,14 @@ const SysadminPermit = () => {
 
                 <div className={style["permissions"]}>
                     {/* ASSIGNED PERMISSIONS */}
-                    <ul>
-                        <li><h4>Assigned Permissions</h4></li>
-                        <li>
-                            <div className={style["card-item-btn"]}>
-                                <button className={style["permission-btn"]} type="submit">Client ⓧ</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div className={style["card-item-btn"]}>
-                                <button className={style["permission-btn"]} type="submit">Employee ⓧ</button>
-                            </div>
-                        </li>
-                    </ul>
-
+                    <PermissionList title={"Assigned Permissions"} roles={roles} onButton={handleUnassign} />
                     {/* UNASSIGNED PERMISSIONS */}
-                    <ul>
-                    <li><h4>Unassigned Permissions</h4></li>
-                        <li>
-                            <div className={style["card-item-btn"]}>
-                                <button className={style["permission-btn"]} type="submit">Admin ✚</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div className={style["card-item-btn"]}>
-                                <button className={style["permission-btn"]} type="submit">Moderator ✚</button>
-                            </div>
-                        </li>
-                    </ul>
+                    <PermissionList title={"Available Permissions"} roles={roles} onButton={handleAssign} />
                 </div>
 
             </div>
 
-        </>
+        </section>
     )
 }
 

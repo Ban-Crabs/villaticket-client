@@ -51,6 +51,14 @@ img {
     box-shadow: $theme-drop-shadow;
 }
 
+//QR SCANNER
+.ignore-style{
+    all: unset;
+    button{
+        all: unset;
+    }
+}
+
 // TOP SECTION
 .verify-qr-container {
     width: 100%;

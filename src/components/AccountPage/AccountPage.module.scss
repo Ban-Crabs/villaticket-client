@@ -49,20 +49,27 @@ form {
 }
 
 button {
+    all: unset;
+
     margin-top: 0.5rem;
     color: $color-black;
     font-size: 0.8rem;
-    width: 30%;
+    height: auto;
+    width: auto;
     height: 1.2rem;
     background-color: $theme-yellow-color;
     box-shadow: $theme-drop-shadow;
     border: none;
     border-radius: 0.5rem;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.6s ease;
 
     &:hover {
         cursor: pointer;
         background-color: $theme-yellow-color-dark;
+        .icon{
+            cursor: pointer;
+            background-color: inherit;
+        }
     }
 }
 
@@ -89,6 +96,7 @@ button {
         font-size: 1rem;
         padding: 1rem;
         background-color: $color-white;
+        color: black;
 
         * {
             background-color: $color-white;
@@ -99,6 +107,7 @@ button {
         &:hover {
             cursor: pointer;
             transform: scale(1.01);
+            
         }
 
         img {

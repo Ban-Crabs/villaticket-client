@@ -7,15 +7,16 @@ import { useGoogleLogin } from '@react-oauth/google';
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-    const {login} = useUserContext();
+    const {login, tokenLogin} = useUserContext();
     const [identifier, setIdentifier] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
-        console.log("submitted");
+        console.log("Login/register attempt submitted");
         e.preventDefault();
         await login(identifier, password);
+        navigate("/");
     }
 
     const handleGoogleLogin = (e) => {
@@ -25,7 +26,12 @@ const SignIn = () => {
     }
 
     const googleLogin = useGoogleLogin({
-        onSuccess: tokenResponse => console.log(tokenResponse),
+        onSuccess: async(tokenResponse)=> {
+            console.log("tokenResponse: ", tokenResponse);
+            await tokenLogin(tokenResponse);
+            navigate("/");
+        },
+        scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
       });
     
     

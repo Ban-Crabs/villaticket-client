@@ -1,17 +1,68 @@
 import style from "./Header.module.scss";
 
-import PersonIcon from '@mui/icons-material/Person';
+import { getRolesLS, getTokenLS, getUserLS, getActivationCodeLS }  from "../../contexts/UserContext";
 import {useNavigate} from "react-router-dom";
+import { useState, useEffect } from "react";
 import SearchIcon from '@mui/icons-material/Search';
-import { getUserLS } from "../../contexts/UserContext";
+import PersonIcon from '@mui/icons-material/Person';
+import QrCodeScannerIcon from '@mui/icons-material/QrCodeScanner';
+import EqualizerIcon from '@mui/icons-material/Equalizer';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+
 
 const Header = () => {
+    const [user, setUser] = useState(null);
+    const [roles, setRoles] = useState([]);
+    const [token, setToken] = useState(null);
+    const [search, setSearch] = useState("");
+
+    const code = getActivationCodeLS();
+
     const navigate = useNavigate();
-    const user = getUserLS();
+
+    useEffect(() => {
+        const user1 = getUserLS();
+        const roles1 = getRolesLS();
+        const token1 = getTokenLS();
+        if(token1 == null || user1 == null || roles1.length === 0){
+            return;
+        }
+        else{
+            setUser(user1);
+            setRoles(roles1);
+            setToken(token1);
+        }
+    }, [])
+
+
+    //TODO add conditional rendering to icons
+    const hasRole = (role) => {
+        let ans = false;
+        roles.forEach(r => {
+            if(r.name === role) ans = true;
+        })
+        return ans;
+    }
 
     const handleSearch = (e) => {
         e.preventDefault();
+        localStorage.setItem("search", search);
         navigate("/search");
+    }
+
+    const handleCheck = (e) => {
+        e.preventDefault()
+        navigate("/activate")
+    }
+
+    const handleAnalytics = (e) => {
+        e.preventDefault();
+        navigate("/analytics")
+    }
+
+    const handleQrScanner = (e) => {
+        e.preventDefault();
+        navigate("/scanner")
     }
 
     const handleProfile = (e) => {
@@ -20,6 +71,8 @@ const Header = () => {
         else navigate("/auth/login");
     }
 
+
+
     return(
         <section>
             <div className={style["header-container"]}>
@@ -27,11 +80,14 @@ const Header = () => {
                     <h1>villaticket</h1>
                 </div>
                 <div className={style["search-bar"]} >
-                    <p contentEditable>Search</p>
+                    <input placeholder="Search" type="text" value={search} onChange={({target}) => setSearch(target.value)}/>
                     <SearchIcon onClick={handleSearch} className={style["search-icon"]}/>
                 </div>
                 <div className={style["icon-container"]}>
                     <PersonIcon onClick={handleProfile} fontSize="large"/>
+                    {hasRole("employee") ? <QrCodeScannerIcon onClick={handleQrScanner} fontSize="large"/> : null}
+                    {hasRole("analyst") ? <EqualizerIcon onClick={handleAnalytics} fontSize="large"/> : null}
+                    {(code !== null && user === null) ? <CheckBoxIcon onClick={handleCheck} fontSize="large"/> : null}
                 </div>
             </div>
         </section>

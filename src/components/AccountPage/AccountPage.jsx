@@ -6,6 +6,8 @@ import { getRolesLS, getTokenLS, getUserLS }  from "../../contexts/UserContext";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 
 const AccountPage = () => {
     const token = getTokenLS();
@@ -71,7 +73,7 @@ const AccountPage = () => {
                         {hasRole("user")
                         ? <button onClick={()=> navigate("/profile/ticket-history") } >
                             Ticket List
-                            <img  className={style["svg"]} src={nextSvg} alt="" />
+                            <NavigateNextIcon className={style["icon"]}/>
                         </button>
                         : null
                         }
@@ -79,15 +81,22 @@ const AccountPage = () => {
                         {hasRole("user")
                         ? <button onClick={()=> navigate("/profile/history") }>
                             Event List
-                            <img  className={style["svg"]} src={nextSvg} alt="" />
+                            <NavigateNextIcon className={style["icon"]}/>
                         </button>  
                         : null
                         }
 
                         {hasRole("admin")
+                        ? <button onClick={()=> navigate("profile/panel") }>
+                            Control Panel
+                            <NavigateNextIcon className={style["icon"]}/>
+                        </button>
+                        : null
+                        }
+                        {hasRole("admin")
                         ? <button onClick={()=> navigate("profile/admin/users") }>
                             User List
-                            <img  className={style["svg"]} src={nextSvg} alt="" />
+                            <NavigateNextIcon className={style["icon"]}/>
                         </button>
                         : null
                         }
@@ -95,7 +104,7 @@ const AccountPage = () => {
                         {hasRole("admin")
                         ? <button onClick={()=> navigate("profile/admin/permits") }>
                             Permits
-                            <img  className={style["svg"]} src={nextSvg} alt="" />
+                            <NavigateNextIcon className={style["icon"]}/>
                         </button>
                         : null
                         }
@@ -103,6 +112,7 @@ const AccountPage = () => {
                         {hasRole("sysadmin")
                         ? <button className={style["close-sys-btn"]}>
                             Close System
+                            <PowerSettingsNewIcon className={style["icon"]}/>
                         </button>
                         : null
                         }

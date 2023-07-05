@@ -10,25 +10,27 @@ const EventListHolder = () => {
     const navigate = useNavigate();
     
     useEffect(() => {
-        if (token == null) {
+        if (token == null || roles == null) {
             navigate('/auth/login');
         }
-    }, [token])
+    }, [token, roles])
 
     const checkRole = (role) => {
         let ans = false;
-        roles.forEach(r => {
-            if(r.name === role) ans = true;
-        })
+            if(roles !== null){
+            roles.forEach(r => {
+                if(r.name === role) ans = true;
+            });
+        }
         return ans;
     }
 
     return (
         <section>
-            {!(roles.length === 0) 
+            {(roles !== null && roles.length !== 0) 
             ? <div className={style["wrapper"]}>
                 <div className={style["heading"]}>
-                    <h1>Your Events</h1>
+                    <h1>Events</h1>
                     {checkRole("admin")
                         ? <div className={style["event-card-info-btn"]}>
                             <button className={style["add-event"]} type="submit" onClick={() => navigate("/event/create")}>Add Event</button>
@@ -36,6 +38,7 @@ const EventListHolder = () => {
                         : null
                     }
                 </div>
+                <hr/>
                 <div className={style["container"]}>
                     <div className={style["user-events"]}>
                         {/* UPCOMING EVENTS SECTION */}

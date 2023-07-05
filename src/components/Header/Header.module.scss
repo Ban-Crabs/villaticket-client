@@ -23,10 +23,11 @@
         padding: 0.25rem 1rem;
         background-color: $color-white;
         border-radius: 1rem;
-        p{  
+        input{  
             text-decoration: none;
             background-color: $color-white;
             align-content: center;
+            height: 0.5rem;
         }
         .search-icon{
             background-color: $color-white;
@@ -39,6 +40,9 @@
     }
 
     .icon-container{
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 1rem;
         background-color: $theme-primary-color;
         *{
             background-color: $theme-primary-color;
