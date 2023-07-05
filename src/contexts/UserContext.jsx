@@ -118,10 +118,11 @@ export const UserContextProvider = (props) => {
     try {
       console.log(googleData);
       const namePath = 'https://www.googleapis.com/auth/userinfo.profile'
-      const user = await fetch(`https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${googleData.access_token}&scope=${namePath}`).then(res => res.json())
-      console.log(user);
+      const _user = await fetch(`https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${googleData.access_token}&scope=${namePath}`).then(res => res.json());
 
-      await register(user.name, user.email);
+      await register(_user.name, _user.email);
+      setUserLS({ username: `${_user.name}`, email: `${_user.email}` });
+      console.log(user);
       //Guardar el LS nuestro token
     } catch (error) {
       const { status } = error.response || { status: 500 };
