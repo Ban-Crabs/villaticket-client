@@ -94,6 +94,7 @@ export const UserContextProvider = (props) => {
 
       setToken(_token);
       setTokenLS(_token);
+      axios.defaults.headers.common = { "Authorization": `Bearer: ${_token}`}
       await fetchUserInfo();
       await fetchRoles();
       //Guardar el LS nuestro token

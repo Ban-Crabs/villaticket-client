@@ -1,8 +1,10 @@
 import style from "./FeaturedBanner.module.scss";
 import ImageContainer from "../../ImageContainer/ImageContainer";
 import cardImage from "../../../assets/image-bb-player.png";
+import { useEffect, useState } from "react";
 
 const FeaturedBanner = () => {
+
     return(
         <div className={style["featured-container"]}>
             <div className={style["featured-title"]}>
