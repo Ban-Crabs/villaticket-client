@@ -15,7 +15,8 @@ const UpcomingEvents = () => {
             console.log(events)
         }
         else{
-            toast.error("Please login to view events")
+            console.log(error)
+            // toast.error("Please login to view events")
         }
     }, [token])
 
@@ -26,7 +27,7 @@ const UpcomingEvents = () => {
 
         } catch (error) {
             console.log(error)
-            toast.error(error)
+            // toast.error(error)
         }
     }
 
