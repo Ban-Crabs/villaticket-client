@@ -11,28 +11,14 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 
 const Header = () => {
-    const [user, setUser] = useState(null);
-    const [roles, setRoles] = useState([]);
-    const [token, setToken] = useState(null);
+    const [user, setUser] = useState(getUserLS());
+    const [roles, setRoles] = useState(getRolesLS());
+    const [token, setToken] = useState(getTokenLS());
     const [search, setSearch] = useState("");
 
     const code = getActivationCodeLS();
 
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const user1 = getUserLS();
-        const roles1 = getRolesLS();
-        const token1 = getTokenLS();
-        if(token1 == null || user1 == null || roles1.length === 0){
-            return;
-        }
-        else{
-            setUser(user1);
-            setRoles(roles1);
-            setToken(token1);
-        }
-    }, [])
 
 
     //TODO add conditional rendering to icons

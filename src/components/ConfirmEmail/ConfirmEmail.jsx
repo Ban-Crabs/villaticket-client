@@ -11,7 +11,7 @@ const ConfirmEmail = () => {
     // const [startLoading, stopLoading] = useConfigContext();
 
     const navigate = useNavigate();
-    const {logout} = useUserContext();
+    const { logout } = useUserContext();
     //USE LS instead of useState
     const [activationCode, setActivationCode] = useState("");
     const [user, setUser] = useState(null);
