@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useState, useEffect } from "react";
-import { getActivationCodeLS, getUserLS, logout } from "../../contexts/UserContext";
+import { getActivationCodeLS, getUserLS, useUserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import style from "./ConfirmEmail.module.scss"
 const ConfirmEmail = () => {
@@ -11,7 +11,7 @@ const ConfirmEmail = () => {
     // const [startLoading, stopLoading] = useConfigContext();
 
     const navigate = useNavigate();
-
+    const {logout} = useUserContext();
     //USE LS instead of useState
     const [activationCode, setActivationCode] = useState("");
     const [user, setUser] = useState(null);
