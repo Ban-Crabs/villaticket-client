@@ -20,6 +20,20 @@ const Header = () => {
 
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const _user = getUserLS();
+        const _roles = getRolesLS();
+        const _token = getTokenLS();
+        if (_user !== null) {
+            setUser(_user);
+        }
+        if (_roles !== null) {
+            setRoles(_roles);
+        }
+        if (_token !== null) {
+            setToken(_token);
+        }
+    }, [])
 
     //TODO add conditional rendering to icons
     const hasRole = (role) => {
