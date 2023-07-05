@@ -24,9 +24,12 @@ const Header = () => {
     //TODO add conditional rendering to icons
     const hasRole = (role) => {
         let ans = false;
-        roles.forEach(r => {
-            if(r.name === role) ans = true;
-        })
+        if(roles === null) return false;
+        else{
+            roles.forEach(r => {
+                if(r.name === role) ans = true;
+            })
+        }
         return ans;
     }
 
