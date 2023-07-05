@@ -29,6 +29,7 @@ const SignIn = () => {
         onSuccess: async(tokenResponse)=> {
             console.log("tokenResponse: ", tokenResponse);
             await tokenLogin(tokenResponse);
+            navigate("/");
         },
         scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
       });

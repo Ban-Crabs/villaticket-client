@@ -2,30 +2,45 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useConfigContext } from "../../contexts/ConfigContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getActivationCodeLS, getUserLS, logout } from "../../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 import style from "./ConfirmEmail.module.scss"
 const ConfirmEmail = () => {
     const {startLoading, stopLoading} = useConfigContext();
     // const [startLoading, stopLoading] = useConfigContext();
 
-    //USE LS instead of useState
-    const [activationCode, setActivationCode] = useState("")
+    const navigate = useNavigate();
 
+    //USE LS instead of useState
+    const [activationCode, setActivationCode] = useState("");
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const _activationCode = getActivationCodeLS();
+        const _user = getUserLS();
+        if (_activationCode !== null) {
+            setActivationCode(_activationCode);
+        }
+        if (_user !== null) {
+            setUser(_user);
+        }
+    }, [])
 
     const postActivationCode = async () => {
-        startLoading()
         try {
-            await axios.post("/user/google", { code: activationCode})
+            console.log(activationCode)
+            await axios.post("/user/activate", { code: `${activationCode}`, username: `${user.email}`}, {headers: {'Content-Type':'multipart/form-data'}})
+            navigate("/")
         } catch (error) {
-            toast.error(error)
-            console.error(error)
-        } finally {
-            stopLoading()
+            console.log(error)
         }
     }
 
-    const onSubmitHandler = async (e) => {
+    const onSubmitHandler = (e) => {
         e.preventDefault();
+        console.log("Submit")
+        logout();
         postActivationCode();
     }
     
@@ -33,7 +48,7 @@ const ConfirmEmail = () => {
     return (
         <div className={style["container"]}>
             <h2>Final Step: Please confirm your loyalty to the Villaticket!</h2>
-            <button  onSubmit={onSubmitHandler}> Activate Account</button>
+            <button onClick={onSubmitHandler}> Activate Account</button>
         </div>
     );
 }

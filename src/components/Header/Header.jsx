@@ -1,6 +1,6 @@
 import style from "./Header.module.scss";
 
-import { getRolesLS, getTokenLS, getUserLS }  from "../../contexts/UserContext";
+import { getRolesLS, getTokenLS, getUserLS, getActivationCodeLS }  from "../../contexts/UserContext";
 import {useNavigate} from "react-router-dom";
 import { useState, useEffect } from "react";
 import SearchIcon from '@mui/icons-material/Search';
@@ -15,6 +15,8 @@ const Header = () => {
     const [roles, setRoles] = useState([]);
     const [token, setToken] = useState(null);
     const [search, setSearch] = useState("");
+
+    const code = getActivationCodeLS();
 
     const navigate = useNavigate();
 
@@ -85,7 +87,7 @@ const Header = () => {
                     <PersonIcon onClick={handleProfile} fontSize="large"/>
                     {hasRole("employee") ? <QrCodeScannerIcon onClick={handleQrScanner} fontSize="large"/> : null}
                     {hasRole("analyst") ? <EqualizerIcon onClick={handleAnalytics} fontSize="large"/> : null}
-                    {hasRole("user") ? <CheckBoxIcon onClick={handleCheck} fontSize="large"/> : null}
+                    {(code !== null && user === null) ? <CheckBoxIcon onClick={handleCheck} fontSize="large"/> : null}
                 </div>
             </div>
         </section>
