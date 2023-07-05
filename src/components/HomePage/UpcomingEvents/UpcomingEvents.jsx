@@ -1,10 +1,10 @@
 import style from "./UpcomingEvents.module.scss";
-
-
 import { useNavigate } from "react-router-dom";
 import SingleEvent from "./SingleEvent/SingleEvent";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+
 const UpcomingEvents = () => {
     
     const [events, setEvents] = useState([]);
@@ -15,14 +15,16 @@ const UpcomingEvents = () => {
 
     const fetchUpcomingEvents = async () => {
         try {
-            //TODO endpoint que traiga por keyword status = upcoming o que el coso tire las mas proximas a realizarse XD dunno
-            const {data} = await axios.get("/")
+            const {data} = await axios.get("/event/")
             setEvents(data.content)
 
         } catch (error) {
             console.log(error)
+            toast.error(error)
         }
     }
+
+    
 
     const mappedEvents = events.map(event => {
         return(
