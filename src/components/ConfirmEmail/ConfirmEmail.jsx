@@ -15,7 +15,7 @@ const ConfirmEmail = () => {
     const postActivationCode = async () => {
         startLoading()
         try {
-            await axios.post("/user/activate", { activationCode })
+            await axios.post("/user/google", { code: activationCode})
         } catch (error) {
             toast.error(error)
             console.error(error)
