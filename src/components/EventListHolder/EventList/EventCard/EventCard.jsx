@@ -18,10 +18,6 @@ const EventCard = props => {
         fetchEventImg();
     }, [])
 
-    useEffect(() => {
-        setDates();
-    }, [event])
-
     const fetchEventImg = async () => {
         try {
             const { data } = await axios.get(`/event/${event.id}/image`);
@@ -33,18 +29,6 @@ const EventCard = props => {
             }
         } catch (error) {
             console.log(error);
-        }
-    }
-
-    const setDates = () => {
-        dateComponents = {
-            month: event.date.getMonth(),
-            day: event.date.getDay(),
-            year: event.date.getFullYear(),
-            startHour: event.startTime.getHours(),
-            startMinute: event.startTime.getMinutes(),
-            endHour: event.endTime.getHours(),
-            endMinute: event.endTime.getMinutes()
         }
     }
 
@@ -86,8 +70,8 @@ const EventCard = props => {
             <div className={style["event-card-info"]}>
                 {/* DATE INFO  */}
                 <div className={style["event-card-info-date"]}>
-                    <h3>{event.title || "New York Yankees"}</h3>
-                    <p>{dateComponents.month || "07" } / {dateComponents.day || "23" } / {dateComponents.year || "2023"} • {dateComponents.startHour}:{dateComponents.startMinute} - {dateComponents.endHour}:{dateComponents.endMinute}</p>
+                    <h3>{event.title}</h3>
+                    <p>{event.date} • {event.startTime} - {event.endTime}</p>
                     <p>{event.location.name}</p>
                 </div>
                 {/* EVENT BUTTON CONTAINER */}

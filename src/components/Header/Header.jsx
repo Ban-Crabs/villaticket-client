@@ -2,7 +2,7 @@ import style from "./Header.module.scss";
 
 import { getRolesLS, getTokenLS, getUserLS }  from "../../contexts/UserContext";
 import {useNavigate} from "react-router-dom";
-
+import { useState, useEffect } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import QrCodeScannerIcon from '@mui/icons-material/QrCodeScanner';
@@ -11,12 +11,26 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 
 const Header = () => {
-
-    const token = getTokenLS();
-    const user = getUserLS();
-    const roles = getRolesLS();
+    const [user, setUser] = useState(null);
+    const [roles, setRoles] = useState([]);
+    const [token, setToken] = useState(null);
+    const [search, setSearch] = useState("");
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const user1 = getUserLS();
+        const roles1 = getRolesLS();
+        const token1 = getTokenLS();
+        if(token1 == null || user1 == null || roles1.length === 0){
+            return;
+        }
+        else{
+            setUser(user1);
+            setRoles(roles1);
+            setToken(token1);
+        }
+    }, [])
 
 
     //TODO add conditional rendering to icons
@@ -30,6 +44,7 @@ const Header = () => {
 
     const handleSearch = (e) => {
         e.preventDefault();
+        localStorage.setItem("search", search);
         navigate("/search");
     }
 
@@ -63,15 +78,14 @@ const Header = () => {
                     <h1>villaticket</h1>
                 </div>
                 <div className={style["search-bar"]} >
-                    <p contentEditable>Search</p>
+                    <input placeholder="Search" type="text" value={search} onChange={({target}) => setSearch(target.value)}/>
                     <SearchIcon onClick={handleSearch} className={style["search-icon"]}/>
                 </div>
                 <div className={style["icon-container"]}>
                     <PersonIcon onClick={handleProfile} fontSize="large"/>
-                    <QrCodeScannerIcon onClick={handleQrScanner} fontSize="large"/>
-                    <EqualizerIcon onClick={handleAnalytics} fontSize="large"/>
-                    <CheckBoxIcon onClick={handleCheck} fontSize="large"/>
-                    
+                    {hasRole("employee") ? <QrCodeScannerIcon onClick={handleQrScanner} fontSize="large"/> : null}
+                    {hasRole("analyst") ? <EqualizerIcon onClick={handleAnalytics} fontSize="large"/> : null}
+                    {hasRole("user") ? <CheckBoxIcon onClick={handleCheck} fontSize="large"/> : null}
                 </div>
             </div>
         </section>

@@ -15,7 +15,8 @@ import OrderSuccessful from "./components/OrderSuccessful/OrderSuccessful";
 import SearchResults from "./components/SearchResults/SearchResults";
 import EventListHolder from "./components/EventListHolder/EventListHolder";
 import AuthView from "./views/AuthView/AuthView";
-import {Helmet} from "react-helmet"
+import {Helmet} from "react-helmet";
+import axios from "axios"
 import QrScanner from "./components/QrScanner/QrScanner";
 import AnalyticsPage from "./components/AnalyticsPage/AnalyticsPage";
 import ConfirmEmail from "./components/ConfirmEmail/ConfirmEmail";

@@ -5,7 +5,6 @@ import { useUserContext } from "../../../contexts/UserContext";
 import { useState } from "react";
 import { useGoogleLogin } from '@react-oauth/google';
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const SignIn = () => {
     const {login, tokenLogin} = useUserContext();
@@ -28,8 +27,10 @@ const SignIn = () => {
 
     const googleLogin = useGoogleLogin({
         onSuccess: async(tokenResponse)=> {
-            console.log(tokenResponse);
+            console.log("tokenResponse: ", tokenResponse);
+            await tokenLogin(tokenResponse);
         },
+        scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
       });
     
     

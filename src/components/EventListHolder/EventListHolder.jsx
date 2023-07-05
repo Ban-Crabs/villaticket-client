@@ -13,7 +13,7 @@ const EventListHolder = () => {
         if (token == null || roles == null) {
             navigate('/auth/login');
         }
-    }, [token])
+    }, [token, roles])
 
     const checkRole = (role) => {
         let ans = false;
