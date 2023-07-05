@@ -7,7 +7,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import QrCodeScannerIcon from '@mui/icons-material/QrCodeScanner';
 import EqualizerIcon from '@mui/icons-material/Equalizer';
-import AnalyticsIcon from '@mui/icons-material/Analytics';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+
 
 const Header = () => {
 
@@ -17,6 +18,8 @@ const Header = () => {
 
     const navigate = useNavigate();
 
+
+    //TODO add conditional rendering to icons
     const hasRole = (role) => {
         let ans = false;
         roles.forEach(r => {
@@ -28,6 +31,11 @@ const Header = () => {
     const handleSearch = (e) => {
         e.preventDefault();
         navigate("/search");
+    }
+
+    const handleCheck = (e) => {
+        e.preventDefault()
+        navigate("/activate")
     }
 
     const handleAnalytics = (e) => {
@@ -46,6 +54,8 @@ const Header = () => {
         else navigate("/auth/login");
     }
 
+
+
     return(
         <section>
             <div className={style["header-container"]}>
@@ -60,6 +70,8 @@ const Header = () => {
                     <PersonIcon onClick={handleProfile} fontSize="large"/>
                     <QrCodeScannerIcon onClick={handleQrScanner} fontSize="large"/>
                     <EqualizerIcon onClick={handleAnalytics} fontSize="large"/>
+                    <CheckBoxIcon onClick={handleCheck} fontSize="large"/>
+                    
                 </div>
             </div>
         </section>

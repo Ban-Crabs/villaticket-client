@@ -16,12 +16,9 @@ import SearchResults from "./components/SearchResults/SearchResults";
 import EventListHolder from "./components/EventListHolder/EventListHolder";
 import AuthView from "./views/AuthView/AuthView";
 import {Helmet} from "react-helmet"
-import axios from "axios"
 import QrScanner from "./components/QrScanner/QrScanner";
 import AnalyticsPage from "./components/AnalyticsPage/AnalyticsPage";
-// import TempView from "./components/SysadminPermit/SysadminPermit"
- //PASAR TOKEN ADJSDKJASBKDJSA 
-// axios.defaults.headers.common = {'Authorization': `Bearer ${token}`}
+import ConfirmEmail from "./components/ConfirmEmail/ConfirmEmail";
 
 
 function App() {
@@ -45,8 +42,10 @@ function App() {
         <Route path="/search" element={<SearchResults/>}/>
         <Route path="/auth/*" element={<AuthView/>}/>
         <Route path="/scanner" element={<QrScanner/>}/>
+        <Route path="/analytics" element={<AnalyticsPage/>}/>
+        <Route path="/activate" element={<ConfirmEmail/>}/>
         <Route path="*" element={<ErrorView/>}/>
-        <Route path="/analytics" elemen={<AnalyticsPage/>}/>
+        
       </Routes>
       <Footer/>
     </>

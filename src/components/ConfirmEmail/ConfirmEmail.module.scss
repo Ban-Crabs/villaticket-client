@@ -1,0 +1,16 @@
+.container{
+    height: 90vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem;
+
+    button{
+        width: auto;
+        line-height:1rem; /* <- changed this */
+        box-sizing: border-box;
+    }
+}

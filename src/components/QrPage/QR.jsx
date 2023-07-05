@@ -1,6 +1,6 @@
 import style from "./QR.module.scss";
 import qrImage from "../../assets/temp-qr.svg"
-
+import QRCode from "react-qr-code";
 
 const QR = () => {
     return (
@@ -8,7 +8,13 @@ const QR = () => {
             <div className={style["title"]}>
                 <h1>Redeem your QR</h1>
             </div>
-            <div className={style["divider"]}></div>
+
+            <QRCode
+                size={256}
+                style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                value={value}
+                viewBox={`0 0 256 256`}
+            />
 
             <div className={style["qr-list-container"]}>
                 <div className={style["qr-card-item"]}>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 
-// import { useConfigContext } from './ConfigContext';
+import { useConfigContext } from './ConfigContext';
 import axios from "axios";
 
 const TOKEN_KEY = "token_wdyt";
@@ -15,7 +15,7 @@ export const UserContextProvider = (props) => {
   const [user, setUser] = useState(null);
   const [roles, setRoles] = useState([]);
 
-//const { startLoading, stopLoading } = useConfigContext();
+  const { startLoading, stopLoading } = useConfigContext();
 
   //Efecto para verificar la existencia del token
   useEffect(() => {
@@ -48,11 +48,11 @@ export const UserContextProvider = (props) => {
   const fetchUserInfo = async () => {
     const _token = getTokenLS();
 
-    if(!_token) return;
+    if (!_token) return;
 
     //startLoading();
     try {
-      const head = {headers: {'Authorization': `Bearer ${_token}`}}
+      const head = { headers: { 'Authorization': `Bearer ${_token}` } }
       const { data } = await axios.get("/user/whoami", head);
       setUser(data);
       setUserLS(data);
@@ -67,11 +67,11 @@ export const UserContextProvider = (props) => {
     const _token = getTokenLS();
     const _user = getUserLS();
 
-    if(!_user || !_token) return;
+    if (!_user || !_token) return;
 
     //startLoading();
     try {
-      const head = {headers: {'Authorization': `Bearer ${_token}`}}
+      const head = { headers: { 'Authorization': `Bearer ${_token}` } }
       const { data } = await axios.get(`/user/privilege`, head);
       setRoles(data);
       setRolesLS(data);
@@ -86,15 +86,15 @@ export const UserContextProvider = (props) => {
   //Función para logout
   //Función para register
   const login = async (id, password) => {
-    //startLoading();
+    startLoading();
     try {
-      const { data } = await axios.post("/user/login", { id, password }, {headers: {'Content-Type': 'multipart/form-data'}});
+      const { data } = await axios.post("/user/login", { id, password }, { headers: { 'Content-Type': 'multipart/form-data' } });
       console.log(data);
       const _token = data.token;
 
       setToken(_token);
       setTokenLS(_token);
-      axios.defaults.headers.common = { "Authorization": `Bearer: ${_token}`}
+      axios.defaults.headers.common = { "Authorization": `Bearer: ${_token}` }
       await fetchUserInfo();
       await fetchRoles();
       //Guardar el LS nuestro token
@@ -109,7 +109,7 @@ export const UserContextProvider = (props) => {
       logout();
       toast.error(msgs[String(status)]);
     } finally {
-      //stopLoading();
+      stopLoading();
     }
   }
 
@@ -148,7 +148,7 @@ export const UserContextProvider = (props) => {
   const register = async (username, email, password) => {
     //startLoading();
     try {
-      await axios.post("/user/traditionalRegister", { username, email, password }, {headers: {'Content-Type': 'multipart/form-data'}});
+      await axios.post("/user/traditionalRegister", { username, email, password }, { headers: { 'Content-Type': 'multipart/form-data' } });
     } catch (error) {
 
       const { status } = error.response || { status: 500 };
@@ -178,7 +178,7 @@ export const UserContextProvider = (props) => {
 
 export const useUserContext = () => {
   const context = React.useContext(UserContext);
-  
+
   if (!context) {
     throw new Error("useUserContext must be call inside of a UserContextProvider component");
   }
