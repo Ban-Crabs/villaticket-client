@@ -1,22 +1,25 @@
-import { useNavigate, useLocation } from "react-router-dom";
 import style from "./SearchResults.module.scss";
+import { useNavigate, useLocation } from "react-router-dom";
+import {getTokenLS} from "../../contexts/UserContext"
 import SearchCard from "./SearchCard/SearchCard"
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 const SearchResults = () => {
-    const { keyword } = useLocation();
+    const token = getTokenLS();
+    const { keyword } = localStorage.getItem("search") || "";
     const navigate = useNavigate();
     const [events, setEvents] = useState([]);
+
+    
 
     useEffect(() => {
         fetchSearchResults()
     }, [])
 
     const fetchSearchResults = async () => {
-        try {  
-            console.log(axios.defaults.headers.common.Authorization)
-            const {data} = await axios.get("/event/")
+        try {
+            const {data} = await axios.get("/event/?query=${keyword}", {headers: {'Authorization': `Bearer ${token}`}});
             setEvents(data.content)
         } catch (error) {
             console.log(error)
@@ -24,7 +27,7 @@ const SearchResults = () => {
     }
     const mappedEvents = events.map( event => {
         return(
-            <SearchCard event={event}/>
+            <SearchCard event={event} key={event.id}/>
         )
     })
     return (

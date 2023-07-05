@@ -6,12 +6,18 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const UpcomingEvents = () => {
-    
+    const token = localStorage.getItem("token");
     const [events, setEvents] = useState([]);
+
     useEffect(() =>{
-        fetchUpcomingEvents();
-        console.log(events)
-    }, [])
+        if(token != null){
+            fetchUpcomingEvents();
+            console.log(events)
+        }
+        else{
+            toast.error("Please login to view events")
+        }
+    }, [token])
 
     const fetchUpcomingEvents = async () => {
         try {
