@@ -47,7 +47,7 @@ const Header = () => {
     const handleSearch = (e) => {
         e.preventDefault();
         localStorage.setItem("search", search);
-        navigate("/search");
+        navigate("/search", { search });
     }
 
     const handleCheck = (e) => {

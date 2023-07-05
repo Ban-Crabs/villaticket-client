@@ -7,7 +7,8 @@ import axios from "axios";
 
 const SearchResults = () => {
     const token = getTokenLS();
-    const { keyword } = localStorage.getItem("search") || "";
+    const {search} = useLocation();
+    const { eventsResponse } = localStorage.getItem("search") || "";
     const navigate = useNavigate();
     const [events, setEvents] = useState([]);
 
@@ -17,31 +18,27 @@ const SearchResults = () => {
         fetchSearchResults()
     }, [])
 
-    const fetchSearchResults = async () => {
-        try {
-            const {data} = await axios.get(`/event/?query=${keyword}`, {headers: {'Authorization': `Bearer ${token}`}});
-            setEvents(data.content)
-        } catch (error) {
-            console.log(error)
-        }
+
+    if(eventsResponse){
+        const mappedEvents = eventsResponse.map( event => {
+            return(
+                <SearchCard event={event} key={event.id}/>
+            )
+        })
     }
-    const mappedEvents = events.map( event => {
-        return(
-            <SearchCard event={event} key={event.id}/>
-        )
-    })
+
     return (
         <>
             <div className={style["heading"]}>
                 <h5>Results for</h5>
-                <h1>{keyword || "New York Yankees"}</h1>
+                <h1>{search || "New York Yankees"}</h1>
                 <p>Tickets</p>
             </div>
 
             <div className={style["divider"]}></div>
 
             <div className={style["container"]}>
-                { events == [] ? mappedEvents :<SearchCard/>}
+                { eventsResponse != [] ? mappedEvents :<SearchCard/>}
             </div>
         </>
     )
