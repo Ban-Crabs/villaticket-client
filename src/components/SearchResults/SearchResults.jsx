@@ -19,7 +19,7 @@ const SearchResults = () => {
 
     const fetchSearchResults = async () => {
         try {
-            const {data} = await axios.get("/event/?query=${keyword}", {headers: {'Authorization': `Bearer ${token}`}});
+            const {data} = await axios.get(`/event/?query=${keyword}`, {headers: {'Authorization': `Bearer ${token}`}});
             setEvents(data.content)
         } catch (error) {
             console.log(error)
