@@ -2,6 +2,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import style from "./SearchResults.module.scss";
 import SearchCard from "./SearchCard/SearchCard"
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const SearchResults = () => {
     const { keyword } = useLocation();
@@ -13,11 +14,12 @@ const SearchResults = () => {
     }, [])
 
     const fetchSearchResults = async () => {
-        try {
-            const {data} = await axios.get("/")
+        try {  
+            console.log(axios.defaults.headers.common.Authorization)
+            const {data} = await axios.get("/event/")
             setEvents(data.content)
         } catch (error) {
-            
+            console.log(error)
         }
     }
     const mappedEvents = events.map( event => {

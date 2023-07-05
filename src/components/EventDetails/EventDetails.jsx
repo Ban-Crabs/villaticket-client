@@ -2,26 +2,31 @@ import style from "./EventDetails.module.scss";
 
 import locationsImg from "../../assets/locations.png";
 import Button from "../../components/Button/Button"
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import {useState, useEffect} from "react"
 
 const EventDetails = () => {
+    const { event } = useLocation();
+    const [tiers, setTiers] = useState([]);
 
-    const [tickets, setTickets] = useState([]);
+    useEffect(() => {  
+        fetchTiers()
+    }, [])
+    
 
-    const fetchTickets = async () => {
+    const fetchTiers = async () => {
         try {
             const {data} = await axios.get("")
-            setTickets(data.tickets)
+            setTiers(data)
         } catch (error) {
             console.log(error)
         }
     }
 
-    const mappedTickets = tickets.map(tickets => {
+    const mappedTiers = tiers.map(tickets => {
         return(
-            <li>{tickets.name}</li>
+            <li>{tiers.name}</li>
         );
     })
 

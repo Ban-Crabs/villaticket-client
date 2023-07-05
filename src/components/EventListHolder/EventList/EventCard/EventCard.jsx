@@ -86,8 +86,8 @@ const EventCard = props => {
             <div className={style["event-card-info"]}>
                 {/* DATE INFO  */}
                 <div className={style["event-card-info-date"]}>
-                    <h3>{event.title}</h3>
-                    <p>{dateComponents.month} / {dateComponents.day} / {dateComponents.year} • {dateComponents.startHour}:{dateComponents.startMinute} - {dateComponents.endHour}:{dateComponents.endMinute}</p>
+                    <h3>{event.title || "New York Yankees"}</h3>
+                    <p>{dateComponents.month || "07" } / {dateComponents.day || "23" } / {dateComponents.year || "2023"} • {dateComponents.startHour}:{dateComponents.startMinute} - {dateComponents.endHour}:{dateComponents.endMinute}</p>
                     <p>{event.location.name}</p>
                 </div>
                 {/* EVENT BUTTON CONTAINER */}

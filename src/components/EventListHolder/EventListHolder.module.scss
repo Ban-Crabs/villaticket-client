@@ -6,29 +6,47 @@
 }
 
 .wrapper {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 80vh;
+    >hr{
+        padding-left: 3rem;
+        width: 75%;
+    }
 }
 
 .heading {
+    all: unset;
     background-color: $theme-background-color;
     font-family: $theme-font-family;
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    padding: 5rem 3rem 0.5rem 3rem;
-
+    padding: 3rem 0rem;
+    height: auto;
+    width: auto;
     h1 {
         padding-right: 1rem;
+        
     }
 
     .event-card-info-btn {
+        all:unset;
+        padding: 0;
         background-color: $theme-background-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    padding: 0 3rem 3rem 3rem;
+    padding: 3remb;
     font-family: $theme-font-family;
     background-color: $theme-background-color;
 }

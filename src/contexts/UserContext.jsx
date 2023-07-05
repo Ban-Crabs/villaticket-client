@@ -142,6 +142,7 @@ export const UserContextProvider = (props) => {
     removeTokenLS();
     removeUserLS();
     removeRolesLS();
+    delete axios.defaults.headers.common["Authorization"];
   }
 
   const register = async (username, email, password) => {

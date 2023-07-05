@@ -14,7 +14,7 @@ const SignIn = () => {
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
-        console.log("submitted");
+        console.log("Login/register attempt submitted");
         e.preventDefault();
         await login(identifier, password);
         navigate("/");
