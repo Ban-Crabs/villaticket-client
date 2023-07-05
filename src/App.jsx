@@ -15,7 +15,7 @@ import OrderSuccessful from "./components/OrderSuccessful/OrderSuccessful";
 import SearchResults from "./components/SearchResults/SearchResults";
 import EventListHolder from "./components/EventListHolder/EventListHolder";
 import AuthView from "./views/AuthView/AuthView";
-import {Helmet} from "react-helmet"
+import {Helmet} from "react-helmet";
 import axios from "axios"
 // import TempView from "./components/SysadminPermit/SysadminPermit"
  //PASAR TOKEN ADJSDKJASBKDJSA 

@@ -28,8 +28,13 @@ const SignIn = () => {
 
     const googleLogin = useGoogleLogin({
         onSuccess: async(tokenResponse)=> {
-            console.log(tokenResponse);
+            const { data } = await fetch(`https://villaticket.uc.r.appspot.com/login/oauth2/code/google?code=${tokenResponse.code}`, {
+                method: "GET",
+            }).then((res) => res.json());
+            console.log(data);
         },
+        flow: "auth-code",
+        login_uri: "https://villaticket.uc.r.appspot.com/login/oauth2/code/google",
       });
     
     
