@@ -1,23 +1,4 @@
-@import "../../../variables";
-
-// MAIN SECTION DESIGN
-
-.upcoming {
-    color: $color-black;
-    font-family: $theme-font-family;
-    font-size: 40px;
-    font-weight: 700;
-    letter-spacing: 0;
-    line-height: normal;
-    min-height: 45px;
-    white-space: nowrap;
-    padding: 2rem;
-}
-
-main {
-    height: 45vh;
-}
-
+@import "../../../../variables";
 .card {
     display: flex;
     justify-content: center;
@@ -83,32 +64,4 @@ p {
     margin: 0;
     justify-content: center;
     text-align: center;
-}
-
-// LOAD MORE EVENTS
-
-.load-more {
-    text-align: center;
-    padding-bottom: 2rem;
-
-    button {
-        height: auto;
-        width: fit-content;
-        align-items: center;
-        cursor: pointer;
-        background-color: transparent;
-        font-size: 1.15em;
-        border-radius: 1.5rem;
-        padding: 0.8rem;
-        color: $theme-primary-color;
-        border: $theme-primary-color 1px;
-        transition: 0.25s;
-    }
-
-    button:hover {
-        transform: scale(1.01);
-        background-color: $theme-primary-color;
-        color: $color-white;
-        box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
-    }
 }

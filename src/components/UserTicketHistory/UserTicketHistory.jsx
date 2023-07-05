@@ -5,9 +5,15 @@ import backSvg from '../../assets/left-arrow.svg'
 import transferSvg from '../../assets/transfer.svg'
 import qrSvg from '../../assets/temp-qr.svg'
 import cartSvg from '../../assets/shopping-cart.svg'
+import { useNavigate } from "react-router-dom";
 
 
 const UserTicketHistory = () => {
+
+    const navigate = useNavigate()
+
+    
+
     return (
         <>
             <div className={style["container"]}>

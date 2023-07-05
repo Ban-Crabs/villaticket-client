@@ -3,10 +3,12 @@ import style from "./BuyTicket.module.scss";
 import eventImg from "../../assets/yankees-mets.jpg";
 import pinSvg from "../../assets/location.svg";
 import calendarSvg from "../../assets/calendar.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const BuyTicket = () => {
-
+    const { order } = useLocation();
+    
     const navigate = useNavigate();
     return (
         <>

@@ -1,41 +1,44 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import style from "./SearchResults.module.scss";
-
+import SearchCard from "./SearchCard/SearchCard"
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const SearchResults = () => {
+    const { keyword } = useLocation();
     const navigate = useNavigate();
+    const [events, setEvents] = useState([]);
+
+    useEffect(() => {
+        fetchSearchResults()
+    }, [])
+
+    const fetchSearchResults = async () => {
+        try {  
+            console.log(axios.defaults.headers.common.Authorization)
+            const {data} = await axios.get("/event/")
+            setEvents(data.content)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    const mappedEvents = events.map( event => {
+        return(
+            <SearchCard event={event}/>
+        )
+    })
     return (
         <>
             <div className={style["heading"]}>
                 <h5>Results for</h5>
-                <h1>New York Yankees</h1>
+                <h1>{keyword || "New York Yankees"}</h1>
                 <p>Tickets</p>
             </div>
 
             <div className={style["divider"]}></div>
 
             <div className={style["container"]}>
-
-                <div className={style["card-list-container"]}>
-
-                    <div className={style["card-item"]}>
-                        <div className={style["card-item-info"]}>
-                            <div className={style["card-item-date-info"]}>
-                                <h4>May 23</h4>
-                                <h5>Mon • 6:00pm - 11:00pm</h5>
-                            </div>
-                            <div className={style["card-item-event-info"]}>
-                                <h4>New York Yankees @ New York Mets</h4>
-                                <h5>Mon • 6:00pm - 11:00pm</h5>
-                            </div>
-                        </div>
-                        <div onClick={()=> navigate("/event")} className={style["button-container"]}>
-                            <button type="submit">Details</button>
-                        </div>
-
-                    </div>
-
-                </div>
+                { events == [] ? mappedEvents :<SearchCard/>}
             </div>
         </>
     )

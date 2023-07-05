@@ -23,7 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <GoogleOAuthProvider clientId='883999343789-7fs09tpcfnnkk2qhlb519l60efolj51k.apps.googleusercontent.com'>
           <UserContextProvider>
             <AppComponent />
-            <ToastContainer theme='dark' position='bottom-right'/>
+            <ToastContainer style={{all: "unset"}} theme='dark' position='bottom-right'/>
             {/* <LoadingSpinner />  TODO: IMPLEMENT ON components*/}
           </UserContextProvider>
         </GoogleOAuthProvider>

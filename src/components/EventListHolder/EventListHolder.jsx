@@ -38,6 +38,7 @@ const EventListHolder = () => {
                         : null
                     }
                 </div>
+                <hr/>
                 <div className={style["container"]}>
                     <div className={style["user-events"]}>
                         {/* UPCOMING EVENTS SECTION */}

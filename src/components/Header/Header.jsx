@@ -1,17 +1,43 @@
 import style from "./Header.module.scss";
 
-import PersonIcon from '@mui/icons-material/Person';
+import { getRolesLS, getTokenLS, getUserLS }  from "../../contexts/UserContext";
 import {useNavigate} from "react-router-dom";
+
 import SearchIcon from '@mui/icons-material/Search';
-import { getUserLS } from "../../contexts/UserContext";
+import PersonIcon from '@mui/icons-material/Person';
+import QrCodeScannerIcon from '@mui/icons-material/QrCodeScanner';
+import EqualizerIcon from '@mui/icons-material/Equalizer';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
 
 const Header = () => {
-    const navigate = useNavigate();
+
+    const token = getTokenLS();
     const user = getUserLS();
+    const roles = getRolesLS();
+
+    const navigate = useNavigate();
+
+    const hasRole = (role) => {
+        let ans = false;
+        roles.forEach(r => {
+            if(r.name === role) ans = true;
+        })
+        return ans;
+    }
 
     const handleSearch = (e) => {
         e.preventDefault();
         navigate("/search");
+    }
+
+    const handleAnalytics = (e) => {
+        e.preventDefault();
+        navigate("/analytics")
+    }
+
+    const handleQrScanner = (e) => {
+        e.preventDefault();
+        navigate("/scanner")
     }
 
     const handleProfile = (e) => {
@@ -32,6 +58,8 @@ const Header = () => {
                 </div>
                 <div className={style["icon-container"]}>
                     <PersonIcon onClick={handleProfile} fontSize="large"/>
+                    <QrCodeScannerIcon onClick={handleQrScanner} fontSize="large"/>
+                    <EqualizerIcon onClick={handleAnalytics} fontSize="large"/>
                 </div>
             </div>
         </section>
