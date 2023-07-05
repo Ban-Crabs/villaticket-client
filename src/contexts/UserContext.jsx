@@ -107,7 +107,7 @@ export const UserContextProvider = (props) => {
       };
 
       logout();
-      toast.error(msgs[String(status)]);
+      console.error(msgs[String(status)]);
     } finally {
       stopLoading();
     }
@@ -132,7 +132,7 @@ export const UserContextProvider = (props) => {
       };
 
       logout();
-      toast.error(msgs[String(status)]);
+      console.error(msgs[String(status)]);
     } finally {
       //stopLoading();
     }
@@ -189,7 +189,7 @@ export const UserContextProvider = (props) => {
         "500": "Unexpected error"
       }
 
-      toast.error(msgs[String(status)]);
+      console.error(msgs[String(status)]);
 
     } // finally {stopLoading();} 
   }
