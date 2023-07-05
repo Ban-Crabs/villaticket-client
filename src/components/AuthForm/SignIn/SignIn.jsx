@@ -30,6 +30,7 @@ const SignIn = () => {
             console.log("tokenResponse: ", tokenResponse);
             await tokenLogin(tokenResponse);
             navigate("/");
+            navigate(0)
         },
         scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
       });

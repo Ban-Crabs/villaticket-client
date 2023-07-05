@@ -29,9 +29,9 @@ const ConfirmEmail = () => {
 
     const postActivationCode = async () => {
         try {
-            console.log(activationCode)
+            console.log(activationCode);
             await axios.post("/user/activate", { code: `${activationCode}`, username: `${user.email}`}, {headers: {'Content-Type':'multipart/form-data'}})
-            navigate("/")
+            navigate("/");
         } catch (error) {
             console.log(error)
         }

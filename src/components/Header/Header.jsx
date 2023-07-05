@@ -10,40 +10,23 @@ import EqualizerIcon from '@mui/icons-material/Equalizer';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 
-const Header = () => {
-    const [user, setUser] = useState(getUserLS());
-    const [roles, setRoles] = useState(getRolesLS());
-    const [token, setToken] = useState(getTokenLS());
+const Header = props => {
+    const {user, roles, token, code} = props;
     const [search, setSearch] = useState("");
-
-    const code = getActivationCodeLS();
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        const _user = getUserLS();
-        const _roles = getRolesLS();
-        const _token = getTokenLS();
-        if (_user !== null) {
-            setUser(_user);
-        }
-        if (_roles !== null) {
-            setRoles(_roles);
-        }
-        if (_token !== null) {
-            setToken(_token);
-        }
-    }, [])
+        console.log(user, roles, token, code)
+    }, [user, roles, token, code])
 
     //TODO add conditional rendering to icons
     const hasRole = (role) => {
-        let ans = false;
         if(roles === null) return false;
-        else{
-            roles.forEach(r => {
-                if(r.name === role) ans = true;
-            })
-        }
+        let ans = false;
+        roles.forEach(r => {
+            if(r.name === role) ans = true;
+        })
         return ans;
     }
 
@@ -70,8 +53,12 @@ const Header = () => {
 
     const handleProfile = (e) => {
         e.preventDefault();
-        if(user !== null) navigate("/profile");
-        else navigate("/auth/login");
+        if(user === null){
+            navigate("/auth/login")
+        }
+        else{
+            navigate("/profile")
+        }
     }
 
 

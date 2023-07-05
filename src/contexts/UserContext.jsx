@@ -122,8 +122,6 @@ export const UserContextProvider = (props) => {
 
       await register(_user.name, _user.email);
       setUserLS({ username: `${_user.name}`, email: `${_user.email}` });
-      console.log(user);
-      //Guardar el LS nuestro token
     } catch (error) {
       const { status } = error.response || { status: 500 };
       const msgs = {
@@ -218,16 +216,16 @@ export const useUserContext = () => {
   return context;
 }
 
-const setTokenLS = (token) => localStorage.setItem(TOKEN_KEY, token);
-export const getTokenLS = () => localStorage.getItem(TOKEN_KEY);
-const removeTokenLS = () => localStorage.removeItem(TOKEN_KEY);
-const setUserLS = (user) => localStorage.setItem("user", JSON.stringify(user));
-export const getUserLS = () => JSON.parse(localStorage.getItem("user"));
-const removeUserLS = () => localStorage.removeItem("user");
-const setRolesLS = (roles) => localStorage.setItem("roles", JSON.stringify(roles));
-export const getRolesLS = () => JSON.parse(localStorage.getItem("roles"));
-const removeRolesLS = () => localStorage.removeItem("roles");
+const setTokenLS = (token) => sessionStorage.setItem(TOKEN_KEY, token);
+export const getTokenLS = () => sessionStorage.getItem(TOKEN_KEY);
+const removeTokenLS = () => sessionStorage.removeItem(TOKEN_KEY);
+const setUserLS = (user) => sessionStorage.setItem("user", JSON.stringify(user));
+export const getUserLS = () => JSON.parse(sessionStorage.getItem("user"));
+const removeUserLS = () => sessionStorage.removeItem("user");
+const setRolesLS = (roles) => sessionStorage.setItem("roles", JSON.stringify(roles));
+export const getRolesLS = () => JSON.parse(sessionStorage.getItem("roles"));
+const removeRolesLS = () => sessionStorage.removeItem("roles");
 
-export const getActivationCodeLS = () => localStorage.getItem("activationCode");
-const setActivationCodeLS = (code) => localStorage.setItem("activationCode", code);
-const removeActivationCodeLS = () => localStorage.removeItem("activationCode");
+export const getActivationCodeLS = () => sessionStorage.getItem("activationCode");
+const setActivationCodeLS = (code) => sessionStorage.setItem("activationCode", code);
+const removeActivationCodeLS = () => sessionStorage.removeItem("activationCode");
