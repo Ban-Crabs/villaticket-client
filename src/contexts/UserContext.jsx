@@ -113,15 +113,15 @@ export const UserContextProvider = (props) => {
     }
   }
 
-  const tokenLogin = async (token) => {
+  const tokenLogin = async (googleData) => {
     //startLoading();
     try {
-      const _token = token;
+      console.log(googleData);
+      const namePath = 'https://www.googleapis.com/auth/userinfo.profile'
+      const user = await fetch(`https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${googleData.access_token}&scope=${namePath}`).then(res => res.json())
+      console.log(user);
 
-      setToken(_token);
-      setTokenLS(_token);
-      await fetchUserInfo();
-      await fetchRoles();
+      await register(user.name, user.email);
       //Guardar el LS nuestro token
     } catch (error) {
       const { status } = error.response || { status: 500 };
@@ -142,13 +142,43 @@ export const UserContextProvider = (props) => {
     removeTokenLS();
     removeUserLS();
     removeRolesLS();
+    removeActivationCodeLS();
     delete axios.defaults.headers.common["Authorization"];
   }
 
-  const register = async (username, email, password) => {
+  const register = async (username, email) => {
     //startLoading();
     try {
-      await axios.post("/user/traditionalRegister", { username, email, password }, {headers: {'Content-Type': 'multipart/form-data'}});
+      const {data} = await axios.post("/user/google", { username, email }, {headers: {'Content-Type': 'multipart/form-data'}});
+      if(data.code !== undefined && data.code !== null) setActivationCodeLS(data.code);
+      else {
+        const _token = data.token;
+
+        setToken(_token);
+        setTokenLS(_token);
+        axios.defaults.headers.common = { "Authorization": `Bearer: ${_token}`}
+        await fetchUserInfo();
+        await fetchRoles();
+      }
+    } catch (error) {
+
+      const { status } = error.response || { status: 500 };
+      const msgs = {
+        "400": "Wrong Fields",
+        "409": "User already exists",
+        "500": "Unexpected error"
+      }
+
+      toast.error(msgs[String(status)]);
+
+    } // finally {stopLoading();} 
+  }
+
+  const traditionalRegister = async (username, email, password) => {
+    //startLoading();
+    try {
+      const {data} = await axios.post("/user/traditionalRegister", { username, email, password }, {headers: {'Content-Type': 'multipart/form-data'}});
+      setActivationCodeLS(data.code);
     } catch (error) {
 
       const { status } = error.response || { status: 500 };
@@ -170,7 +200,8 @@ export const UserContextProvider = (props) => {
     login,
     tokenLogin,
     logout,
-    register
+    register,
+    traditionalRegister
   }
 
   return <UserContext.Provider value={state} {...props} />
@@ -194,3 +225,7 @@ const removeUserLS = () => localStorage.removeItem("user");
 const setRolesLS = (roles) => localStorage.setItem("roles", JSON.stringify(roles));
 export const getRolesLS = () => JSON.parse(localStorage.getItem("roles"));
 const removeRolesLS = () => localStorage.removeItem("roles");
+
+export const getActivationCodeLS = () => localStorage.getItem("activationCode");
+const setActivationCodeLS = (code) => localStorage.setItem("activationCode", code);
+const removeActivationCodeLS = () => localStorage.removeItem("activationCode");

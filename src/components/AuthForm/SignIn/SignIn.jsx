@@ -5,7 +5,6 @@ import { useUserContext } from "../../../contexts/UserContext";
 import { useState } from "react";
 import { useGoogleLogin } from '@react-oauth/google';
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const SignIn = () => {
     const {login, tokenLogin} = useUserContext();
@@ -28,13 +27,10 @@ const SignIn = () => {
 
     const googleLogin = useGoogleLogin({
         onSuccess: async(tokenResponse)=> {
-            const { data } = await fetch(`https://villaticket.uc.r.appspot.com/login/oauth2/code/google?code=${tokenResponse.code}`, {
-                method: "GET",
-            }).then((res) => res.json());
-            console.log(data);
+            console.log("tokenResponse: ", tokenResponse);
+            await tokenLogin(tokenResponse);
         },
-        flow: "auth-code",
-        login_uri: "https://villaticket.uc.r.appspot.com/login/oauth2/code/google",
+        scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
       });
     
     
